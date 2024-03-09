@@ -10,6 +10,11 @@ import Foundation
 // swiftlint:disable explicit_type_interface function_parameter_count identifier_name line_length
 // swiftlint:disable nesting type_body_length type_name vertical_whitespace_opening_braces
 internal enum L10n {
+  /// Localizable.strings
+  ///   Bmc
+  /// 
+  ///   Created by Serhan Khan on 09/03/2024.
+  internal static let ok = L10n.tr("Localizable", "ok", fallback: "Ok")
 }
 // swiftlint:enable explicit_type_interface function_parameter_count identifier_name line_length
 // swiftlint:enable nesting type_body_length type_name vertical_whitespace_opening_braces
