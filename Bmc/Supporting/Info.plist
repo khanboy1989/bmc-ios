@@ -2,9 +2,9 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>ApiBaseURL</key>
-	<string>https://stageapi.bmcrentacar.com</string>
-	<key>ApiKey</key>
-	<string>115q0axR9D2XoRD3Vf6xsTVkeMhJwZdEd8LVeBY5</string>
+	<key>ApiDevBaseUrl</key>
+	<string>https://stageapi.bmcrentacar.com/api</string>
+	<key>ApiStageBaseURL</key>
+	<string>https://stageapi.bmcrentacar.com/api</string>
 </dict>
 </plist>

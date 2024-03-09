@@ -11,8 +11,8 @@ import Foundation
 // swiftlint:disable identifier_name line_length type_body_length
 internal enum PlistFiles {
   private static let _document = PlistDocument(path: "Info.plist")
-  internal static let apiBaseURL: String = _document["ApiBaseURL"]
-  internal static let apiKey: String = _document["ApiKey"]
+  internal static let apiDevBaseUrl: String = _document["ApiDevBaseUrl"]
+  internal static let apiStageBaseURL: String = _document["ApiStageBaseURL"]
 }
 // swiftlint:enable identifier_name line_length type_body_length
 
