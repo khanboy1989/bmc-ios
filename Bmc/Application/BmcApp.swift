@@ -11,7 +11,7 @@ import SwiftUI
 struct BmcApp: App {
     var body: some Scene {
         WindowGroup {
-            Text(PlistFiles.apiStageBaseURL)
+            ContentView()
         }
     }
 }
