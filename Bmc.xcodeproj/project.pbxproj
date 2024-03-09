@@ -45,6 +45,7 @@
 		545AED732B9CFC5F00A78B84 /* BmcUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BmcUITests.swift; sourceTree = "<group>"; };
 		545AED752B9CFC5F00A78B84 /* BmcUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BmcUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		545AED832B9CFD1700A78B84 /* Network */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Network; sourceTree = "<group>"; };
+		545AED842B9CFED400A78B84 /* Logger */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Logger; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -132,6 +133,7 @@
 		545AED822B9CFCE300A78B84 /* Foundation */ = {
 			isa = PBXGroup;
 			children = (
+				545AED842B9CFED400A78B84 /* Logger */,
 				545AED832B9CFD1700A78B84 /* Network */,
 			);
 			path = Foundation;
