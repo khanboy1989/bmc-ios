@@ -9,13 +9,11 @@ import SwiftUI
 
 @main
 struct BmcApp: App {
+    @State var email: String = "email"
+    @State var password: String = "password"
     var body: some Scene {
         WindowGroup {
-            VStack{
-                Text(PlistFiles.apiBaseUrl)
-                Text(PlistFiles.apiKey)
-            }
-            
+            LoginCoordinator(email: email, password: password)
         }
     }
 }

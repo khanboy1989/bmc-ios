@@ -6,4 +6,6 @@
   
 */
 "ok" = "Tamam";
-
+"login" = "Giriş";
+"email" = "E-Posta";
+"password" = "Şifre";

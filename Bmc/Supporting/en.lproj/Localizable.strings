@@ -7,3 +7,7 @@
 */
 
 "ok" = "Ok";
+"login" = "Login";
+"email" = "Email";
+"password" = "Password";
+
