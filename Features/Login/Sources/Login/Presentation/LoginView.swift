@@ -7,6 +7,7 @@
 
 import SwiftUI
 import CommonUI
+import Router
 
 public struct LoginView: View {
     let logo: Image
@@ -16,6 +17,7 @@ public struct LoginView: View {
     let emailPlaceHolder: String
     let passwordPlacHolder: String
     
+    @EnvironmentObject private var router: Router
     @ObservedObject private var viewModel: LoginViewModel = LoginViewModel()
     
     public init(logo: Image,
@@ -40,7 +42,11 @@ public struct LoginView: View {
                       buttonBackground: buttonBackground,
                       title: title,
                       emailPlaceHolder: emailPlaceHolder,
-                      passwordPlaceHolder: passwordPlacHolder)
+                      passwordPlaceHolder: passwordPlacHolder,
+                      loginAction: {
+            viewModel.login()
+            router.navigate(to: LoginDestination.main)
+        })
     }
 }
 

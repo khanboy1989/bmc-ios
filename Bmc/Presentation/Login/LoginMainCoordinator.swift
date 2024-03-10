@@ -16,6 +16,14 @@ struct LoginMainCoordinator: View {
     var body: some View {
         NavigationStack(path: $router.navPath) {
             LoginCoordinator(dependecies: LoginCoordinator.Dependecies.init(logo: Asset.Images.splashLogo.swiftUIImage, buttonTitle: L10n.login, title: L10n.login, buttonBackground: Asset.Colors.primaryColor.swiftUIColor, emailPlaceHolder: L10n.email, passwordPlaceHolder: L10n.password, apiClient: configuration.apiClientService))
+                .navigationDestination(for: LoginDestination.self) { destination in
+                    switch destination {
+                    case .main:
+                        let _ = print("Instantiate MainCoordinator from here")
+                        EmptyView()
+                    }
+                    
+                }
         }.environmentObject(router)
     }
 }

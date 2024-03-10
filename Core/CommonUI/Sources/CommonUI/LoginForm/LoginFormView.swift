@@ -14,6 +14,7 @@ public struct LoginFormView: View {
     let title: String
     let emailPlaceHolder: String
     let passwordPlaceHolder: String
+    var loginAction: () -> Void
     
     @Binding var email: String
     @Binding var password: String
@@ -26,7 +27,8 @@ public struct LoginFormView: View {
                 buttonBackground: Color,
                 title: String,
                 emailPlaceHolder: String,
-                passwordPlaceHolder: String
+                passwordPlaceHolder: String,
+                loginAction: @escaping () -> Void
     ) {
         self.logo = logo
         self._email = email
@@ -36,6 +38,7 @@ public struct LoginFormView: View {
         self.emailPlaceHolder = emailPlaceHolder
         self.passwordPlaceHolder = passwordPlaceHolder
         self.title = title
+        self.loginAction = loginAction
     }
     
     public var body: some View {
@@ -76,7 +79,7 @@ public struct LoginFormView: View {
             
             // Login button
             Button(action: {
-                
+                loginAction()
             }) {
                 Text(buttonTitle)
                     .foregroundColor(.white)

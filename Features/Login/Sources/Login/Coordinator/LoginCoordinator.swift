@@ -11,6 +11,10 @@ import DomainData
 import Network
 import Router
 
+public enum LoginDestination: Hashable {
+    case main
+}
+
 public struct LoginCoordinator: View {
     
     @EnvironmentObject private var router: Router
@@ -22,6 +26,7 @@ public struct LoginCoordinator: View {
     
     public var body: some View {
         LoginView(logo: dependecies.logo, buttonTitle: dependecies.buttonTitle, buttonBackground: dependecies.buttonBackground, title: dependecies.title, emailPlaceHolder: dependecies.emailPlaceHolder, passwordPlaceHolder: dependecies.passwordPlaceHolder)
+            .environmentObject(router)
     }
     
     
