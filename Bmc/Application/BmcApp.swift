@@ -14,7 +14,7 @@ struct BmcApp: App {
     let configuration: Configuration
     
     init() {
-        let logger = Logger(label: "Bmc")
+        let logger = Logger(label: "BMC")
         let apiClientService = APIClientService(logger: logger)
         configuration = .init(logger: logger, apiClientService: apiClientService)
     }

@@ -16,6 +16,8 @@ public struct LoginView: View {
     let title: String
     let emailPlaceHolder: String
     let passwordPlacHolder: String
+    let emailValidMessage: String
+    let emailInvalidMessage: String
     
     @EnvironmentObject private var router: Router
     @ObservedObject private var viewModel: LoginViewModel = LoginViewModel()
@@ -25,28 +27,39 @@ public struct LoginView: View {
                 buttonBackground: Color,
                 title: String,
                 emailPlaceHolder: String,
-                passwordPlaceHolder: String) {
+                passwordPlaceHolder: String,
+                emailValidMessage: String,
+                emailInvalidMessage: String
+    
+    ) {
         self.logo = logo
         self.buttonTitle = buttonTitle
         self.buttonBackground = buttonBackground
         self.title = title
         self.emailPlaceHolder = emailPlaceHolder
         self.passwordPlacHolder = passwordPlaceHolder
+        self.emailValidMessage = emailValidMessage
+        self.emailInvalidMessage = emailInvalidMessage
     }
     
     public var body: some View {
         LoginFormView(logo: logo,
                       email: $viewModel.email,
                       password: $viewModel.password,
+                      isValidEmail: $viewModel.isValidEmail,
                       buttonTitle: buttonTitle,
                       buttonBackground: buttonBackground,
                       title: title,
                       emailPlaceHolder: emailPlaceHolder,
                       passwordPlaceHolder: passwordPlacHolder,
-                      loginAction: {
-            viewModel.login()
-            router.navigate(to: LoginDestination.main)
-        })
+                      emailValidMessage: emailValidMessage,
+                      emailInvalidMessage: emailInvalidMessage,
+                      loginAction: { viewModel.login()
+                      router.navigate(to: LoginDestination.main)},
+                      validateEmail: viewModel.validateEmail
+                      
+        
+        )
     }
 }
 

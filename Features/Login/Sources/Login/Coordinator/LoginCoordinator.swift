@@ -25,7 +25,15 @@ public struct LoginCoordinator: View {
     }
     
     public var body: some View {
-        LoginView(logo: dependecies.logo, buttonTitle: dependecies.buttonTitle, buttonBackground: dependecies.buttonBackground, title: dependecies.title, emailPlaceHolder: dependecies.emailPlaceHolder, passwordPlaceHolder: dependecies.passwordPlaceHolder)
+        LoginView(logo: dependecies.logo, 
+                  buttonTitle: dependecies.buttonTitle,
+                  buttonBackground: dependecies.buttonBackground,
+                  title: dependecies.title,
+                  emailPlaceHolder: dependecies.emailPlaceHolder,
+                  passwordPlaceHolder: dependecies.passwordPlaceHolder,
+                  emailValidMessage: dependecies.emailValidMessage,
+                  emailInvalidMessage: dependecies.emailInvalidMessage
+        )
             .environmentObject(router)
     }
     
@@ -40,15 +48,19 @@ public extension LoginCoordinator {
         let buttonBackground: Color
         let emailPlaceHolder: String
         let passwordPlaceHolder: String
+        let emailInvalidMessage: String
+        let emailValidMessage: String
         let apiClient: IAPIClientService
         
-        public init(logo: Image, buttonTitle: String, title: String, buttonBackground: Color, emailPlaceHolder: String, passwordPlaceHolder: String, apiClient: IAPIClientService) {
+        public init(logo: Image, buttonTitle: String, title: String, buttonBackground: Color, emailPlaceHolder: String, passwordPlaceHolder: String,emailInvalidMessage: String, emailValidMessage: String ,apiClient: IAPIClientService) {
             self.logo = logo
             self.buttonTitle = buttonTitle
             self.title = title
             self.buttonBackground = buttonBackground
             self.emailPlaceHolder = emailPlaceHolder
             self.passwordPlaceHolder = passwordPlaceHolder
+            self.emailInvalidMessage = emailInvalidMessage
+            self.emailValidMessage = emailValidMessage
             self.apiClient = apiClient
         }
         

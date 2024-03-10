@@ -10,4 +10,5 @@
 "login" = "Login";
 "email" = "Email";
 "password" = "Password";
-
+"emailIsInvalid" = "E-mail is invalid";
+"emailIsValid" = "E-posta is valid";
