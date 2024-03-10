@@ -19,6 +19,7 @@ let package = Package(
         .package(path: "../Foundation/Network"),
         .package(path: "../Foundation/Router"),
         .package(path: "../Foundation/Domain"),
+        .package(path: "../Foundation/Helpers")
     ],
     targets: [
         // Targets are the basic building blocks of a package, defining a module or a test suite.
@@ -30,6 +31,7 @@ let package = Package(
                 "CommonUI",
                 "Router",
                 "Domain",
+                "Helpers",
                 .product(name: "DomainData", package: "Domain"),
             ]
         ),
