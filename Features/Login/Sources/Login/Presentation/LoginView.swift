@@ -9,28 +9,22 @@ import SwiftUI
 import CommonUI
 
 public struct LoginView: View {
-    let image: Image
+    let logo: Image
     let buttonTitle: String
     let buttonBackground: Color
     let title: String
     let emailPlaceHolder: String
     let passwordPlacHolder: String
     
-    @State var email: String
-    @State var password: String
+    @ObservedObject private var viewModel: LoginViewModel = LoginViewModel()
     
-    
-    public init(image: Image,
-                email: String,
-                password: String,
+    public init(logo: Image,
                 buttonTitle: String,
                 buttonBackground: Color,
                 title: String,
                 emailPlaceHolder: String,
                 passwordPlaceHolder: String) {
-        self.image = image
-        self.email = email
-        self.password = password
+        self.logo = logo
         self.buttonTitle = buttonTitle
         self.buttonBackground = buttonBackground
         self.title = title
@@ -39,16 +33,14 @@ public struct LoginView: View {
     }
     
     public var body: some View {
-        LoginFormView(image: image, 
-                      email: email,
-                      password: password, 
+        LoginFormView(logo: logo,
+                      email: $viewModel.email,
+                      password: $viewModel.password,
                       buttonTitle: buttonTitle,
                       buttonBackground: buttonBackground,
                       title: title,
                       emailPlaceHolder: emailPlaceHolder,
-                      passwordPlaceHolder: passwordPlacHolder
-                      
-        )
+                      passwordPlaceHolder: passwordPlacHolder)
     }
 }
 

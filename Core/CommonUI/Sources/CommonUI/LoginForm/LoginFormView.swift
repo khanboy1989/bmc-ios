@@ -8,28 +8,29 @@
 import SwiftUI
 
 public struct LoginFormView: View {
-    let image: Image
+    let logo: Image
     let buttonTitle: String
     let buttonBackground: Color
     let title: String
     let emailPlaceHolder: String
     let passwordPlaceHolder: String
-    @State var email: String
-    @State var password: String
+    
+    @Binding var email: String
+    @Binding var password: String
     
     
-    public init(image: Image, 
-                email: String,
-                password: String,
+    public init(logo: Image,
+                email: Binding<String>,
+                password: Binding<String>,
                 buttonTitle: String,
                 buttonBackground: Color,
                 title: String,
                 emailPlaceHolder: String,
                 passwordPlaceHolder: String
     ) {
-        self.image = image
-        self.email = email
-        self.password = password
+        self.logo = logo
+        self._email = email
+        self._password = password
         self.buttonTitle = buttonTitle
         self.buttonBackground = buttonBackground
         self.emailPlaceHolder = emailPlaceHolder
@@ -39,7 +40,7 @@ public struct LoginFormView: View {
     
     public var body: some View {
         VStack(alignment: .center) {
-            image
+            logo
                 .resizable()
                 .aspectRatio(contentMode: .fit)
                 .frame(width: 300, height: 150)

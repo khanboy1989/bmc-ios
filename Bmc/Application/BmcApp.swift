@@ -6,14 +6,24 @@
 //
 
 import SwiftUI
+import Logger
+import Network
 
 @main
 struct BmcApp: App {
-    @State var email: String = "email"
-    @State var password: String = "password"
+    let configuration: Configuration
+    
+    init() {
+        let logger = Logger(label: "Bmc")
+        let apiClientService = APIClientService(logger: logger)
+        configuration = .init(logger: logger, apiClientService: apiClientService)
+    }
+    
+  
     var body: some Scene {
         WindowGroup {
-            LoginCoordinator(email: email, password: password)
+            LoginMainCoordinator()
+                .environmentObject(configuration)
         }
     }
 }

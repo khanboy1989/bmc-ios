@@ -4,39 +4,40 @@
 import PackageDescription
 
 let package = Package(
-    name: "Login",
+    name: "Domain",
     platforms: [
-        .iOS(.v16)
+        .iOS(.v16),
     ],
     products: [
         // Products define the executables and libraries a package produces, making them visible to other packages.
         .library(
-            name: "Login",
-            targets: ["Login"]),
+            name: "Domain",
+            targets: ["Domain"]),
+        
+            .library(
+                name: "DomainData",
+                targets: ["DomainData"]
+            ),
     ],
     dependencies: [
-        .package(path: "../Core/CommonUI"),
-        .package(path: "../Foundation/Network"),
-        .package(path: "../Foundation/Router"),
-        .package(path: "../Foundation/Domain"),
+        .package(path: "./Network"),
+        .package(path: "./HelperMacros")
     ],
     targets: [
         // Targets are the basic building blocks of a package, defining a module or a test suite.
         // Targets can depend on other targets in this package and products from dependencies.
         .target(
-            name: "Login",
+            name: "Domain",
             dependencies: [
-                "Network",
-                "CommonUI",
-                "Router",
-                "Domain",
-                .product(name: "DomainData", package: "Domain"),
-            ]
-        ),
+                "HelperMacros"
+            ]),
+        .target(name: "DomainData",
+                dependencies: [
+                    "Domain",
+                    "Network",
+            ]),
         .testTarget(
-            name: "LoginTests",
-            dependencies: ["Login",
-            .product(name: "NetworkMock", package: "Network"),
-        ]),
+            name: "DomainTests",
+            dependencies: ["Domain"]),
     ]
 )
