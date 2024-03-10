@@ -11,7 +11,11 @@ import SwiftUI
 struct BmcApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            VStack{
+                Text(PlistFiles.apiBaseUrl)
+                Text(PlistFiles.apiKey)
+            }
+            
         }
     }
 }
