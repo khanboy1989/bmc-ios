@@ -15,7 +15,7 @@ public func createAPIClientServiceMock() -> IAPIClientService {
     return APIClientService(
         logger: NoLogger(label: ""),
         configuration: .init(
-            baseURL: URL(string: "https://api.themoviedb.org"),
+            baseURL: URL(string: "https://stageapi.bmcrentacar.com/api"),
             baseHeaders: [
                 "accept": "application/json",
                 "content-type": "application/json"
@@ -26,7 +26,7 @@ public func createAPIClientServiceMock() -> IAPIClientService {
     return APIClientService(
         logger: NoLogger(label: ""),
         configuration: .init(
-            baseURL: URL(string: "https://api.themoviedb.org"),
+            baseURL: URL(string: "https://stageapi.bmcrentacar.com/api"),
             baseHeaders: [
                 "accept": "application/json",
                 "content-type": "application/json"
