@@ -14,8 +14,8 @@ internal enum L10n {
   internal static let email = L10n.tr("Localizable", "email", fallback: "Email")
   /// E-mail is invalid
   internal static let emailIsInvalid = L10n.tr("Localizable", "emailIsInvalid", fallback: "E-mail is invalid")
-  /// E-posta is valid
-  internal static let emailIsValid = L10n.tr("Localizable", "emailIsValid", fallback: "E-posta is valid")
+  /// E-mail is valid
+  internal static let emailIsValid = L10n.tr("Localizable", "emailIsValid", fallback: "E-mail is valid")
   /// Login
   internal static let login = L10n.tr("Localizable", "login", fallback: "Login")
   /// Localizable.strings

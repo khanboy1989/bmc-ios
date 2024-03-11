@@ -43,23 +43,64 @@ public struct LoginView: View {
     }
     
     public var body: some View {
-        LoginFormView(logo: logo,
-                      email: $viewModel.email,
-                      password: $viewModel.password,
-                      isValidEmail: $viewModel.isValidEmail,
-                      buttonTitle: buttonTitle,
-                      buttonBackground: buttonBackground,
-                      title: title,
-                      emailPlaceHolder: emailPlaceHolder,
-                      passwordPlaceHolder: passwordPlacHolder,
-                      emailValidMessage: emailValidMessage,
-                      emailInvalidMessage: emailInvalidMessage,
-                      loginAction: { viewModel.login()
-                      router.navigate(to: LoginDestination.main)},
-                      validateEmail: viewModel.validateEmail
-                      
-        
-        )
+        VStack(alignment: .center) {
+            logo
+                .resizable()
+                .aspectRatio(contentMode: .fit)
+                .frame(width: 80, height: 103)
+                .padding(.top, 40)
+            
+            Text(title)
+                .font(.title2)
+                .fontWeight(.medium)
+                .padding(.vertical, 8)
+            
+            Spacer()
+            
+            VStack {
+                
+                VStack(alignment: .leading, spacing: 4) {
+                    // Email text field
+                    TextField(emailPlaceHolder, text: $viewModel.email)
+                        .padding()
+                        .background(Color.gray.opacity(0.1))
+                        .cornerRadius(10)
+                        .onChange(of: viewModel.email, perform: { newValue in
+                            viewModel.validateEmail()
+                        })
+                    
+                    // Show email validation status
+                    Text(viewModel.isValidEmail ? emailValidMessage : emailInvalidMessage)
+                        .foregroundColor(viewModel.isValidEmail ? .green : .red)
+                        .opacity(viewModel.email.isEmpty ? 0 : 1)
+                        
+                }
+                
+                // Password secure field
+                SecureField(passwordPlacHolder, text: $viewModel.password)
+                    .padding()
+                    .background(Color.gray.opacity(0.1))
+                    .cornerRadius(10)
+            }
+            
+            
+            Spacer()
+            
+            // Login button
+            Button(action: {
+                viewModel.login()
+            }) {
+                Text(buttonTitle)
+                    .foregroundColor(.white)
+                    .frame(maxWidth: .infinity)
+                    .padding()
+                    .background(buttonBackground)
+                    .cornerRadius(10)
+            }
+            .padding(.top, 20)
+            Spacer()
+        }
+        .padding(.horizontal, 16)
     }
 }
 
