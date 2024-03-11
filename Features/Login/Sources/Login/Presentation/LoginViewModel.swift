@@ -9,7 +9,6 @@ import Foundation
 import Helpers
 import Domain
 
-@MainActor
 final class LoginViewModel: ObservableObject {
     
     struct Dependecies {
@@ -24,12 +23,32 @@ final class LoginViewModel: ObservableObject {
     @Published var password: String = ""
     @Published var isValidEmail: Bool = false
     @Published var isLoading: Bool = false 
+    @Published var showPassworError: Bool = false
+    @Published var showEmailError: Bool = false
     
     private let authenticationRepository: IAuthenticationRepository
     
     func login()  {
-        self.isLoading = true 
-        Task {
+        
+        //Check if email is empty
+        guard !email.isEmpty else {
+            self.showEmailError = true
+            return
+        }
+        
+        //Check if password is empty
+        guard !password.isEmpty else {
+            self.showPassworError = true
+            return
+        }
+        
+        //Check if email is valid
+        guard isValidEmail else { return }
+        
+        //Start Loading
+        self.isLoading = true
+        
+        Task { @MainActor in
             do {
                 let result = try await self.authenticationRepository.login(email: email, password: password)
                 print("Logging in with email: \(email) and password: \(password), result = \(result)")

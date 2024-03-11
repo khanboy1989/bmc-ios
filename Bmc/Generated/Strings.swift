@@ -14,16 +14,22 @@ internal enum L10n {
   internal static let adminLogin = L10n.tr("Localizable", "adminLogin", fallback: "Admin Login")
   /// Email
   internal static let email = L10n.tr("Localizable", "email", fallback: "Email")
+  /// E-mail field could not be empty
+  internal static let emailEmptyError = L10n.tr("Localizable", "emailEmptyError", fallback: "E-mail field could not be empty")
   /// E-mail is invalid
   internal static let emailIsInvalid = L10n.tr("Localizable", "emailIsInvalid", fallback: "E-mail is invalid")
   /// E-mail is valid
   internal static let emailIsValid = L10n.tr("Localizable", "emailIsValid", fallback: "E-mail is valid")
+  /// Forgot Password
+  internal static let forgotPassword = L10n.tr("Localizable", "forgotPassword", fallback: "Forgot Password")
   /// Login
   internal static let login = L10n.tr("Localizable", "login", fallback: "Login")
   /// Ok
   internal static let ok = L10n.tr("Localizable", "ok", fallback: "Ok")
   /// Password
   internal static let password = L10n.tr("Localizable", "password", fallback: "Password")
+  /// Password field could not be empty
+  internal static let passwordFieldEmptyError = L10n.tr("Localizable", "passwordFieldEmptyError", fallback: "Password field could not be empty")
   /// Localizable.strings
   ///   Bmc
   /// 

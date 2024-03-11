@@ -13,3 +13,7 @@
 "password" = "Password";
 "emailIsInvalid" = "E-mail is invalid";
 "emailIsValid" = "E-mail is valid";
+"emailEmptyError" = "E-mail field could not be empty";
+"passwordFieldEmptyError" = "Password field could not be empty";
+"forgotPassword" = "Forgot Password";
+

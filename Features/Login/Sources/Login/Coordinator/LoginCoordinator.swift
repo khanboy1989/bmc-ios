@@ -32,7 +32,10 @@ public struct LoginCoordinator: View {
                   emailPlaceHolder: dependecies.emailPlaceHolder,
                   passwordPlaceHolder: dependecies.passwordPlaceHolder,
                   emailValidMessage: dependecies.emailValidMessage,
-                  emailInvalidMessage: dependecies.emailInvalidMessage, dependecies: .init(authenticationRepository: AuthenticationRepository(apiClientService: dependecies.apiClient) )
+                  emailInvalidMessage: dependecies.emailInvalidMessage, 
+                  passwordFieldEmptyMessage: dependecies.passwordEmptyErrorMessage,
+                  emailFieldEmptyMessage: dependecies.emailEmptyErrorMessage,
+                  dependecies: .init(authenticationRepository: AuthenticationRepository(apiClientService: dependecies.apiClient) )
         )
             .environmentObject(router)
     }
@@ -50,9 +53,11 @@ public extension LoginCoordinator {
         let passwordPlaceHolder: String
         let emailInvalidMessage: String
         let emailValidMessage: String
+        let passwordEmptyErrorMessage: String
+        let emailEmptyErrorMessage: String
         let apiClient: IAPIClientService
         
-        public init(logo: Image, buttonTitle: String, title: String, buttonBackground: Color, emailPlaceHolder: String, passwordPlaceHolder: String,emailInvalidMessage: String, emailValidMessage: String ,apiClient: IAPIClientService) {
+        public init(logo: Image, buttonTitle: String, title: String, buttonBackground: Color, emailPlaceHolder: String, passwordPlaceHolder: String,emailInvalidMessage: String, emailValidMessage: String,passwordEmptyErrorMessage: String, emailEmptyErrorMessage: String ,apiClient: IAPIClientService) {
             self.logo = logo
             self.buttonTitle = buttonTitle
             self.title = title
@@ -61,7 +66,10 @@ public extension LoginCoordinator {
             self.passwordPlaceHolder = passwordPlaceHolder
             self.emailInvalidMessage = emailInvalidMessage
             self.emailValidMessage = emailValidMessage
+            self.passwordEmptyErrorMessage = passwordEmptyErrorMessage
+            self.emailEmptyErrorMessage = emailEmptyErrorMessage
             self.apiClient = apiClient
+            
         }
         
     }

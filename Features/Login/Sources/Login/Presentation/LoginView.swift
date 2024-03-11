@@ -19,11 +19,12 @@ public struct LoginView: View {
     let passwordPlacHolder: String
     let emailValidMessage: String
     let emailInvalidMessage: String
+    let passwordFieldEmptyMessage: String
+    let emailFieldEmptyMessage: String
     
     @EnvironmentObject private var router: Router
     @ObservedObject private var viewModel: LoginViewModel
-    @State private var isLoading: Bool = false
-    
+
     init(logo: Image,
                 buttonTitle: String,
                 buttonBackground: Color,
@@ -32,6 +33,8 @@ public struct LoginView: View {
                 passwordPlaceHolder: String,
                 emailValidMessage: String,
                 emailInvalidMessage: String,
+                passwordFieldEmptyMessage: String,
+                emailFieldEmptyMessage: String,
                 dependecies: LoginViewModel.Dependecies) {
         self.logo = logo
         self.buttonTitle = buttonTitle
@@ -41,6 +44,8 @@ public struct LoginView: View {
         self.passwordPlacHolder = passwordPlaceHolder
         self.emailValidMessage = emailValidMessage
         self.emailInvalidMessage = emailInvalidMessage
+        self.passwordFieldEmptyMessage = passwordFieldEmptyMessage
+        self.emailFieldEmptyMessage = emailFieldEmptyMessage
         _viewModel = .init(wrappedValue: LoginViewModel(dependecies: dependecies))
     }
     
@@ -92,7 +97,6 @@ public struct LoginView: View {
             // Login button
             Button(action: {
                 viewModel.login()
-                self.isLoading.toggle()
             }) {
                 Text(buttonTitle)
                     .foregroundColor(.white)
@@ -108,6 +112,12 @@ public struct LoginView: View {
         .toast(isPresenting: $viewModel.isLoading) {
             //When using loading, duration won't auto dismiss and tapToDismiss is set to false
             AlertToast(type: .loading)
+        }
+        .toast(isPresenting: $viewModel.showEmailError, duration: 3.0) {
+            AlertToast(displayMode:.banner(.pop), type: .error(Color.red), title: self.emailFieldEmptyMessage)
+        }
+        .toast(isPresenting: $viewModel.showPassworError, duration: 3.0) {
+            AlertToast(displayMode:.banner(.pop), type: .error(Color.red), title: self.passwordFieldEmptyMessage)
         }
     }
 }

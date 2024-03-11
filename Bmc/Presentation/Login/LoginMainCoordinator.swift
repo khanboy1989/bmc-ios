@@ -24,6 +24,8 @@ struct LoginMainCoordinator: View {
                                                                             passwordPlaceHolder: L10n.password,
                                                                             emailInvalidMessage: L10n.emailIsInvalid,
                                                                             emailValidMessage: L10n.emailIsValid,
+                                                                            passwordEmptyErrorMessage: L10n.passwordFieldEmptyError,
+                                                                            emailEmptyErrorMessage: L10n.emailEmptyError,
                                                                             apiClient: configuration.apiClientService))
                 .navigationDestination(for: LoginDestination.self) { destination in
                     switch destination {

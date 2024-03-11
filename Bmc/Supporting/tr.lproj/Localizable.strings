@@ -13,3 +13,6 @@
 "password" = "Şifre";
 "emailIsInvalid" = "E-posta geçersiz.";
 "emailIsValid" = "E-posta geçerli.";
+"emailEmptyError" = "E-posta alanı boş olamaz";
+"passwordFieldEmptyError" = "Şifre alanı boş olamaz";
+"forgotPassword" = "Şifremi Unuttum";

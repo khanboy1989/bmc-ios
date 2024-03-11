@@ -17,16 +17,16 @@ struct BmcApp: App {
         let logger = Logger(label: PlistFiles.cfBundleDisplayName)
         
         let apiClientService = APIClientService(logger: logger, configuration: .init(baseURL: URL(string: PlistFiles.apiBaseUrl),
-                                                                                     baseHeaders: ["User-agent": "iPhone", "X-API-KEY":"\(PlistFiles.apiKey)","content-type": "application/json", "Accept-Language": L10n.systemLanguage]))
+                                                                                     baseHeaders: ["User-agent": "iOS", "X-API-KEY":"\(PlistFiles.apiKey)",
+                                                                                                   "content-type": "application/json", "Accept-Language": L10n.systemLanguage]))
         configuration = .init(logger: logger, apiClientService: apiClientService)
     }
     
   
     var body: some Scene {
         WindowGroup {
-                        LoginMainCoordinator()
-                            .environmentObject(configuration)
-            
+            LoginMainCoordinator()
+                .environmentObject(configuration)
         }
     }
 }
