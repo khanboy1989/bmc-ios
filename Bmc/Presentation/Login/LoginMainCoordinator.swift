@@ -15,9 +15,10 @@ struct LoginMainCoordinator: View {
 
     var body: some View {
         NavigationStack(path: $router.navPath) {
-            LoginCoordinator(dependecies: LoginCoordinator.Dependecies.init(logo: Asset.Images.splashLogo.swiftUIImage, 
+            LoginCoordinator(dependecies: LoginCoordinator.Dependecies.init(
+                logo: Asset.Images.splashLogo.swiftUIImage,
                                                                             buttonTitle: L10n.login,
-                                                                            title: L10n.login, 
+                                                                            title: L10n.adminLogin,
                                                                             buttonBackground: Asset.Colors.primaryColor.swiftUIColor,
                                                                             emailPlaceHolder: L10n.email,
                                                                             passwordPlaceHolder: L10n.password,

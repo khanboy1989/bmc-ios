@@ -20,18 +20,17 @@ public struct LoginView: View {
     let emailInvalidMessage: String
     
     @EnvironmentObject private var router: Router
-    @ObservedObject private var viewModel: LoginViewModel = LoginViewModel()
+    @ObservedObject private var viewModel: LoginViewModel
     
-    public init(logo: Image,
+    init(logo: Image,
                 buttonTitle: String,
                 buttonBackground: Color,
                 title: String,
                 emailPlaceHolder: String,
                 passwordPlaceHolder: String,
                 emailValidMessage: String,
-                emailInvalidMessage: String
-    
-    ) {
+                emailInvalidMessage: String,
+                dependecies: LoginViewModel.Dependecies) {
         self.logo = logo
         self.buttonTitle = buttonTitle
         self.buttonBackground = buttonBackground
@@ -40,6 +39,7 @@ public struct LoginView: View {
         self.passwordPlacHolder = passwordPlaceHolder
         self.emailValidMessage = emailValidMessage
         self.emailInvalidMessage = emailInvalidMessage
+        _viewModel = .init(wrappedValue: LoginViewModel(dependecies: dependecies))
     }
     
     public var body: some View {

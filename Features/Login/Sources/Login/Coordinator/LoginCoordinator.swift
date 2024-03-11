@@ -32,7 +32,7 @@ public struct LoginCoordinator: View {
                   emailPlaceHolder: dependecies.emailPlaceHolder,
                   passwordPlaceHolder: dependecies.passwordPlaceHolder,
                   emailValidMessage: dependecies.emailValidMessage,
-                  emailInvalidMessage: dependecies.emailInvalidMessage
+                  emailInvalidMessage: dependecies.emailInvalidMessage, dependecies: .init(authenticationRepository: AuthenticationRepository(apiClientService: dependecies.apiClient) )
         )
             .environmentObject(router)
     }

@@ -5,8 +5,10 @@
   Created by Serhan Khan on 09/03/2024.
   
 */
+"systemLanguage" = "tr";
 "ok" = "Tamam";
 "login" = "Giriş";
+"adminLogin" = "Yönetici Giriş";
 "email" = "E-Posta";
 "password" = "Şifre";
 "emailIsInvalid" = "E-posta geçersiz.";

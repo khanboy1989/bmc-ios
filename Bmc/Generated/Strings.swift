@@ -10,6 +10,8 @@ import Foundation
 // swiftlint:disable explicit_type_interface function_parameter_count identifier_name line_length
 // swiftlint:disable nesting type_body_length type_name vertical_whitespace_opening_braces
 internal enum L10n {
+  /// Admin Login
+  internal static let adminLogin = L10n.tr("Localizable", "adminLogin", fallback: "Admin Login")
   /// Email
   internal static let email = L10n.tr("Localizable", "email", fallback: "Email")
   /// E-mail is invalid
@@ -18,13 +20,15 @@ internal enum L10n {
   internal static let emailIsValid = L10n.tr("Localizable", "emailIsValid", fallback: "E-mail is valid")
   /// Login
   internal static let login = L10n.tr("Localizable", "login", fallback: "Login")
+  /// Ok
+  internal static let ok = L10n.tr("Localizable", "ok", fallback: "Ok")
+  /// Password
+  internal static let password = L10n.tr("Localizable", "password", fallback: "Password")
   /// Localizable.strings
   ///   Bmc
   /// 
   ///   Created by Serhan Khan on 09/03/2024.
-  internal static let ok = L10n.tr("Localizable", "ok", fallback: "Ok")
-  /// Password
-  internal static let password = L10n.tr("Localizable", "password", fallback: "Password")
+  internal static let systemLanguage = L10n.tr("Localizable", "systemLanguage", fallback: "en")
 }
 // swiftlint:enable explicit_type_interface function_parameter_count identifier_name line_length
 // swiftlint:enable nesting type_body_length type_name vertical_whitespace_opening_braces
