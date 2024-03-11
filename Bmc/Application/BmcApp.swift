@@ -14,7 +14,7 @@ struct BmcApp: App {
     let configuration: Configuration
     
     init() {
-        let logger = Logger(label: "BMC")
+        let logger = Logger(label: PlistFiles.cfBundleDisplayName)
         let apiClientService = APIClientService(logger: logger)
         configuration = .init(logger: logger, apiClientService: apiClientService)
     }
