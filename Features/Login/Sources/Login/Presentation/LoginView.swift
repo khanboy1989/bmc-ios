@@ -71,6 +71,7 @@ public struct LoginView: View {
                     
                     // Show email validation status
                     Text(viewModel.isValidEmail ? emailValidMessage : emailInvalidMessage)
+                        .padding(.horizontal)
                         .foregroundColor(viewModel.isValidEmail ? .green : .red)
                         .opacity(viewModel.email.isEmpty ? 0 : 1)
                         
