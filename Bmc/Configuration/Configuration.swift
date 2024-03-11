@@ -19,4 +19,6 @@ class Configuration: ObservableObject {
         self.logger = logger
         self.apiClientService = apiClientService
     }
+    
+    
 }

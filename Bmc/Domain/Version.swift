@@ -8,5 +8,5 @@
 import Foundation
 
 struct Version {
-    static let prefix = "v1"
+    static let prefix: String = "/v1"
 }

@@ -8,6 +8,7 @@
 import SwiftUI
 import CommonUI
 import Router
+import AlertToast
 
 public struct LoginView: View {
     let logo: Image
@@ -18,20 +19,23 @@ public struct LoginView: View {
     let passwordPlacHolder: String
     let emailValidMessage: String
     let emailInvalidMessage: String
+    let passwordFieldEmptyMessage: String
+    let emailFieldEmptyMessage: String
     
     @EnvironmentObject private var router: Router
-    @ObservedObject private var viewModel: LoginViewModel = LoginViewModel()
-    
-    public init(logo: Image,
+    @ObservedObject private var viewModel: LoginViewModel
+
+    init(logo: Image,
                 buttonTitle: String,
                 buttonBackground: Color,
                 title: String,
                 emailPlaceHolder: String,
                 passwordPlaceHolder: String,
                 emailValidMessage: String,
-                emailInvalidMessage: String
-    
-    ) {
+                emailInvalidMessage: String,
+                passwordFieldEmptyMessage: String,
+                emailFieldEmptyMessage: String,
+                dependecies: LoginViewModel.Dependecies) {
         self.logo = logo
         self.buttonTitle = buttonTitle
         self.buttonBackground = buttonBackground
@@ -40,6 +44,9 @@ public struct LoginView: View {
         self.passwordPlacHolder = passwordPlaceHolder
         self.emailValidMessage = emailValidMessage
         self.emailInvalidMessage = emailInvalidMessage
+        self.passwordFieldEmptyMessage = passwordFieldEmptyMessage
+        self.emailFieldEmptyMessage = emailFieldEmptyMessage
+        _viewModel = .init(wrappedValue: LoginViewModel(dependecies: dependecies))
     }
     
     public var body: some View {
@@ -71,6 +78,7 @@ public struct LoginView: View {
                     
                     // Show email validation status
                     Text(viewModel.isValidEmail ? emailValidMessage : emailInvalidMessage)
+                        .padding(.horizontal)
                         .foregroundColor(viewModel.isValidEmail ? .green : .red)
                         .opacity(viewModel.email.isEmpty ? 0 : 1)
                         
@@ -101,6 +109,16 @@ public struct LoginView: View {
             Spacer()
         }
         .padding(.horizontal, 16)
+        .toast(isPresenting: $viewModel.isLoading) {
+            //When using loading, duration won't auto dismiss and tapToDismiss is set to false
+            AlertToast(type: .loading)
+        }
+        .toast(isPresenting: $viewModel.showEmailError, duration: 3.0) {
+            AlertToast(displayMode:.banner(.pop), type: .error(Color.red), title: self.emailFieldEmptyMessage)
+        }
+        .toast(isPresenting: $viewModel.showPassworError, duration: 3.0) {
+            AlertToast(displayMode:.banner(.pop), type: .error(Color.red), title: self.passwordFieldEmptyMessage)
+        }
     }
 }
 

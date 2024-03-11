@@ -5,10 +5,15 @@
   Created by Serhan Khan on 09/03/2024.
   
 */
-
+"systemLanguage" = "en";
 "ok" = "Ok";
 "login" = "Login";
+"adminLogin" = "Admin Login";
 "email" = "Email";
 "password" = "Password";
 "emailIsInvalid" = "E-mail is invalid";
 "emailIsValid" = "E-mail is valid";
+"emailEmptyError" = "E-mail field could not be empty";
+"passwordFieldEmptyError" = "Password field could not be empty";
+"forgotPassword" = "Forgot Password";
+

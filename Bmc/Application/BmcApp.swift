@@ -15,8 +15,10 @@ struct BmcApp: App {
     
     init() {
         let logger = Logger(label: PlistFiles.cfBundleDisplayName)
-        logger.log(level: .info, message: "Logger is initialized")
-        let apiClientService = APIClientService(logger: logger)
+        
+        let apiClientService = APIClientService(logger: logger, configuration: .init(baseURL: URL(string: PlistFiles.apiBaseUrl),
+                                                                                     baseHeaders: ["User-agent": "iOS", "X-API-KEY":"\(PlistFiles.apiKey)",
+                                                                                                   "content-type": "application/json", "Accept-Language": L10n.systemLanguage]))
         configuration = .init(logger: logger, apiClientService: apiClientService)
     }
     
