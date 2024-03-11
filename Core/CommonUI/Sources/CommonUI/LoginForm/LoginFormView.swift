@@ -57,7 +57,7 @@ public struct LoginFormView: View {
             logo
                 .resizable()
                 .aspectRatio(contentMode: .fit)
-                .frame(width: 300, height: 150)
+                .frame(width: 80, height: 103)
                 .padding(.top, 40)
             
             Text(title)
