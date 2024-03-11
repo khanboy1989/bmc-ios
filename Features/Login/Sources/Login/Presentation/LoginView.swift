@@ -8,6 +8,7 @@
 import SwiftUI
 import CommonUI
 import Router
+import AlertToast
 
 public struct LoginView: View {
     let logo: Image
@@ -21,6 +22,7 @@ public struct LoginView: View {
     
     @EnvironmentObject private var router: Router
     @ObservedObject private var viewModel: LoginViewModel
+    @State private var isLoading: Bool = false
     
     init(logo: Image,
                 buttonTitle: String,
@@ -90,6 +92,7 @@ public struct LoginView: View {
             // Login button
             Button(action: {
                 viewModel.login()
+                self.isLoading.toggle()
             }) {
                 Text(buttonTitle)
                     .foregroundColor(.white)
@@ -102,6 +105,10 @@ public struct LoginView: View {
             Spacer()
         }
         .padding(.horizontal, 16)
+        .toast(isPresenting: $viewModel.isLoading) {
+            //When using loading, duration won't auto dismiss and tapToDismiss is set to false
+            AlertToast(type: .loading)
+        }
     }
 }
 
