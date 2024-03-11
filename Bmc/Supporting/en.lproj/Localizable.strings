@@ -7,3 +7,8 @@
 */
 
 "ok" = "Ok";
+"login" = "Login";
+"email" = "Email";
+"password" = "Password";
+"emailIsInvalid" = "E-mail is invalid";
+"emailIsValid" = "E-mail is valid";

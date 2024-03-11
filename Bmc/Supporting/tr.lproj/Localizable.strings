@@ -6,4 +6,8 @@
   
 */
 "ok" = "Tamam";
-
+"login" = "Giriş";
+"email" = "E-Posta";
+"password" = "Şifre";
+"emailIsInvalid" = "E-posta geçersiz.";
+"emailIsValid" = "E-posta geçerli.";

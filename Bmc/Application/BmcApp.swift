@@ -6,12 +6,25 @@
 //
 
 import SwiftUI
+import Logger
+import Network
 
 @main
 struct BmcApp: App {
+    let configuration: Configuration
+    
+    init() {
+        let logger = Logger(label: PlistFiles.cfBundleDisplayName)
+        logger.log(level: .info, message: "Logger is initialized")
+        let apiClientService = APIClientService(logger: logger)
+        configuration = .init(logger: logger, apiClientService: apiClientService)
+    }
+    
+  
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            LoginMainCoordinator()
+                .environmentObject(configuration)
         }
     }
 }

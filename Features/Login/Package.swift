@@ -17,7 +17,9 @@ let package = Package(
     dependencies: [
         .package(path: "../Core/CommonUI"),
         .package(path: "../Foundation/Network"),
-        .package(path: "../Foundation/Router")
+        .package(path: "../Foundation/Router"),
+        .package(path: "../Foundation/Domain"),
+        .package(path: "../Foundation/Helpers")
     ],
     targets: [
         // Targets are the basic building blocks of a package, defining a module or a test suite.
@@ -27,11 +29,16 @@ let package = Package(
             dependencies: [
                 "Network",
                 "CommonUI",
-                "Router"
+                "Router",
+                "Domain",
+                "Helpers",
+                .product(name: "DomainData", package: "Domain"),
             ]
         ),
         .testTarget(
             name: "LoginTests",
-            dependencies: ["Login"]),
+            dependencies: ["Login",
+            .product(name: "NetworkMock", package: "Network"),
+        ]),
     ]
 )
