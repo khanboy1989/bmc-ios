@@ -349,6 +349,7 @@
 				en,
 				Base,
 				tr,
+				ar,
 			);
 			mainGroup = 545AED4C2B9CFC5E00A78B84;
 			productRefGroup = 545AED562B9CFC5E00A78B84 /* Products */;
@@ -606,7 +607,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = vipersoft.tech.Bmc.dev;
+				PRODUCT_BUNDLE_IDENTIFIER = vipersoft.tech.bmc.dev;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
@@ -647,7 +648,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = vipersoft.tech.Bmc;
+				PRODUCT_BUNDLE_IDENTIFIER = vipersoft.tech.bmc;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
@@ -828,7 +829,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = vipersoft.tech.Bmc.staging;
+				PRODUCT_BUNDLE_IDENTIFIER = vipersoft.tech.bmc.staging;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;

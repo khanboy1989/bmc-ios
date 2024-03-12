@@ -20,6 +20,7 @@ let package = Package(
         .package(path: "../Foundation/Router"),
         .package(path: "../Foundation/Domain"),
         .package(path: "../Foundation/Helpers"),
+        .package(path: "../SystemDesign"),
         .package(url: "https://github.com/elai950/AlertToast.git", branch: "master")
     ],
     targets: [
@@ -34,6 +35,7 @@ let package = Package(
                 "Domain",
                 "Helpers",
                 "AlertToast",
+                "SystemDesign",
                 .product(name: "DomainData", package: "Domain"),
             ]
         ),
