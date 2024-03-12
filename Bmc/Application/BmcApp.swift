@@ -18,7 +18,7 @@ struct BmcApp: App {
         
         let apiClientService = APIClientService(logger: logger, configuration: .init(baseURL: URL(string: PlistFiles.apiBaseUrl),
                                                                                      baseHeaders: ["User-agent": "iOS", "X-API-KEY":"\(PlistFiles.apiKey)",
-                                                                                                   "content-type": "application/json", "Accept-Language": L10n.systemLanguage]))
+                                                                                                   "content-type": "application/json", "Accept-Language": "en"]))
         configuration = .init(logger: logger, apiClientService: apiClientService)
     }
     

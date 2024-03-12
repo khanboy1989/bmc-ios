@@ -31,9 +31,9 @@ internal enum L10n {
   /// Password field could not be empty
   internal static let passwordFieldEmptyError = L10n.tr("Localizable", "passwordFieldEmptyError", fallback: "Password field could not be empty")
   /// Localizable.strings
-  ///   Bmc
+  ///   
   /// 
-  ///   Created by Serhan Khan on 09/03/2024.
+  ///   Created by Serhan Khan on 12.03.24.
   internal static let systemLanguage = L10n.tr("Localizable", "systemLanguage", fallback: "en")
 }
 // swiftlint:enable explicit_type_interface function_parameter_count identifier_name line_length

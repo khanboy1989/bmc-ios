@@ -13,7 +13,9 @@ internal enum PlistFiles {
   private static let _document = PlistDocument(path: "Info.plist")
   internal static let apiBaseUrl: String = _document["ApiBaseUrl"]
   internal static let apiKey: String = _document["ApiKey"]
+  internal static let cfBundleAllowMixedLocalizations: Bool = _document["CFBundleAllowMixedLocalizations"]
   internal static let cfBundleDisplayName: String = _document["CFBundleDisplayName"]
+  internal static let cfBundleLocalizations: [String] = _document["CFBundleLocalizations"]
 }
 // swiftlint:enable identifier_name line_length type_body_length
 

@@ -1,10 +1,11 @@
 /* 
   Localizable.strings
-  Bmc
+  
 
-  Created by Serhan Khan on 09/03/2024.
+  Created by Serhan Khan on 12.03.24.
   
 */
+
 "systemLanguage" = "en";
 "ok" = "Ok";
 "login" = "Login";
@@ -16,4 +17,3 @@
 "emailEmptyError" = "E-mail field could not be empty";
 "passwordFieldEmptyError" = "Password field could not be empty";
 "forgotPassword" = "Forgot Password";
-
