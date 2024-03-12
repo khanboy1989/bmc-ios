@@ -10,6 +10,7 @@ import Domain
 import DomainData
 import Network
 import Router
+import SystemDesign
 
 public enum LoginDestination: Hashable {
     case main
@@ -25,18 +26,7 @@ public struct LoginCoordinator: View {
     }
     
     public var body: some View {
-        LoginView(logo: dependecies.logo, 
-                  buttonTitle: dependecies.buttonTitle,
-                  buttonBackground: dependecies.buttonBackground,
-                  title: dependecies.title,
-                  emailPlaceHolder: dependecies.emailPlaceHolder,
-                  passwordPlaceHolder: dependecies.passwordPlaceHolder,
-                  emailValidMessage: dependecies.emailValidMessage,
-                  emailInvalidMessage: dependecies.emailInvalidMessage, 
-                  passwordFieldEmptyMessage: dependecies.passwordEmptyErrorMessage,
-                  emailFieldEmptyMessage: dependecies.emailEmptyErrorMessage,
-                  dependecies: .init(authenticationRepository: AuthenticationRepository(apiClientService: dependecies.apiClient) )
-        )
+        LoginView(dependecies: .init(authenticationRepository: AuthenticationRepository(apiClientService: dependecies.apiClient)))
             .environmentObject(router)
     }
     
@@ -45,31 +35,10 @@ public struct LoginCoordinator: View {
 
 public extension LoginCoordinator {
     struct Dependecies {
-        let logo: Image
-        let buttonTitle: String
-        let title: String
-        let buttonBackground: Color
-        let emailPlaceHolder: String
-        let passwordPlaceHolder: String
-        let emailInvalidMessage: String
-        let emailValidMessage: String
-        let passwordEmptyErrorMessage: String
-        let emailEmptyErrorMessage: String
         let apiClient: IAPIClientService
         
-        public init(logo: Image, buttonTitle: String, title: String, buttonBackground: Color, emailPlaceHolder: String, passwordPlaceHolder: String,emailInvalidMessage: String, emailValidMessage: String,passwordEmptyErrorMessage: String, emailEmptyErrorMessage: String ,apiClient: IAPIClientService) {
-            self.logo = logo
-            self.buttonTitle = buttonTitle
-            self.title = title
-            self.buttonBackground = buttonBackground
-            self.emailPlaceHolder = emailPlaceHolder
-            self.passwordPlaceHolder = passwordPlaceHolder
-            self.emailInvalidMessage = emailInvalidMessage
-            self.emailValidMessage = emailValidMessage
-            self.passwordEmptyErrorMessage = passwordEmptyErrorMessage
-            self.emailEmptyErrorMessage = emailEmptyErrorMessage
+        public init(apiClient: IAPIClientService) {
             self.apiClient = apiClient
-            
         }
         
     }
