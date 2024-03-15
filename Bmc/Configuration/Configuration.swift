@@ -28,4 +28,8 @@ class Configuration: ObservableObject {
         self.logger = logger
         self.apiClientService = apiClientService
     }
+    
+    func getApiClient() -> IAPIClientService {
+        return self.apiClientService
+    }
 }
