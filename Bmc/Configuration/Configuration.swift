@@ -10,15 +10,20 @@ import Logger
 import Network
 import Router
 
-
+/// Configuration file that instantiate the ApiClient Service.
 class Configuration: ObservableObject {
-    let logger: ILogger
-    let apiClientService: IAPIClientService
+    private let logger: ILogger
+    private let apiClientService: IAPIClientService
     
-    init(logger: ILogger, apiClientService: IAPIClientService) {
+    init(deviceDisplayName: String) {
+        let logger = Logger(label: Bundle.main.object(forInfoDictionaryKey: "CFBundleDisplayName") as? String ?? "BMC")
+        let currentLanguageCode = Locale.current.language.languageCode?.identifier ?? "tr"
+        let apiClientService = APIClientService(logger: logger, configuration: .init(baseURL: URL(string: PlistFiles.apiBaseUrl), baseHeaders: ["User-agent": deviceDisplayName, "X-API-KEY":"\(PlistFiles.apiKey)","content-type": "application/json", "Accept-Language": currentLanguageCode]))
         self.logger = logger
         self.apiClientService = apiClientService
     }
-    
-    
+   
+    func getApiClient() -> IAPIClientService {
+        return self.apiClientService
+    }
 }

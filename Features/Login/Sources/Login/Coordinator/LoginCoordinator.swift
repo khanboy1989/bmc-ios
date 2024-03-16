@@ -11,6 +11,7 @@ import DomainData
 import Network
 import Router
 import SystemDesign
+import AlertToast
 
 public enum LoginDestination: Hashable {
     case main
@@ -29,8 +30,6 @@ public struct LoginCoordinator: View {
         LoginView(dependecies: .init(authenticationRepository: AuthenticationRepository(apiClientService: dependecies.apiClient)))
             .environmentObject(router)
     }
-    
-    
 }
 
 public extension LoginCoordinator {
