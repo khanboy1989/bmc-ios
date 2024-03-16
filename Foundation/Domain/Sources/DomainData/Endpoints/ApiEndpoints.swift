@@ -8,11 +8,10 @@
 import Foundation
 import Network
 
-
-
+//ApiEndpoints
 enum ApiEndpoints {
     static func adminLogin(email: String, password: String) -> APIEndpoint {
-        .init(path: "\(EndpointPrefix.api)\(EndpointPrefix.version)/admin/auth/login", httpMethod: .post, bodyParameters: .dictionary(["email": email, "password": password]))
+        .init(path: "\(EndpointPrefix.api)\(EndpointPrefix.version)\(EndpointPrefix.admin)/auth/login", httpMethod: .post, bodyParameters: .dictionary(["email": email, "password": password]))
     }
     
 }

@@ -21,7 +21,6 @@ let package = Package(
         .package(path: "../Foundation/Domain"),
         .package(path: "../Foundation/Helpers"),
         .package(path: "../SystemDesign"),
-        .package(url: "https://github.com/elai950/AlertToast.git", branch: "master")
     ],
     targets: [
         // Targets are the basic building blocks of a package, defining a module or a test suite.
@@ -34,7 +33,6 @@ let package = Package(
                 "Router",
                 "Domain",
                 "Helpers",
-                "AlertToast",
                 "SystemDesign",
                 .product(name: "DomainData", package: "Domain"),
             ]

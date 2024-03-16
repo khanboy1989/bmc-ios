@@ -7,8 +7,9 @@
 
 import SwiftUI
 import Router
-import AlertToast
 import SystemDesign
+import AlertToast
+import CommonUI
 
 public struct LoginView: View {
     @EnvironmentObject private var router: Router
@@ -31,7 +32,7 @@ public struct LoginView: View {
             
             Text(L10n.adminLogin)
                 .font(FontFamily.SFPro.bold.swiftUIFont(fixedSize: 24))
-                .fontWeight(.medium)
+                .foregroundColor(Asset.Colors.blackColor.swiftUIColor)
                 .padding(.vertical, 8)
             
             Spacer()
@@ -40,9 +41,13 @@ public struct LoginView: View {
                 
                 VStack(alignment: .leading, spacing: 4) {
                     // Email text field
-                    TextField(L10n.email, text: $viewModel.email)
+                    TextField("", text: $viewModel.email)
+                        .placeholder(when: viewModel.email.isEmpty) {
+                            Text(L10n.email).foregroundColor(Asset.Colors.darkGrayColor.swiftUIColor)
+                        }
+                        .foregroundColor(Asset.Colors.blackColor.swiftUIColor)
                         .padding()
-                        .background(Color.gray.opacity(0.1))
+                        .background(Asset.Colors.lightGrayColor.swiftUIColor)
                         .cornerRadius(10)
                         .onChange(of: viewModel.email, perform: { newValue in
                             viewModel.validateEmail()
@@ -59,7 +64,7 @@ public struct LoginView: View {
                 // Password secure field
                 SecureField(L10n.password, text: $viewModel.password)
                     .padding()
-                    .background(Color.gray.opacity(0.1))
+                    .background(Asset.Colors.lightGrayColor.swiftUIColor)
                     .cornerRadius(10)
             }
             Spacer()
@@ -79,6 +84,7 @@ public struct LoginView: View {
             Spacer()
         }
         .padding(.horizontal, 16)
+        .screenBackground(with: Color.white)
         .toast(isPresenting: $viewModel.isLoading, tapToDismiss: false) {
             //When using loading, duration won't auto dismiss and tapToDismiss is set to false
             AlertToast(type: .loading)

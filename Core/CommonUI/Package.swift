@@ -17,6 +17,7 @@ let package = Package(
     dependencies: [
         .package(url: "https://github.com/kean/Nuke", from: "12.4.0"),
         .package(url: "https://github.com/markiv/SwiftUI-Shimmer", exact: "1.4.0"),
+        .package(url: "https://github.com/elai950/AlertToast.git", branch: "master")
     ],
     targets: [
         // Targets are the basic building blocks of a package, defining a module or a test suite.
@@ -26,6 +27,7 @@ let package = Package(
             dependencies: [
                 .product(name: "Shimmer", package: "SwiftUI-Shimmer"),
                 .product(name: "NukeUI", package: "Nuke"),
+                .product(name: "AlertToast", package: "AlertToast")
             ]
         ),
         .testTarget(
