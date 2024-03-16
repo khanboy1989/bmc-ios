@@ -26,6 +26,7 @@ public typealias AssetImageTypeAlias = ImageAsset.Image
 public enum Asset {
   public enum Colors {
     public static let primaryColor = ColorAsset(name: "primaryColor")
+    public static let secondaryColor = ColorAsset(name: "secondaryColor")
   }
   public enum Images {
     public static let logo = ImageAsset(name: "logo")
