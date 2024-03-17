@@ -8,24 +8,45 @@
 import Foundation
 import Domain
 import Network
+import Utilities
+import StorageKeys
 
 public final class AuthenticationRepository: IAuthenticationRepository {
-
+   
     private let apiClientService: IAPIClientService
+    private let keyChainService: IKeychainService
     
-    public init(apiClientService: IAPIClientService) {
+    public init(apiClientService: IAPIClientService, keyChainService: IKeychainService) {
         self.apiClientService = apiClientService
+        self.keyChainService = keyChainService
     }
-    
     
     public func login(email: String, password: String) async throws -> AdminAuth {
         do {
             let result = try await apiClientService
                 .request(AdminApiEndpoints.adminLogin(email: email, password: password), mapper: AdminAuthMapper())
-            
+            _ = try self.storeAuth(adminAuth: result, for: Keys.authentication.rawValue)
             return result
         } catch {
             throw error
+        }
+    }
+    
+    public func storeAuth(adminAuth: AdminAuth, for key: String) throws -> Bool {
+        do {
+            _ = try self.keyChainService.saveToKeychain(adminAuth, for: key)
+            return true
+        } catch {
+            return false
+        }
+    }
+    
+    public func loadAuth(for key: String) -> AdminAuth? {
+        do {
+           let auth =  try self.keyChainService.loadFromKeychain(AdminAuth.self, for: key)
+           return auth
+        } catch {
+           return nil
         }
     }
 }

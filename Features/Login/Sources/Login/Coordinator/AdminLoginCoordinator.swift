@@ -28,7 +28,7 @@ public struct AdminLoginCoordinator: View {
     }
     
     public var body: some View {
-        AdminLoginView(dependecies: .init(authenticationRepository: AuthenticationRepository(apiClientService: dependecies.apiClient), keyChianService: dependecies.keychainService))
+        AdminLoginView(dependecies: .init(authenticationRepository: AuthenticationRepository(apiClientService: dependecies.apiClient, keyChainService: dependecies.keychainService)))
             .environmentObject(router)
     }
 }
