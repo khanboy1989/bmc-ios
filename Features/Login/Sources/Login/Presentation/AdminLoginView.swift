@@ -1,5 +1,5 @@
 //
-//  LoginView.swift
+//  AdminLoginView.swift
 //
 //
 //  Created by Serhan Khan on 10/03/2024.
@@ -12,14 +12,14 @@ import AlertToast
 import CommonUI
 import Combine
 
-public struct LoginView: View {
+public struct AdminLoginView: View {
     @EnvironmentObject private var router: Router
-    @ObservedObject private var viewModel: LoginViewModel
+    @ObservedObject private var viewModel: AdminLoginViewModel
     @StateObject private var keyboardObserver = KeyboardObserver()
-
     @State private var keyboardOffset: CGFloat = 0
-    init(dependecies: LoginViewModel.Dependecies) {
-        _viewModel = .init(wrappedValue: LoginViewModel(dependecies: dependecies))
+    
+    init(dependecies: AdminLoginViewModel.Dependecies) {
+        _viewModel = .init(wrappedValue: AdminLoginViewModel(dependecies: dependecies))
     }
     
     public var body: some View {

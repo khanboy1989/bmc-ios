@@ -1,5 +1,5 @@
 //
-//  File.swift
+//  AdminLoginViewModel.swift
 //  
 //
 //  Created by Serhan Khan on 10/03/2024.
@@ -12,7 +12,7 @@ import SystemDesign
 import Router
 import SwiftUI
 
-final class LoginViewModel: ObservableObject {
+final class AdminLoginViewModel: ObservableObject {
     
     struct Dependecies {
         let authenticationRepository: IAuthenticationRepository
