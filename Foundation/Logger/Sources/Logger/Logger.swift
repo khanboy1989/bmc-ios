@@ -9,7 +9,7 @@ public protocol ILogger {
 
 public struct Logger: ILogger {
     private let logger: Logging.Logger
-
+    
     public init(label: String) {
         logger = Logging.Logger(label: label)
     }
@@ -17,6 +17,8 @@ public struct Logger: ILogger {
     public func log(level: LogLevel, message: @autoclosure () -> String) {
         logger.log(level: level.toLoggingLevel(), .init(stringLiteral: message()))
     }
+    
+    
 }
 
 public struct NoLogger: ILogger {

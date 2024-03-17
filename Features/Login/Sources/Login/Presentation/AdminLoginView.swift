@@ -45,6 +45,8 @@ public struct AdminLoginView: View {
                 VStack(alignment: .leading, spacing: 4) {
                     // Email text field
                     TextField("", text: $viewModel.email)
+                        .autocorrectionDisabled()
+                        .autocapitalization(.none)
                         .placeholder(when: viewModel.email.isEmpty) {
                             Text(L10n.email).foregroundColor(Asset.Colors.darkGrayColor.swiftUIColor)
                         }
@@ -67,6 +69,8 @@ public struct AdminLoginView: View {
                 
                 // Password secure field
                 SecureField("", text: $viewModel.password)
+                    .autocapitalization(.none)
+                    .autocorrectionDisabled()
                     .placeholder(when: viewModel.password.isEmpty) {
                         Text(L10n.password).foregroundColor(Asset.Colors.darkGrayColor.swiftUIColor)
                     }

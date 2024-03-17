@@ -57,12 +57,19 @@ final class AdminLoginViewModel: ObservableObject {
         Task { @MainActor in
             do {
                 let result = try await self.authenticationRepository.login(email: email, password: password)
-                print("Logging in with email: \(email) and password: \(password), result = \(result)")
-                self.isLoading = false
-                self.navigateToMain = true
+                switch result.success  {
+                case true:
+                    self.isLoading = false
+                    self.navigateToMain = true
+                case false:
+                    self.isLoading = false
+                    self.errorMessage = result.message
+                    self.showError = true
+                }
             }catch {
-                print("Logging in with email: \(email) and password: \(password), result = \(error.localizedDescription)")
                 self.isLoading = false
+                self.errorMessage = error.localizedDescription
+                self.showError = true
             }
         }
        
