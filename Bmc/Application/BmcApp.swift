@@ -21,8 +21,9 @@ struct BmcApp: App {
     
     var body: some Scene {
         WindowGroup {
-            LoginMainCoordinator()
+            AdminLoginMainCoordinator()
                 .environmentObject(configuration)
+//            LoginView()
         }
     }
 }

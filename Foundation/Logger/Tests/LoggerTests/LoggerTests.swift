@@ -3,10 +3,11 @@ import XCTest
 
 final class LoggerTests: XCTestCase {
     func testExample() throws {
-        // XCTest Documentation
-        // https://developer.apple.com/documentation/xctest
-
-        // Defining Test Cases and Test Methods
-        // https://developer.apple.com/documentation/xctest/defining_test_cases_and_test_methods
+        // This is an example of a functional test case.
+        // Use XCTAssert and related functions to verify your tests produce the correct
+        // results.
+        let logger = Logger(label: "logger-test")
+        logger.log(level: .critical, message: "Hello, World!")
+    
     }
 }

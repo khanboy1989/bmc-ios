@@ -1,6 +1,6 @@
 //
-//  File.swift
-//  
+//  AdminLoginCoordinator.swift
+//
 //
 //  Created by Serhan Khan on 10/03/2024.
 //
@@ -17,7 +17,7 @@ public enum LoginDestination: Hashable {
     case main
 }
 
-public struct LoginCoordinator: View {
+public struct AdminLoginCoordinator: View {
     
     @EnvironmentObject private var router: Router
     private let dependecies: Dependecies
@@ -27,18 +27,17 @@ public struct LoginCoordinator: View {
     }
     
     public var body: some View {
-        LoginView(dependecies: .init(authenticationRepository: AuthenticationRepository(apiClientService: dependecies.apiClient)))
+        AdminLoginView(dependecies: .init(authenticationRepository: AuthenticationRepository(apiClientService: dependecies.apiClient)))
             .environmentObject(router)
     }
 }
 
-public extension LoginCoordinator {
+public extension AdminLoginCoordinator {
     struct Dependecies {
         let apiClient: IAPIClientService
         
         public init(apiClient: IAPIClientService) {
             self.apiClient = apiClient
         }
-        
     }
 }

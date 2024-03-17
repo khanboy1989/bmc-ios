@@ -18,14 +18,14 @@ public final class AuthenticationRepository: IAuthenticationRepository {
     }
     
     
-    public func login(email: String, password: String) async throws -> Bool {
+    public func login(email: String, password: String) async throws -> AdminProfile {
         do {
             let result = try await apiClientService
-                .request(ApiEndpoints.adminLogin(email: email, password: password), for: Result.self)
+                .request(AdminApiEndpoints.adminLogin(email: email, password: password), mapper: AdminProfileMapper())
             
-            return result.success
+            return result
         } catch {
-            return false
+            throw error
         }
     }
 }
