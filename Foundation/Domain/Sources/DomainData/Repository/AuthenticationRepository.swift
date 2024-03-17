@@ -18,10 +18,10 @@ public final class AuthenticationRepository: IAuthenticationRepository {
     }
     
     
-    public func login(email: String, password: String) async throws -> AdminProfile {
+    public func login(email: String, password: String) async throws -> AdminAuth {
         do {
             let result = try await apiClientService
-                .request(AdminApiEndpoints.adminLogin(email: email, password: password), mapper: AdminProfileMapper())
+                .request(AdminApiEndpoints.adminLogin(email: email, password: password), mapper: AdminAuthMapper())
             
             return result
         } catch {

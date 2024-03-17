@@ -9,23 +9,29 @@ import Foundation
 import Logger
 import Network
 import Router
+import Utilities
 
 /// Configuration file that instantiate the ApiClient Service.
 class Configuration: ObservableObject {
     private let logger: ILogger
     private let apiClientService: IAPIClientService
+    private let keyChainService: IKeychainService
     
-    init(deviceDisplayName: String) {
-    
+    init(deviceDisplayName: String, serviceIdentifier: String) {
         let logger = Logger(label: Bundle.main.object(forInfoDictionaryKey: "CFBundleDisplayName") as? String ?? "BMC")
-    
         let currentLanguageCode = Locale.current.language.languageCode?.identifier ?? "tr"
         let apiClientService = APIClientService(logger: logger, configuration: .init(baseURL: URL(string: PlistFiles.apiBaseUrl), baseHeaders: ["User-agent": deviceDisplayName, "X-API-KEY":"\(PlistFiles.apiKey)","content-type": "application/json", "Accept-Language": currentLanguageCode]))
+        let keyChainService =  KeychainService(serviceIdentifier: serviceIdentifier)
         self.logger = logger
         self.apiClientService = apiClientService
+        self.keyChainService = keyChainService
     }
    
     func getApiClient() -> IAPIClientService {
         return self.apiClientService
+    }
+    
+    func getKeyChainService() -> IKeychainService {
+        return self.keyChainService
     }
 }

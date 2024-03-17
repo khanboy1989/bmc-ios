@@ -16,14 +16,13 @@ struct BmcApp: App {
     init() {
         let deviceConfig = DeviceConfiguration()
         //inherits the configuration for start
-        self.configuration = Configuration(deviceDisplayName: deviceConfig.getDeviceDisplayName())
+        self.configuration = Configuration(deviceDisplayName: deviceConfig.getDeviceDisplayName(), serviceIdentifier: Bundle().identifier)
     }
     
     var body: some Scene {
         WindowGroup {
             AdminLoginMainCoordinator()
                 .environmentObject(configuration)
-//            LoginView()
         }
     }
 }

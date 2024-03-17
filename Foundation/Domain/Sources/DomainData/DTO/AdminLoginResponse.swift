@@ -9,13 +9,13 @@ import Foundation
 import Network
 import Domain
 
-struct AdminProfileMapper: Mappable {
-    func map(_ input: AdminLoginResponse) throws -> AdminProfile {
+struct AdminAuthMapper: Mappable {
+    func map(_ input: AdminLoginResponse) throws -> AdminAuth {
         return try AdminLoginResponseMapper().map(input)
     }
 }
 
-struct ProfileResponse: Decodable {
+struct AdminAuthResponse: Decodable {
     let token: String
     let refreshToken: String
     
@@ -28,7 +28,7 @@ struct ProfileResponse: Decodable {
 struct AdminLoginResponse: Decodable {
     let message: String
     let success: Bool
-    let profile: ProfileResponse
+    let profile: AdminAuthResponse
     
     enum CodingKeys: String, CodingKey  {
         case message
@@ -38,7 +38,7 @@ struct AdminLoginResponse: Decodable {
 }
 
 struct AdminLoginResponseMapper: Mappable {
-    func map(_ input: AdminLoginResponse) throws -> AdminProfile {
-        .init(token: input.profile.token, refreshToken: input.profile.refreshToken, success: input.success, message: input.message)
+    func map(_ input: AdminLoginResponse) throws -> AdminAuth {
+        .init(token: input.profile.token, refreshToken: input.profile.refreshToken)
     }
 }

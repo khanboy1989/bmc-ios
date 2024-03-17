@@ -17,3 +17,4 @@
 "emailEmptyError" = "E-mail field could not be empty";
 "passwordFieldEmptyError" = "Password field could not be empty";
 "forgotPassword" = "Forgot Password";
+"unknownError" = "Unknown error.";
