@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Result: Decodable {
+struct GeneralResult: Decodable {
     let success: Bool
     let statusMessage: String
     

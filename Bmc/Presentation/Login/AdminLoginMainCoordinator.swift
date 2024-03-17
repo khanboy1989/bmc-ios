@@ -15,7 +15,7 @@ struct AdminLoginMainCoordinator: View {
     
     var body: some View {
         NavigationStack(path: $router.navPath) {
-            AdminLoginCoordinator(dependecies: AdminLoginCoordinator.Dependecies.init(apiClient: configuration.getApiClient(), keyChainService: configuration.getKeyChainService()))
+            AdminLoginCoordinator(dependecies: AdminLoginCoordinator.Dependecies.init(networkClient: configuration.getNetworkClient(), keyChainService: configuration.getKeyChainService()))
                 .navigationDestination(for: LoginDestination.self) { destination in
                     switch destination {
                     case .main:

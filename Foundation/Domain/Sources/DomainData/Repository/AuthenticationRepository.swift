@@ -13,17 +13,17 @@ import StorageKeys
 
 public final class AuthenticationRepository: IAuthenticationRepository {
    
-    private let apiClientService: IAPIClientService
+    private let networkClient: INetworkClient
     private let keyChainService: IKeychainService
     
-    public init(apiClientService: IAPIClientService, keyChainService: IKeychainService) {
-        self.apiClientService = apiClientService
+    public init(networkClient: INetworkClient, keyChainService: IKeychainService) {
+        self.networkClient = networkClient
         self.keyChainService = keyChainService
     }
     
     public func login(email: String, password: String) async throws -> AdminAuth {
         do {
-            let result = try await apiClientService
+            let result = try await networkClient
                 .request(AdminApiEndpoints.adminLogin(email: email, password: password), mapper: AdminAuthMapper())
             _ = try self.storeAuth(adminAuth: result, for: Keys.authentication.rawValue)
             return result
