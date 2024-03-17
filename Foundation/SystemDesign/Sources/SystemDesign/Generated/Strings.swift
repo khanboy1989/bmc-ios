@@ -35,6 +35,8 @@ public enum L10n {
   /// 
   ///   Created by Serhan Khan on 12.03.24.
   public static let systemLanguage = L10n.tr("Localizable", "systemLanguage", fallback: "en")
+  /// Unknown error.
+  public static let unknownError = L10n.tr("Localizable", "unknownError", fallback: "Unknown error.")
 }
 // swiftlint:enable explicit_type_interface function_parameter_count identifier_name line_length
 // swiftlint:enable nesting type_body_length type_name vertical_whitespace_opening_braces

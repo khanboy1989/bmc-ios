@@ -11,8 +11,10 @@ import Domain
 import SystemDesign
 import Router
 import SwiftUI
+import Network
+import Base
 
-final class AdminLoginViewModel: ObservableObject {
+final class AdminLoginViewModel:BaseViewModel, ObservableObject {
     
     struct Dependecies {
         let authenticationRepository: IAuthenticationRepository
@@ -20,6 +22,7 @@ final class AdminLoginViewModel: ObservableObject {
     
     init(dependecies: Dependecies) {
         self.authenticationRepository = dependecies.authenticationRepository
+        super.init()
     }
     
     @Published var email: String = ""
@@ -67,8 +70,9 @@ final class AdminLoginViewModel: ObservableObject {
                     self.showError = true
                 }
             }catch {
+                let errorMessage = self.handleError(error)
                 self.isLoading = false
-                self.errorMessage = error.localizedDescription
+                self.errorMessage = errorMessage
                 self.showError = true
             }
         }

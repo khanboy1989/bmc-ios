@@ -63,6 +63,7 @@
 		545AEE072B9D174800A78B84 /* Configuration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
 		545AEE102B9D1AF800A78B84 /* Login */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Login; sourceTree = "<group>"; };
 		54B5D1B82B9E131E003CFDCB /* AdminLoginMainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminLoginMainCoordinator.swift; sourceTree = "<group>"; };
+		54C048F52BA730DF001B18A9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Base; sourceTree = "<group>"; };
 		EB5FBDA42BA07C16002FC623 /* Domain */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Domain; sourceTree = "<group>"; };
 		EB5FBDA52BA07C17002FC623 /* Helpers */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Helpers; sourceTree = "<group>"; };
 		EB5FBDB82BA087F9002FC623 /* SystemDesign */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = SystemDesign; sourceTree = "<group>"; };
@@ -242,6 +243,7 @@
 		545AEE0F2B9D1AD600A78B84 /* Features */ = {
 			isa = PBXGroup;
 			children = (
+				54C048F52BA730DF001B18A9 /* Base */,
 				545AEE102B9D1AF800A78B84 /* Login */,
 			);
 			path = Features;

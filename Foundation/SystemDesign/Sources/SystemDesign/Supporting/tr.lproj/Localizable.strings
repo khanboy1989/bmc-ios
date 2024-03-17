@@ -16,3 +16,4 @@
 "emailEmptyError" = "E-posta alanı boş olamaz";
 "passwordFieldEmptyError" = "Şifre alanı boş olamaz";
 "forgotPassword" = "Şifremi Unuttum";
+"unknownError" = "Bilinmeyen hata.";

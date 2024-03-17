@@ -9,5 +9,5 @@ import Foundation
 
 
 public protocol IAuthenticationRepository {
-    func login(email: String, password: String) async throws -> AdminProfile
+    func login(email: String, password: String) async throws -> AdminAuth
 }

@@ -13,6 +13,7 @@ public enum APIError: Error {
     case badServerResponse
     case networkError(error: Error)
     case parsing(error: Error)
+    case customError(message: String)
 }
 
 public typealias APIResponse = (data: Data, statusCode: Int)
@@ -67,7 +68,10 @@ public final class APIClientService: IAPIClientService {
             guard let data = data, let httpResponse = response as? HTTPURLResponse,
                   (200 ..< 400).contains(httpResponse.statusCode)
             else {
-                completion(.failure(.badServerResponse))
+                guard let data = data else { completion(.failure(.badServerResponse)); return }
+                let decoder = JSONDecoder()
+                let errorResult = try? decoder.decode(ResultResponse.self, from: data)
+                completion(.failure(.customError(message: errorResult?.statusMessage ?? "Unknown error.")))
                 return
             }
 

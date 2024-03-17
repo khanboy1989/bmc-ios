@@ -9,7 +9,7 @@ import Foundation
 import HelperMacros
 
 @DefaultInit
-public struct AdminProfile: Equatable {
+public struct AdminAuth: Equatable {
     public let token: String
     public let refreshToken: String
     public let success: Bool
