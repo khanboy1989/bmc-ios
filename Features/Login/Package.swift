@@ -39,6 +39,7 @@ let package = Package(
                 "Base",
                 "Utilities",
                 .product(name: "DomainData", package: "Domain"),
+                .product(name: "StorageKeys", package: "Domain")
             ]
         ),
         .testTarget(

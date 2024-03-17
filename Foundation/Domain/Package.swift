@@ -18,6 +18,8 @@ let package = Package(
                 name: "DomainData",
                 targets: ["DomainData"]
             ),
+            
+            .library(name: "StorageKeys", targets: ["StorageKeys"]),
     ],
     dependencies: [
         .package(path: "./Network"),
@@ -35,7 +37,8 @@ let package = Package(
                 dependencies: [
                     "Domain",
                     "Network",
-            ]),
+        ]),
+        .target(name: "StorageKeys", dependencies: ["Domain"]),
         .testTarget(
             name: "DomainTests",
             dependencies: ["Domain"]),

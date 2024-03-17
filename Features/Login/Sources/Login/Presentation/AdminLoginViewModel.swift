@@ -14,6 +14,7 @@ import SwiftUI
 import Network
 import Base
 import Utilities
+import StorageKeys
 
 final class AdminLoginViewModel:BaseViewModel, ObservableObject {
     
@@ -65,8 +66,7 @@ final class AdminLoginViewModel:BaseViewModel, ObservableObject {
             guard let self = self else { return }
             do {
                 let result = try await self.authenticationRepository.login(email: email, password: password)
-                _ = try self.keyChainService.saveToKeychain(result, for: "authentication")
-                let auth = try self.keyChainService.loadFromKeychain(AdminAuth.self, for: "authentication")
+                _ = try self.keyChainService.saveToKeychain(result, for: Keys.authentication.rawValue)
                 self.isLoading = false
                 self.navigateToMain = true
             }catch {
