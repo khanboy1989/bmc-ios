@@ -28,18 +28,18 @@ public struct AdminLoginCoordinator: View {
     }
     
     public var body: some View {
-        AdminLoginView(dependecies: .init(authenticationRepository: AuthenticationRepository(apiClientService: dependecies.apiClient), keyChianService: dependecies.keychainService))
+        AdminLoginView(dependecies: .init(authenticationRepository: AuthenticationRepository(networkClient: dependecies.networkClient, keyChainService: dependecies.keychainService)))
             .environmentObject(router)
     }
 }
 
 public extension AdminLoginCoordinator {
     struct Dependecies {
-        let apiClient: IAPIClientService
+        let networkClient: INetworkClient
         let keychainService: IKeychainService
         
-        public init(apiClient: IAPIClientService, keyChainService: IKeychainService) {
-            self.apiClient = apiClient
+        public init(networkClient: INetworkClient, keyChainService: IKeychainService) {
+            self.networkClient = networkClient
             self.keychainService = keyChainService
         }
     }

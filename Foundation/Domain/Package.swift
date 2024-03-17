@@ -37,8 +37,9 @@ let package = Package(
                 dependencies: [
                     "Domain",
                     "Network",
+                    "StorageKeys"
         ]),
-        .target(name: "StorageKeys", dependencies: ["Domain"]),
+        .target(name: "StorageKeys"),
         .testTarget(
             name: "DomainTests",
             dependencies: ["Domain"]),

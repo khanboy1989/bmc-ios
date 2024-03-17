@@ -39,7 +39,6 @@ public final class APIClientService: IAPIClientService {
             self.baseURL = baseURL
             self.baseHeaders = baseHeaders
         }
-
         public static let `default` = Configuration(baseURL: nil, baseHeaders: [:])
     }
 

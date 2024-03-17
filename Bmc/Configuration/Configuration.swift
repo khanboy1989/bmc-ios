@@ -10,12 +10,14 @@ import Logger
 import Network
 import Router
 import Utilities
+import DomainData
 
 /// Configuration file that instantiate the ApiClient Service.
 class Configuration: ObservableObject {
     private let logger: ILogger
     private let apiClientService: IAPIClientService
     private let keyChainService: IKeychainService
+    private let networkClient: NetworkClient
     
     init(deviceDisplayName: String, serviceIdentifier: String) {
         let logger = Logger(label: Bundle.main.object(forInfoDictionaryKey: "CFBundleDisplayName") as? String ?? "BMC")
@@ -25,13 +27,14 @@ class Configuration: ObservableObject {
         self.logger = logger
         self.apiClientService = apiClientService
         self.keyChainService = keyChainService
+        self.networkClient = NetworkClient(apiClientService: apiClientService)
     }
    
-    func getApiClient() -> IAPIClientService {
-        return self.apiClientService
-    }
-    
     func getKeyChainService() -> IKeychainService {
         return self.keyChainService
+    }
+    
+    func getNetworkClient() -> INetworkClient {
+        return self.networkClient
     }
 }

@@ -20,12 +20,10 @@ final class AdminLoginViewModel:BaseViewModel, ObservableObject {
     
     struct Dependecies {
         let authenticationRepository: IAuthenticationRepository
-        let keyChianService: IKeychainService
     }
     
     init(dependecies: Dependecies) {
         self.authenticationRepository = dependecies.authenticationRepository
-        self.keyChainService = dependecies.keyChianService
         super.init()
     }
     
@@ -38,7 +36,6 @@ final class AdminLoginViewModel:BaseViewModel, ObservableObject {
     @Published var navigateToMain: Bool = false
     
     private let authenticationRepository: IAuthenticationRepository
-    private let keyChainService: IKeychainService
     
     func login()  {
         
@@ -66,7 +63,6 @@ final class AdminLoginViewModel:BaseViewModel, ObservableObject {
             guard let self = self else { return }
             do {
                 let result = try await self.authenticationRepository.login(email: email, password: password)
-                _ = try self.keyChainService.saveToKeychain(result, for: Keys.authentication.rawValue)
                 self.isLoading = false
                 self.navigateToMain = true
             }catch {
