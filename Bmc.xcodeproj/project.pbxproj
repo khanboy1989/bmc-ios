@@ -10,7 +10,6 @@
 		5401DFB52BA4DD9900D8B152 /* UIDevice+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5401DFB42BA4DD9900D8B152 /* UIDevice+Helpers.swift */; };
 		5441BD1F2BA7511C0008ED21 /* Utilities in Frameworks */ = {isa = PBXBuildFile; productRef = 5441BD1E2BA7511C0008ED21 /* Utilities */; };
 		5441BD222BA75C800008ED21 /* Bundle+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5441BD212BA75C800008ED21 /* Bundle+Extensions.swift */; };
-		5441BD252BA770280008ED21 /* StorageKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5441BD242BA770280008ED21 /* StorageKeys.swift */; };
 		545AED592B9CFC5E00A78B84 /* BmcApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 545AED582B9CFC5E00A78B84 /* BmcApp.swift */; };
 		545AED5D2B9CFC5F00A78B84 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 545AED5C2B9CFC5F00A78B84 /* Assets.xcassets */; };
 		545AED602B9CFC5F00A78B84 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 545AED5F2B9CFC5F00A78B84 /* Preview Assets.xcassets */; };
@@ -47,7 +46,6 @@
 /* Begin PBXFileReference section */
 		5401DFB42BA4DD9900D8B152 /* UIDevice+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIDevice+Helpers.swift"; sourceTree = "<group>"; };
 		5441BD212BA75C800008ED21 /* Bundle+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+Extensions.swift"; sourceTree = "<group>"; };
-		5441BD242BA770280008ED21 /* StorageKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageKeys.swift; sourceTree = "<group>"; };
 		545AED552B9CFC5E00A78B84 /* Bmc.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Bmc.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		545AED582B9CFC5E00A78B84 /* BmcApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BmcApp.swift; sourceTree = "<group>"; };
 		545AED5C2B9CFC5F00A78B84 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -121,14 +119,6 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
-		5441BD232BA76FE60008ED21 /* Constants */ = {
-			isa = PBXGroup;
-			children = (
-				5441BD242BA770280008ED21 /* StorageKeys.swift */,
-			);
-			path = Constants;
-			sourceTree = "<group>";
-		};
 		545AED4C2B9CFC5E00A78B84 = {
 			isa = PBXGroup;
 			children = (
@@ -156,7 +146,6 @@
 		545AED572B9CFC5E00A78B84 /* Bmc */ = {
 			isa = PBXGroup;
 			children = (
-				5441BD232BA76FE60008ED21 /* Constants */,
 				5441BD202BA75C720008ED21 /* Extensions */,
 				5401DFB32BA4DD8000D8B152 /* Utility */,
 				545AEE0E2B9D1A7F00A78B84 /* Presentation */,
@@ -446,7 +435,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				545AEE082B9D174800A78B84 /* Configuration.swift in Sources */,
-				5441BD252BA770280008ED21 /* StorageKeys.swift in Sources */,
 				545AEDFB2B9D0F2F00A78B84 /* Info.swift in Sources */,
 				54B5D1B92B9E131E003CFDCB /* AdminLoginMainCoordinator.swift in Sources */,
 				5441BD222BA75C800008ED21 /* Bundle+Extensions.swift in Sources */,
