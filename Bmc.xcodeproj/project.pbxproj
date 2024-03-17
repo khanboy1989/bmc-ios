@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		5401DFB52BA4DD9900D8B152 /* UIDevice+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5401DFB42BA4DD9900D8B152 /* UIDevice+Helpers.swift */; };
+		5419DACA2BA784B800B28197 /* AdminMainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5419DAC92BA784B800B28197 /* AdminMainTabView.swift */; };
 		5441BD1F2BA7511C0008ED21 /* Utilities in Frameworks */ = {isa = PBXBuildFile; productRef = 5441BD1E2BA7511C0008ED21 /* Utilities */; };
 		5441BD222BA75C800008ED21 /* Bundle+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5441BD212BA75C800008ED21 /* Bundle+Extensions.swift */; };
 		545AED592B9CFC5E00A78B84 /* BmcApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 545AED582B9CFC5E00A78B84 /* BmcApp.swift */; };
@@ -45,6 +46,7 @@
 
 /* Begin PBXFileReference section */
 		5401DFB42BA4DD9900D8B152 /* UIDevice+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIDevice+Helpers.swift"; sourceTree = "<group>"; };
+		5419DAC92BA784B800B28197 /* AdminMainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminMainTabView.swift; sourceTree = "<group>"; };
 		5441BD212BA75C800008ED21 /* Bundle+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+Extensions.swift"; sourceTree = "<group>"; };
 		545AED552B9CFC5E00A78B84 /* Bmc.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Bmc.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		545AED582B9CFC5E00A78B84 /* BmcApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BmcApp.swift; sourceTree = "<group>"; };
@@ -109,6 +111,14 @@
 				5401DFB42BA4DD9900D8B152 /* UIDevice+Helpers.swift */,
 			);
 			path = Utility;
+			sourceTree = "<group>";
+		};
+		5419DAC82BA784A200B28197 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				5419DAC92BA784B800B28197 /* AdminMainTabView.swift */,
+			);
+			path = Main;
 			sourceTree = "<group>";
 		};
 		5441BD202BA75C720008ED21 /* Extensions */ = {
@@ -250,6 +260,7 @@
 		545AEE0E2B9D1A7F00A78B84 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				5419DAC82BA784A200B28197 /* Main */,
 				54B5D1B72B9E12DF003CFDCB /* Login */,
 			);
 			path = Presentation;
@@ -434,6 +445,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5419DACA2BA784B800B28197 /* AdminMainTabView.swift in Sources */,
 				545AEE082B9D174800A78B84 /* Configuration.swift in Sources */,
 				545AEDFB2B9D0F2F00A78B84 /* Info.swift in Sources */,
 				54B5D1B92B9E131E003CFDCB /* AdminLoginMainCoordinator.swift in Sources */,
