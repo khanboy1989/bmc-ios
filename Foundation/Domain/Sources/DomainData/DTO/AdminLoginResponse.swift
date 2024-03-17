@@ -39,6 +39,6 @@ struct AdminLoginResponse: Decodable {
 
 struct AdminLoginResponseMapper: Mappable {
     func map(_ input: AdminLoginResponse) throws -> AdminAuth {
-        .init(token: input.profile.token, refreshToken: input.profile.refreshToken, success: input.success, message: input.message)
+        .init(token: input.profile.token, refreshToken: input.profile.refreshToken)
     }
 }

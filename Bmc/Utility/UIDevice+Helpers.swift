@@ -18,6 +18,5 @@ final class DeviceConfiguration {
         let device = UIDevice.current
         let modelIdentifier = device.modelIdentifier
         return  mapToiPhones(identifier: modelIdentifier).displayName
-    }
-    
+    }    
 }

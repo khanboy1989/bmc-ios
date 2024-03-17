@@ -9,7 +9,6 @@ import Foundation
 import Network
 import SystemDesign
 
-
 open class BaseViewModel {
     
     public init() {}

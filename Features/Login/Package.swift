@@ -20,7 +20,8 @@ let package = Package(
         .package(path: "../Foundation/Router"),
         .package(path: "../Foundation/Domain"),
         .package(path: "../Foundation/Helpers"),
-        .package(path: "../SystemDesign"),
+        .package(path: "../Foundation/SystemDesign"),
+        .package(path: "../Foundation/Utilities"),
         .package(path: "./Base")
     ],
     targets: [
@@ -36,6 +37,7 @@ let package = Package(
                 "Helpers",
                 "SystemDesign",
                 "Base",
+                "Utilities",
                 .product(name: "DomainData", package: "Domain"),
             ]
         ),

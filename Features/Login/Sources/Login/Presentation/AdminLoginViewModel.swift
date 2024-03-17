@@ -13,15 +13,18 @@ import Router
 import SwiftUI
 import Network
 import Base
+import Utilities
 
 final class AdminLoginViewModel:BaseViewModel, ObservableObject {
     
     struct Dependecies {
         let authenticationRepository: IAuthenticationRepository
+        let keyChianService: IKeychainService
     }
     
     init(dependecies: Dependecies) {
         self.authenticationRepository = dependecies.authenticationRepository
+        self.keyChainService = dependecies.keyChianService
         super.init()
     }
     
@@ -34,6 +37,7 @@ final class AdminLoginViewModel:BaseViewModel, ObservableObject {
     @Published var navigateToMain: Bool = false
     
     private let authenticationRepository: IAuthenticationRepository
+    private let keyChainService: IKeychainService
     
     func login()  {
         
@@ -57,18 +61,14 @@ final class AdminLoginViewModel:BaseViewModel, ObservableObject {
         //Start Loading
         self.isLoading = true
         
-        Task { @MainActor in
+        Task { @MainActor  [weak self]  in
+            guard let self = self else { return }
             do {
                 let result = try await self.authenticationRepository.login(email: email, password: password)
-                switch result.success  {
-                case true:
-                    self.isLoading = false
-                    self.navigateToMain = true
-                case false:
-                    self.isLoading = false
-                    self.errorMessage = result.message
-                    self.showError = true
-                }
+                _ = try self.keyChainService.saveToKeychain(result, for: "authentication")
+                let auth = try self.keyChainService.loadFromKeychain(AdminAuth.self, for: "authentication")
+                self.isLoading = false
+                self.navigateToMain = true
             }catch {
                 let errorMessage = self.handleError(error)
                 self.isLoading = false
