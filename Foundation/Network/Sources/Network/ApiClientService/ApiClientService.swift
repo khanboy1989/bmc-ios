@@ -11,9 +11,9 @@ import Logger
 public enum APIError: Error {
     case invalidEndpoint
     case badServerResponse
-    case networkError(error: Error)
+    case networkError(error: Error, statusCode: Int?)
     case parsing(error: Error)
-    case customError(message: String)
+    case customError(message: String, statusCode: Int?)
 }
 
 public typealias APIResponse = (data: Data, statusCode: Int)
@@ -60,7 +60,7 @@ public final class APIClientService: IAPIClientService {
             self?.logger.log(request: request, data: data, response: response as? HTTPURLResponse, error: error)
 
             if let error = error {
-                completion(.failure(.networkError(error: error)))
+                completion(.failure(.networkError(error: error, statusCode: (response as? HTTPURLResponse)?.statusCode)))
                 return
             }
 
@@ -70,10 +70,10 @@ public final class APIClientService: IAPIClientService {
                 guard let data = data else { completion(.failure(.badServerResponse)); return }
                 let decoder = JSONDecoder()
                 let errorResult = try? decoder.decode(ResultResponse.self, from: data)
-                completion(.failure(.customError(message: errorResult?.statusMessage ?? "Unknown error.")))
+                completion(.failure(.customError(message: errorResult?.statusMessage ?? "Unknown error.", statusCode: (response as? HTTPURLResponse)?.statusCode )))
                 return
             }
-
+            
             completion(.success((data, httpResponse.statusCode)))
         }
 

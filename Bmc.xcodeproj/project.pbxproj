@@ -378,7 +378,6 @@
 				en,
 				Base,
 				tr,
-				ar,
 			);
 			mainGroup = 545AED4C2B9CFC5E00A78B84;
 			productRefGroup = 545AED562B9CFC5E00A78B84 /* Products */;
