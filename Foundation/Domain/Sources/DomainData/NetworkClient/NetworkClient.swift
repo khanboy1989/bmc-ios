@@ -22,38 +22,103 @@ public class NetworkClient: INetworkClient {
         self.apiClientService = apiClientService
     }
     
-    public func request(_ endpoint: any EndpointType) async -> Result<APIResponse, APIError> {
-        let result = await self.apiClientService.request(endpoint)
-        
-        switch result {
-        case let .success(response):
-            return .success(response)
-        case let .failure(error):
-            
+    public func request(_ endpoint: EndpointType) async -> Result<APIResponse, APIError> {
+        return await withCheckedContinuation { continuation in
+            Task.init {
+                do {
+                    let result = await self.apiClientService.request(endpoint)
+                    
+                    switch result {
+                    case let .success(response):
+                        continuation.resume(returning: .success(response))
+                        
+                    case let .failure(error):
+                        do {
+                            try await handleAPIError(error: error)
+                            let resultAfterRefresh = await self.apiClientService.request(endpoint)
+                            switch resultAfterRefresh {
+                            case let .success(responseAfterRefresh):
+                                continuation.resume(returning: .success(responseAfterRefresh))
+                            case let .failure(errorAfterRefresh):
+                                continuation.resume(returning: .failure(errorAfterRefresh))
+                            }
+                        } catch {
+                            continuation.resume(returning: .failure(.badServerResponse))
+                        }
+                    }
+                }
+            }
+        }
+    }
+    
+    public func request<T>(_ endpoint: EndpointType, for type: T.Type) async throws -> T where T: Decodable {
+        return await withCheckedContinuation { continuation in
+            Task.init {
+                do {
+                    let result = try await self.apiClientService.request(endpoint, for: type)
+                    continuation.resume(returning: result)
+                } catch let error {
+                    if let error = error as? APIError {
+                        do {
+                            try await handleAPIError(error: error)
+                            let result = try await self.apiClientService.request(endpoint, for: type)
+                            continuation.resume(returning: result)
+                        } catch{
+                            throw error
+                        }
+                    } else {
+                        throw error
+                    }
+                }
+            }
+        }
+    }
+    
+    
+    public func request<T, M>(_ endpoint: any EndpointType, mapper: M) async throws -> T where T == M.Output, M : Network.Mappable {
+        return await withCheckedContinuation { continuation in
+            Task.init {
+                do {
+                    let result = try await self.apiClientService.request(endpoint, mapper: mapper)
+                    continuation.resume(returning: result)
+                } catch let error {
+                    if let error = error as? APIError {
+                        do {
+                            try await handleAPIError(error: error)
+                            let result = try await self.apiClientService.request(endpoint, mapper: mapper)
+                            continuation.resume(returning: result)
+                        } catch{
+                            continuation.resume(throwing: error)
+                        }
+                    } else {
+                        continuation.resume(throwing: error)
+                    }
+                }
+            }
         }
         
     }
     
-    public func request<T>(_ endpoint: any EndpointType, for type: T.Type) async throws -> T where T : Decodable {
-        return try await self.apiClientService.request(endpoint, for: type)
-    }
-    
-    public func request<T, M>(_ endpoint: any Network.EndpointType, mapper: M) async throws -> T where T == M.Output, M : Network.Mappable {
-        return try await self.apiClientService.request(endpoint, mapper: mapper)
-    }
-    
-    private func handleError(error: APIError) -> APIError {
+    private func handleAPIError(error: APIError) async throws {
         switch error {
-        case let .networkError(error, statusCode):
-            guard let statusCode = statusCode else { return }
-        case let .customError(message, statusCode):
-            guard let statusCode = statusCode else { return }
+        case let .networkError(_, statusCode), let .customError(_, statusCode):
+            guard let statusCode = statusCode else {
+                throw error // Handle error properly
+            }
+            
+            guard statusCode == 401 else {
+                throw error // Handle error properly
+            }
+            
+            // If status code is 401, refresh token and retry request
+            try await refreshTokenAndRetryRequest()
+            
         default:
-            return error
+            throw error // Handle error properly
         }
     }
     
-    private func refreshToken() {
+    private func refreshTokenAndRetryRequest() async throws {
         
     }
 }
