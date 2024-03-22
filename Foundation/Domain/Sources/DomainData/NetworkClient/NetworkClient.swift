@@ -1,6 +1,6 @@
 //
 //  File.swift
-//  
+//
 //
 //  Created by Serhan Khan on 17/03/2024.
 //
@@ -15,7 +15,7 @@ public protocol INetworkClient {
 }
 
 public class NetworkClient: INetworkClient {
-
+    
     private let apiClientService: IAPIClientService
     
     public init(apiClientService: IAPIClientService) {
@@ -23,7 +23,15 @@ public class NetworkClient: INetworkClient {
     }
     
     public func request(_ endpoint: any EndpointType) async -> Result<APIResponse, APIError> {
-        return await self.apiClientService.request(endpoint)
+        let result = await self.apiClientService.request(endpoint)
+        
+        switch result {
+        case let .success(response):
+            return .success(response)
+        case let .failure(error):
+            
+        }
+        
     }
     
     public func request<T>(_ endpoint: any EndpointType, for type: T.Type) async throws -> T where T : Decodable {
@@ -34,7 +42,18 @@ public class NetworkClient: INetworkClient {
         return try await self.apiClientService.request(endpoint, mapper: mapper)
     }
     
+    private func handleError(error: APIError) -> APIError {
+        switch error {
+        case let .networkError(error, statusCode):
+            guard let statusCode = statusCode else { return }
+        case let .customError(message, statusCode):
+            guard let statusCode = statusCode else { return }
+        default:
+            return error
+        }
+    }
+    
     private func refreshToken() {
-        // TODO: Implement the refresh token call 
+        
     }
 }
