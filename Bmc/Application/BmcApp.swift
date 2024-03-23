@@ -11,18 +11,24 @@ import Network
 
 @main
 struct BmcApp: App {
-    let configuration: Configuration
+    private let configuration: Configuration
+    private let keyChainClient: KeychainClient
     
     init() {
         let deviceConfig = DeviceConfiguration()
         //inherits the configuration for start
         self.configuration = Configuration(deviceDisplayName: deviceConfig.getDeviceDisplayName(), serviceIdentifier: Bundle().identifier)
+        self.keyChainClient = KeychainClient(keyChainService: configuration.getKeyChainService())
     }
     
     var body: some Scene {
         WindowGroup {
-            AdminLoginMainCoordinator()
-                .environmentObject(configuration)
+            if let _ = try? self.keyChainClient.adminAuth() {
+                AdminMainCoordinator()
+            } else {
+                AdminLoginMainCoordinator()
+                    .environmentObject(configuration)
+            }
         }
     }
 }

@@ -6,3 +6,8 @@
 //
 
 import Foundation
+import Base
+
+final class AdminRentalReservationViewModel: BaseViewModel, ObservableObject {
+    
+}

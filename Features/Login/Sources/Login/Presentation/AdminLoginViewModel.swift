@@ -37,6 +37,12 @@ final class AdminLoginViewModel:BaseViewModel, ObservableObject {
     
     private let authenticationRepository: IAuthenticationRepository
     
+    
+    func navigateMain() {
+        self.navigateToMain = true
+    }
+    
+    
     func login()  {
         
         //Check if email is empty
@@ -59,17 +65,22 @@ final class AdminLoginViewModel:BaseViewModel, ObservableObject {
         //Start Loading
         self.isLoading = true
         
-        Task { @MainActor  [weak self]  in
+        Task {  [weak self]  in
             guard let self = self else { return }
             do {
-                let result = try await self.authenticationRepository.login(email: email, password: password)
-                self.isLoading = false
-                self.navigateToMain = true
-            }catch {
+                _ = try await self.authenticationRepository.login(email: email, password: password)
+                await MainActor.run(body: {
+                    self.isLoading = false
+                    self.navigateToMain = true
+                })
+                
+            } catch {
                 let errorMessage = self.handleError(error)
-                self.isLoading = false
-                self.errorMessage = errorMessage
-                self.showError = true
+                await MainActor.run(body: {
+                    self.isLoading = false
+                    self.errorMessage = errorMessage
+                    self.showError = true
+                })
             }
         }
        

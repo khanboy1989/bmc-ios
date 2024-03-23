@@ -64,7 +64,6 @@ public class AdminNetworkClient: INetworkClient {
                         do {
                             try await handleAPIError(error: error)
                             let modifiedEndpoint = try modifyEndpoint(endpoint)
-
                             let result = try await self.apiClientService.request(modifiedEndpoint, for: type)
                             continuation.resume(returning: result)
                         } catch{
@@ -111,7 +110,7 @@ public class AdminNetworkClient: INetworkClient {
                 throw error // Handle error properly
             }
             
-            guard statusCode == 401 else {
+            guard statusCode == HTTPStatusCode.unauthorized.rawValue else {
                 throw error // Handle error properly
             }
             
@@ -127,9 +126,8 @@ public class AdminNetworkClient: INetworkClient {
         let endpoint = AdminApiEndpoints.refreshToken()
         do {
             let modifiedEndpoint = try modifyEndpoint(endpoint, shouldRefreshToken: true)
-            let result = try await self.request(modifiedEndpoint, mapper: AdminAuthMapper())
+            let result = try await self.apiClientService.request(modifiedEndpoint, mapper: AdminAuthMapper())
             _ = try self.keyChainService.saveToKeychain(result, for: StorageKeys.Keys.adminAuthentication.rawValue)
-            
         } catch {
             throw error
         }

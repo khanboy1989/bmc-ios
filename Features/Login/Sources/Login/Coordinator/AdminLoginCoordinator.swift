@@ -15,7 +15,7 @@ import AlertToast
 import Utilities
 
 public enum LoginDestination: Hashable {
-    case main
+    case home
 }
 
 public struct AdminLoginCoordinator: View {

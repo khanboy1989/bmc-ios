@@ -8,8 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		5401DFB52BA4DD9900D8B152 /* UIDevice+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5401DFB42BA4DD9900D8B152 /* UIDevice+Helpers.swift */; };
-		5419DACA2BA784B800B28197 /* AdminMainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5419DAC92BA784B800B28197 /* AdminMainTabView.swift */; };
-		5441BD1F2BA7511C0008ED21 /* Utilities in Frameworks */ = {isa = PBXBuildFile; productRef = 5441BD1E2BA7511C0008ED21 /* Utilities */; };
 		5441BD222BA75C800008ED21 /* Bundle+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5441BD212BA75C800008ED21 /* Bundle+Extensions.swift */; };
 		545AED592B9CFC5E00A78B84 /* BmcApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 545AED582B9CFC5E00A78B84 /* BmcApp.swift */; };
 		545AED5D2B9CFC5F00A78B84 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 545AED5C2B9CFC5F00A78B84 /* Assets.xcassets */; };
@@ -25,6 +23,9 @@
 		549CD9CC2B9F88190025905D /* Network in Frameworks */ = {isa = PBXBuildFile; productRef = 549CD9CB2B9F88190025905D /* Network */; };
 		54B5D1B92B9E131E003CFDCB /* AdminLoginMainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54B5D1B82B9E131E003CFDCB /* AdminLoginMainCoordinator.swift */; };
 		54B5D1BB2B9E1ACF003CFDCB /* Login in Frameworks */ = {isa = PBXBuildFile; productRef = 54B5D1BA2B9E1ACF003CFDCB /* Login */; };
+		54C953D12BAF5AD0002149C4 /* AdminMainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54C953D02BAF5AD0002149C4 /* AdminMainCoordinator.swift */; };
+		54C953D32BAF5C20002149C4 /* Reservation in Frameworks */ = {isa = PBXBuildFile; productRef = 54C953D22BAF5C20002149C4 /* Reservation */; };
+		54C953D52BAF7E36002149C4 /* KeychainClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54C953D42BAF7E36002149C4 /* KeychainClient.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,7 +47,6 @@
 
 /* Begin PBXFileReference section */
 		5401DFB42BA4DD9900D8B152 /* UIDevice+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIDevice+Helpers.swift"; sourceTree = "<group>"; };
-		5419DAC92BA784B800B28197 /* AdminMainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminMainTabView.swift; sourceTree = "<group>"; };
 		5441BD212BA75C800008ED21 /* Bundle+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+Extensions.swift"; sourceTree = "<group>"; };
 		545AED552B9CFC5E00A78B84 /* Bmc.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Bmc.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		545AED582B9CFC5E00A78B84 /* BmcApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BmcApp.swift; sourceTree = "<group>"; };
@@ -71,6 +71,8 @@
 		54C048F52BA730DF001B18A9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Base; sourceTree = "<group>"; };
 		54C048F62BA73CBC001B18A9 /* Utilities */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Utilities; sourceTree = "<group>"; };
 		54C953C82BAF096F002149C4 /* Reservation */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Reservation; sourceTree = "<group>"; };
+		54C953D02BAF5AD0002149C4 /* AdminMainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminMainCoordinator.swift; sourceTree = "<group>"; };
+		54C953D42BAF7E36002149C4 /* KeychainClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainClient.swift; sourceTree = "<group>"; };
 		EB5FBDA42BA07C16002FC623 /* Domain */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Domain; sourceTree = "<group>"; };
 		EB5FBDA52BA07C17002FC623 /* Helpers */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Helpers; sourceTree = "<group>"; };
 		EB5FBDB82BA087F9002FC623 /* SystemDesign */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = SystemDesign; sourceTree = "<group>"; };
@@ -84,8 +86,8 @@
 				545AEE062B9D173A00A78B84 /* Logger in Frameworks */,
 				549CD9CC2B9F88190025905D /* Network in Frameworks */,
 				54B5D1BB2B9E1ACF003CFDCB /* Login in Frameworks */,
-				5441BD1F2BA7511C0008ED21 /* Utilities in Frameworks */,
 				545AEE042B9D173300A78B84 /* Router in Frameworks */,
+				54C953D32BAF5C20002149C4 /* Reservation in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -110,6 +112,7 @@
 			isa = PBXGroup;
 			children = (
 				5401DFB42BA4DD9900D8B152 /* UIDevice+Helpers.swift */,
+				54C953D42BAF7E36002149C4 /* KeychainClient.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -117,7 +120,7 @@
 		5419DAC82BA784A200B28197 /* Main */ = {
 			isa = PBXGroup;
 			children = (
-				5419DAC92BA784B800B28197 /* AdminMainTabView.swift */,
+				54C953C92BAF3FF1002149C4 /* Reservation */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -285,6 +288,14 @@
 			path = Login;
 			sourceTree = "<group>";
 		};
+		54C953C92BAF3FF1002149C4 /* Reservation */ = {
+			isa = PBXGroup;
+			children = (
+				54C953D02BAF5AD0002149C4 /* AdminMainCoordinator.swift */,
+			);
+			path = Reservation;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -307,7 +318,7 @@
 				545AEE052B9D173A00A78B84 /* Logger */,
 				54B5D1BA2B9E1ACF003CFDCB /* Login */,
 				549CD9CB2B9F88190025905D /* Network */,
-				5441BD1E2BA7511C0008ED21 /* Utilities */,
+				54C953D22BAF5C20002149C4 /* Reservation */,
 			);
 			productName = Bmc;
 			productReference = 545AED552B9CFC5E00A78B84 /* Bmc.app */;
@@ -446,13 +457,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5419DACA2BA784B800B28197 /* AdminMainTabView.swift in Sources */,
 				545AEE082B9D174800A78B84 /* Configuration.swift in Sources */,
 				545AEDFB2B9D0F2F00A78B84 /* Info.swift in Sources */,
+				54C953D52BAF7E36002149C4 /* KeychainClient.swift in Sources */,
 				54B5D1B92B9E131E003CFDCB /* AdminLoginMainCoordinator.swift in Sources */,
 				5441BD222BA75C800008ED21 /* Bundle+Extensions.swift in Sources */,
 				5401DFB52BA4DD9900D8B152 /* UIDevice+Helpers.swift in Sources */,
 				545AED592B9CFC5E00A78B84 /* BmcApp.swift in Sources */,
+				54C953D12BAF5AD0002149C4 /* AdminMainCoordinator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -613,8 +625,8 @@
 		545AED7A2B9CFC5F00A78B84 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				API_BASE_URL = "https://stageapi.bmcrentacar.com/api";
-				API_KEY = 115q0axR9D2XoRD3Vf6xsTVkeMhJwZdEd8LVeBY5;
+				API_BASE_URL = "https://stageapi.bmcrentacar.com";
+				API_KEY = zQX2o747miDHnGFdAwHS35NBAktcC0RYV2cMUZ7K;
 				APP_DISPLAY_NAME = "Bmc-Dev";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -655,7 +667,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				API_BASE_URL = "https://api.bmcrentacar.com ";
-				API_KEY = 115q0axR9D2XoRD3Vf6xsTVkeMhJwZdEd8LVeBY5;
+				API_KEY = zQX2o747miDHnGFdAwHS35NBAktcC0RYV2cMUZ7K;
 				APP_DISPLAY_NAME = Bmc;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -835,8 +847,8 @@
 		54B5D1B42B9DBED3003CFDCB /* Staging */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				API_BASE_URL = "https://stageapi.bmcrentacar.com/api";
-				API_KEY = 115q0axR9D2XoRD3Vf6xsTVkeMhJwZdEd8LVeBY5;
+				API_BASE_URL = "https://stageapi.bmcrentacar.com";
+				API_KEY = zQX2o747miDHnGFdAwHS35NBAktcC0RYV2cMUZ7K;
 				APP_DISPLAY_NAME = "Bmc-Staging";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -957,10 +969,6 @@
 /* End XCConfigurationList section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		5441BD1E2BA7511C0008ED21 /* Utilities */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = Utilities;
-		};
 		545AEE032B9D173300A78B84 /* Router */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = Router;
@@ -976,6 +984,10 @@
 		54B5D1BA2B9E1ACF003CFDCB /* Login */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = Login;
+		};
+		54C953D22BAF5C20002149C4 /* Reservation */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Reservation;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

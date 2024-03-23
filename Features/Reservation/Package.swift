@@ -15,6 +15,13 @@ let package = Package(
             targets: ["Reservation"]),
     ],
     dependencies: [
+        .package(path: "../Core/CommonUI"),
+        .package(path: "../Foundation/Network"),
+        .package(path: "../Foundation/Router"),
+        .package(path: "../Foundation/Domain"),
+        .package(path: "../Foundation/Helpers"),
+        .package(path: "../Foundation/SystemDesign"),
+        .package(path: "../Foundation/Utilities"),
         .package(path: "./Base")
     ],
     targets: [
@@ -23,11 +30,22 @@ let package = Package(
         .target(
             name: "Reservation",
             dependencies: [
+                "Network",
+                "CommonUI",
+                "Router",
+                "Domain",
+                "Helpers",
+                "SystemDesign",
                 "Base",
+                "Utilities",
+                .product(name: "DomainData", package: "Domain"),
+                .product(name: "StorageKeys", package: "Domain")
             ]
         ),
         .testTarget(
             name: "ReservationTests",
-            dependencies: ["Reservation"]),
+            dependencies: ["Reservation",
+            .product(name: "NetworkMock", package: "Network")
+        ] ),
     ]
 )

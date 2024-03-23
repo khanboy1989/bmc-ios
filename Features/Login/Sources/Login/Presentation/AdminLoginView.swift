@@ -83,7 +83,7 @@ public struct AdminLoginView: View {
             
             // Login button
             Button(action: {
-                viewModel.login()
+                viewModel.navigateMain()
             }) {
                 Text(L10n.login)
                     .foregroundColor(.white)
@@ -112,7 +112,7 @@ public struct AdminLoginView: View {
         }
         .onChange(of: viewModel.navigateToMain, perform: { isAllowedToNavigate in
             if isAllowedToNavigate {
-                router.navigate(to: LoginDestination.main)
+                router.navigate(to: LoginDestination.home)
             }
         })
         .onAppear {

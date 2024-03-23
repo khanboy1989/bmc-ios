@@ -18,11 +18,10 @@ struct AdminLoginMainCoordinator: View {
             AdminLoginCoordinator(dependecies: AdminLoginCoordinator.Dependecies.init(networkClient: configuration.getNetworkClient(), keyChainService: configuration.getKeyChainService()))
                 .navigationDestination(for: LoginDestination.self) { destination in
                     switch destination {
-                    case .main:
-                        let _ = print("Instantiate MainCoordinator from here")
-                        EmptyView()
+                    case .home:
+                        AdminMainCoordinator()
+                            .navigationBarBackButtonHidden()
                     }
-                    
                 }
         }.environmentObject(router)
     }

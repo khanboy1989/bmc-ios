@@ -7,6 +7,7 @@
 
 import Foundation
 
+// HTTP Method
 public enum HTTPMethod: String {
     case get = "GET"
     case post = "POST"
@@ -15,6 +16,8 @@ public enum HTTPMethod: String {
     case delete = "DELETE"
 }
 
+
+// Body Parameters
 public enum BodyParameter {
     case data(Data)
     case dictionary([String: Any], options: JSONSerialization.WritingOptions = [])

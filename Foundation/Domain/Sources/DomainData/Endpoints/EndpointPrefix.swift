@@ -11,4 +11,5 @@ struct EndpointPrefix {
     static let api = "/api"
     static let version: String = "/v1"
     static let admin: String = "/admin"
+    static let mobile = "/mobile"
 }
