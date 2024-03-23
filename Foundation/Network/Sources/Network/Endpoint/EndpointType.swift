@@ -38,7 +38,7 @@ public struct APIEndpoint: EndpointType {
     public let path: String
     public let httpMethod: HTTPMethod
     public let urlQueries: [String: String]?
-    public let headers: [String: String]?
+    public var headers: [String: String]?
     public let bodyParameters: BodyParameter?
     public init(baseUrl: URL? = nil,
                 path: String,

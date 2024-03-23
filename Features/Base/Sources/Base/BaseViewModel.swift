@@ -16,9 +16,9 @@ open class BaseViewModel {
     public final func handleError(_ error: any Error) -> String {
         if let error = error as? APIError {
             switch error {
-            case let .customError(message):
+            case let .customError(message , _):
                 return message
-            case let .networkError(error):
+            case let .networkError(error, _):
                 return error.localizedDescription
             default:
                 return error.localizedDescription
