@@ -11,7 +11,7 @@ import Utilities
 import StorageKeys
 import Domain
 
-open class AdminNetworkClient: INetworkClient {
+public class AdminNetworkClient: INetworkClient {
     
     private let apiClientService: IAPIClientService
     private let keyChainService: IKeychainService
