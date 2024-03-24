@@ -32,9 +32,4 @@ public final class Router: ObservableObject {
     public func navigateToRoot() {
         navPath.removeLast(navPath.count)
     }
-    
-    public func replaceRoot(destination: any Hashable) {
-        navPath = NavigationPath()
-        navPath.append(destination)
-    }
 }

@@ -21,7 +21,6 @@
 		545AEE042B9D173300A78B84 /* Router in Frameworks */ = {isa = PBXBuildFile; productRef = 545AEE032B9D173300A78B84 /* Router */; };
 		545AEE062B9D173A00A78B84 /* Logger in Frameworks */ = {isa = PBXBuildFile; productRef = 545AEE052B9D173A00A78B84 /* Logger */; };
 		545AEE082B9D174800A78B84 /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 545AEE072B9D174800A78B84 /* Configuration.swift */; };
-		549C36692BB084DC0011E61E /* AppRootCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 549C36682BB084DC0011E61E /* AppRootCoordinator.swift */; };
 		549CD9CC2B9F88190025905D /* Network in Frameworks */ = {isa = PBXBuildFile; productRef = 549CD9CB2B9F88190025905D /* Network */; };
 		54B5D1B92B9E131E003CFDCB /* AdminLoginMainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54B5D1B82B9E131E003CFDCB /* AdminLoginMainCoordinator.swift */; };
 		54B5D1BB2B9E1ACF003CFDCB /* Login in Frameworks */ = {isa = PBXBuildFile; productRef = 54B5D1BA2B9E1ACF003CFDCB /* Login */; };
@@ -70,7 +69,7 @@
 		545AEDF72B9D0F2F00A78B84 /* Info.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Info.swift; sourceTree = "<group>"; };
 		545AEE072B9D174800A78B84 /* Configuration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
 		545AEE102B9D1AF800A78B84 /* Login */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Login; sourceTree = "<group>"; };
-		549C36682BB084DC0011E61E /* AppRootCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppRootCoordinator.swift; sourceTree = "<group>"; };
+		549C366A2BB0A04D0011E61E /* Bmc.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Bmc.entitlements; sourceTree = "<group>"; };
 		54B5D1B82B9E131E003CFDCB /* AdminLoginMainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminLoginMainCoordinator.swift; sourceTree = "<group>"; };
 		54C048F52BA730DF001B18A9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Base; sourceTree = "<group>"; };
 		54C048F62BA73CBC001B18A9 /* Utilities */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Utilities; sourceTree = "<group>"; };
@@ -165,6 +164,7 @@
 		545AED572B9CFC5E00A78B84 /* Bmc */ = {
 			isa = PBXGroup;
 			children = (
+				549C366A2BB0A04D0011E61E /* Bmc.entitlements */,
 				5441BD202BA75C720008ED21 /* Extensions */,
 				5401DFB32BA4DD8000D8B152 /* Utility */,
 				545AEE0E2B9D1A7F00A78B84 /* Presentation */,
@@ -269,7 +269,6 @@
 		545AEE0E2B9D1A7F00A78B84 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
-				549C36672BB084BD0011E61E /* AppRootCoordinator */,
 				5419DAC82BA784A200B28197 /* Main */,
 				54B5D1B72B9E12DF003CFDCB /* Login */,
 			);
@@ -284,14 +283,6 @@
 				545AEE102B9D1AF800A78B84 /* Login */,
 			);
 			path = Features;
-			sourceTree = "<group>";
-		};
-		549C36672BB084BD0011E61E /* AppRootCoordinator */ = {
-			isa = PBXGroup;
-			children = (
-				549C36682BB084DC0011E61E /* AppRootCoordinator.swift */,
-			);
-			path = AppRootCoordinator;
 			sourceTree = "<group>";
 		};
 		54B5D1B72B9E12DF003CFDCB /* Login */ = {
@@ -475,7 +466,6 @@
 				545AEDFB2B9D0F2F00A78B84 /* Info.swift in Sources */,
 				54C953D52BAF7E36002149C4 /* KeychainClient.swift in Sources */,
 				54B5D1B92B9E131E003CFDCB /* AdminLoginMainCoordinator.swift in Sources */,
-				549C36692BB084DC0011E61E /* AppRootCoordinator.swift in Sources */,
 				5441BD222BA75C800008ED21 /* Bundle+Extensions.swift in Sources */,
 				5401DFB52BA4DD9900D8B152 /* UIDevice+Helpers.swift in Sources */,
 				545AED592B9CFC5E00A78B84 /* BmcApp.swift in Sources */,
@@ -646,6 +636,7 @@
 				APP_DISPLAY_NAME = "Bmc-Dev";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Bmc/Bmc.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Bmc/Preview Content\"";
@@ -687,6 +678,7 @@
 				APP_DISPLAY_NAME = Bmc;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Bmc/Bmc.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Bmc/Preview Content\"";
@@ -868,6 +860,7 @@
 				APP_DISPLAY_NAME = "Bmc-Staging";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Bmc/Bmc.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Bmc/Preview Content\"";

@@ -33,7 +33,7 @@ public protocol IUserDefaultsService {
     /// - Parameter key: The key whose associated value should be removed.
     func removeFromUserDefaults(for key: String)
     
-    
+    func loadBoolean(for key: String) -> Bool
 
 }
 
@@ -44,8 +44,8 @@ public class UserDefaultsService: IUserDefaultsService {
     
     /// Initializes the UserDefaultsService with a UserDefaults instance.
     /// - Parameter userDefaults: The UserDefaults instance to use.
-    public init(userDefaults: UserDefaults = UserDefaults.standard) {
-        self.userDefaults = userDefaults
+    public init() {
+        self.userDefaults = UserDefaults.standard
     }
     
     // MARK: - IUserDefaultsService
@@ -96,5 +96,10 @@ public class UserDefaultsService: IUserDefaultsService {
     /// - Returns: The boolean value, or nil if it couldn't be loaded.
     public func storeBoolean(_ value: Bool, for key: String) {
         userDefaults.setValue(value, forKey: key)
+    }
+    
+    
+    public func loadBoolean(for key: String) -> Bool {
+        return userDefaults.bool(forKey: key)
     }
 }

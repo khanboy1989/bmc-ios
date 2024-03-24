@@ -18,7 +18,7 @@ final class UserDefaultsClient {
         self.userDefaultsService = userDefaultsService
     }
     
-    func isLoggedIn(for key: String) -> String? {
-        return self.userDefaultsService.loadFromUserDefaults(String.self, for: key)
+    func isLoggedIn() -> Bool {
+        return self.userDefaultsService.loadBoolean(for: StorageKeys.Keys.isLoggedIn.rawValue)
     }
 }

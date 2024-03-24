@@ -14,6 +14,7 @@ import Combine
 
 public struct AdminLoginView: View {
     @EnvironmentObject private var router: Router
+    @EnvironmentObject private var appCoordinator: AppRootCoordinator
     @ObservedObject private var viewModel: AdminLoginViewModel
     @StateObject private var keyboardObserver = KeyboardObserver()
     @State private var keyboardOffset: CGFloat = 0
@@ -98,10 +99,10 @@ public struct AdminLoginView: View {
         .padding(.horizontal, 16)
         .screenBackground(with: Asset.Colors.whiteColor.swiftUIColor)
         .onReceive(NotificationCenter.default.publisher(for: UIResponder.keyboardWillChangeFrameNotification)) { notification in
-                    guard let keyboardRect = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? CGRect else { return }
-                    withAnimation {
-                        keyboardOffset = max(0, keyboardRect.minY - UIScreen.main.bounds.height)
-                    }
+            guard let keyboardRect = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? CGRect else { return }
+            withAnimation {
+                keyboardOffset = max(0, keyboardRect.minY - UIScreen.main.bounds.height)
+            }
         }
         .toast(isPresenting: $viewModel.isLoading, tapToDismiss: false) {
             //When using loading, duration won't auto dismiss and tapToDismiss is set to false
@@ -112,7 +113,11 @@ public struct AdminLoginView: View {
         }
         .onChange(of: viewModel.navigateToMain, perform: { isAllowedToNavigate in
             if isAllowedToNavigate {
-                router.navigate(to: LoginDestination.home)
+                DispatchQueue.main.asyncAfter(deadline: .now()) {
+                    withAnimation(.spring()) {
+                        appCoordinator.current = .adminHome
+                    }
+                }
             }
         })
         .onAppear {
