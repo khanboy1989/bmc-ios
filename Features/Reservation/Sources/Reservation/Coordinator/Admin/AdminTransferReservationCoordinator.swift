@@ -9,9 +9,9 @@ import SwiftUI
 import Router
 
 public struct AdminTransferCoordinator: View {
- 
-    @EnvironmentObject private var router: Router
     
+    @EnvironmentObject private var router: Router
+
     public var body: some View  {
         Text("AdminTransferCoordinator")
     }

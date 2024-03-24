@@ -24,7 +24,6 @@ public struct AdminMainTabViewCoordinator: View {
                     Text("Rentals")
                 }
             
-            
             AdminTransferCoordinator()
                 .environmentObject(router)
                 .tabItem {

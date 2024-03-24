@@ -69,10 +69,9 @@ final class AdminLoginViewModel:BaseViewModel, ObservableObject {
                 })
                 
             } catch {
-                let errorMessage = self.handleError(error)
                 await MainActor.run(body: {
                     self.isLoading = false
-                    self.errorMessage = errorMessage
+                    self.errorMessage = L10n.wrongCredentials
                     self.showError = true
                 })
             }

@@ -17,3 +17,4 @@
 "passwordFieldEmptyError" = "Şifre alanı boş olamaz";
 "forgotPassword" = "Şifremi Unuttum";
 "unknownError" = "Bilinmeyen hata.";
+"wrongCredentials" = "Lütfen geçerli bir kullanıcı adı ve şifre giriniz.";

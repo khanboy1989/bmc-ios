@@ -18,3 +18,4 @@
 "passwordFieldEmptyError" = "Password field could not be empty";
 "forgotPassword" = "Forgot Password";
 "unknownError" = "Unknown error.";
+"wrongCredentials" = "Please enter valid credentials.";
