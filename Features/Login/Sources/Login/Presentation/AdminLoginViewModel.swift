@@ -36,13 +36,7 @@ final class AdminLoginViewModel:BaseViewModel, ObservableObject {
     @Published var navigateToMain: Bool = false
     
     private let authenticationRepository: IAuthenticationRepository
-    
-    
-    func navigateMain() {
-        self.navigateToMain = true
-    }
-    
-    
+
     func login()  {
         
         //Check if email is empty

@@ -83,7 +83,7 @@ public struct AdminLoginView: View {
             
             // Login button
             Button(action: {
-                viewModel.navigateMain()
+                viewModel.login()
             }) {
                 Text(L10n.login)
                     .foregroundColor(.white)

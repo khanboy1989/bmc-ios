@@ -18,6 +18,7 @@ class Configuration: ObservableObject {
     private let apiClientService: IAPIClientService
     private let keyChainService: IKeychainService
     private let networkClient: INetworkClient
+    private let userDefaults: IUserDefaultsService
     
     init(deviceDisplayName: String, serviceIdentifier: String) {
         let logger = Logger(label: Bundle.main.object(forInfoDictionaryKey: "CFBundleDisplayName") as? String ?? "BMC")
@@ -28,6 +29,7 @@ class Configuration: ObservableObject {
         self.logger = logger
         self.apiClientService = apiClientService
         self.keyChainService = keyChainService
+        self.userDefaults = UserDefaultsService()
         self.networkClient = AdminNetworkClient(apiClientService: apiClientService, keyChainService: keyChainService)
     }
    
@@ -37,5 +39,9 @@ class Configuration: ObservableObject {
     
     func getNetworkClient() -> INetworkClient {
         return self.networkClient
+    }
+    
+    func getUserDefaultsService () -> IUserDefaultsService {
+        return self.userDefaults
     }
 }

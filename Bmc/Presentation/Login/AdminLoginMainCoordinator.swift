@@ -15,12 +15,11 @@ struct AdminLoginMainCoordinator: View {
     
     var body: some View {
         NavigationStack(path: $router.navPath) {
-            AdminLoginCoordinator(dependecies: AdminLoginCoordinator.Dependecies.init(networkClient: configuration.getNetworkClient(), keyChainService: configuration.getKeyChainService()))
+            AdminLoginCoordinator(dependecies: AdminLoginCoordinator.Dependecies.init(networkClient: configuration.getNetworkClient(), keyChainService: configuration.getKeyChainService(), userDefaults: configuration.getUserDefaultsService()))
                 .navigationDestination(for: LoginDestination.self) { destination in
                     switch destination {
                     case .home:
                         AdminMainCoordinator()
-                            .navigationBarBackButtonHidden()
                     }
                 }
         }.environmentObject(router)

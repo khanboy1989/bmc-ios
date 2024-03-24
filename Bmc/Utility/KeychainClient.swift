@@ -10,6 +10,9 @@ import Utilities
 import Domain
 import StorageKeys
 
+// TODO: Keychain Client May not be implemeted here
+// If you can find another workaround changing the SwiftUI RootView from the BMCApp file seek for another solution
+
 final class KeychainClient {
     
     private let keyChainService: IKeychainService

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		5401DFB52BA4DD9900D8B152 /* UIDevice+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5401DFB42BA4DD9900D8B152 /* UIDevice+Helpers.swift */; };
+		5441A5DF2BAF88080017C11B /* UserDefaultsClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5441A5DE2BAF88080017C11B /* UserDefaultsClient.swift */; };
 		5441BD222BA75C800008ED21 /* Bundle+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5441BD212BA75C800008ED21 /* Bundle+Extensions.swift */; };
 		545AED592B9CFC5E00A78B84 /* BmcApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 545AED582B9CFC5E00A78B84 /* BmcApp.swift */; };
 		545AED5D2B9CFC5F00A78B84 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 545AED5C2B9CFC5F00A78B84 /* Assets.xcassets */; };
@@ -20,6 +21,7 @@
 		545AEE042B9D173300A78B84 /* Router in Frameworks */ = {isa = PBXBuildFile; productRef = 545AEE032B9D173300A78B84 /* Router */; };
 		545AEE062B9D173A00A78B84 /* Logger in Frameworks */ = {isa = PBXBuildFile; productRef = 545AEE052B9D173A00A78B84 /* Logger */; };
 		545AEE082B9D174800A78B84 /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 545AEE072B9D174800A78B84 /* Configuration.swift */; };
+		549C36692BB084DC0011E61E /* AppRootCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 549C36682BB084DC0011E61E /* AppRootCoordinator.swift */; };
 		549CD9CC2B9F88190025905D /* Network in Frameworks */ = {isa = PBXBuildFile; productRef = 549CD9CB2B9F88190025905D /* Network */; };
 		54B5D1B92B9E131E003CFDCB /* AdminLoginMainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54B5D1B82B9E131E003CFDCB /* AdminLoginMainCoordinator.swift */; };
 		54B5D1BB2B9E1ACF003CFDCB /* Login in Frameworks */ = {isa = PBXBuildFile; productRef = 54B5D1BA2B9E1ACF003CFDCB /* Login */; };
@@ -47,6 +49,7 @@
 
 /* Begin PBXFileReference section */
 		5401DFB42BA4DD9900D8B152 /* UIDevice+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIDevice+Helpers.swift"; sourceTree = "<group>"; };
+		5441A5DE2BAF88080017C11B /* UserDefaultsClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsClient.swift; sourceTree = "<group>"; };
 		5441BD212BA75C800008ED21 /* Bundle+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+Extensions.swift"; sourceTree = "<group>"; };
 		545AED552B9CFC5E00A78B84 /* Bmc.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Bmc.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		545AED582B9CFC5E00A78B84 /* BmcApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BmcApp.swift; sourceTree = "<group>"; };
@@ -67,6 +70,7 @@
 		545AEDF72B9D0F2F00A78B84 /* Info.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Info.swift; sourceTree = "<group>"; };
 		545AEE072B9D174800A78B84 /* Configuration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
 		545AEE102B9D1AF800A78B84 /* Login */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Login; sourceTree = "<group>"; };
+		549C36682BB084DC0011E61E /* AppRootCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppRootCoordinator.swift; sourceTree = "<group>"; };
 		54B5D1B82B9E131E003CFDCB /* AdminLoginMainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminLoginMainCoordinator.swift; sourceTree = "<group>"; };
 		54C048F52BA730DF001B18A9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Base; sourceTree = "<group>"; };
 		54C048F62BA73CBC001B18A9 /* Utilities */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Utilities; sourceTree = "<group>"; };
@@ -113,6 +117,7 @@
 			children = (
 				5401DFB42BA4DD9900D8B152 /* UIDevice+Helpers.swift */,
 				54C953D42BAF7E36002149C4 /* KeychainClient.swift */,
+				5441A5DE2BAF88080017C11B /* UserDefaultsClient.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -264,6 +269,7 @@
 		545AEE0E2B9D1A7F00A78B84 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				549C36672BB084BD0011E61E /* AppRootCoordinator */,
 				5419DAC82BA784A200B28197 /* Main */,
 				54B5D1B72B9E12DF003CFDCB /* Login */,
 			);
@@ -278,6 +284,14 @@
 				545AEE102B9D1AF800A78B84 /* Login */,
 			);
 			path = Features;
+			sourceTree = "<group>";
+		};
+		549C36672BB084BD0011E61E /* AppRootCoordinator */ = {
+			isa = PBXGroup;
+			children = (
+				549C36682BB084DC0011E61E /* AppRootCoordinator.swift */,
+			);
+			path = AppRootCoordinator;
 			sourceTree = "<group>";
 		};
 		54B5D1B72B9E12DF003CFDCB /* Login */ = {
@@ -461,9 +475,11 @@
 				545AEDFB2B9D0F2F00A78B84 /* Info.swift in Sources */,
 				54C953D52BAF7E36002149C4 /* KeychainClient.swift in Sources */,
 				54B5D1B92B9E131E003CFDCB /* AdminLoginMainCoordinator.swift in Sources */,
+				549C36692BB084DC0011E61E /* AppRootCoordinator.swift in Sources */,
 				5441BD222BA75C800008ED21 /* Bundle+Extensions.swift in Sources */,
 				5401DFB52BA4DD9900D8B152 /* UIDevice+Helpers.swift in Sources */,
 				545AED592B9CFC5E00A78B84 /* BmcApp.swift in Sources */,
+				5441A5DF2BAF88080017C11B /* UserDefaultsClient.swift in Sources */,
 				54C953D12BAF5AD0002149C4 /* AdminMainCoordinator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

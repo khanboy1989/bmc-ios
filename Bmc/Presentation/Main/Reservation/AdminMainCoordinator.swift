@@ -9,9 +9,10 @@ import SwiftUI
 import Reservation
 import Router
 
-
 struct AdminMainCoordinator: View {
     @ObservedObject private var router = Router()
+    @EnvironmentObject private var configuration: Configuration
+    
     var body: some View {
         AdminMainTabViewCoordinator()
             .environmentObject(router)

@@ -16,7 +16,7 @@ struct BmcApp: App {
     
     init() {
         let deviceConfig = DeviceConfiguration()
-        //inherits the configuration for start
+        //Inherits the configuration for start
         self.configuration = Configuration(deviceDisplayName: deviceConfig.getDeviceDisplayName(), serviceIdentifier: Bundle().identifier)
         self.keyChainClient = KeychainClient(keyChainService: configuration.getKeyChainService())
     }
@@ -25,6 +25,7 @@ struct BmcApp: App {
         WindowGroup {
             if let _ = try? self.keyChainClient.adminAuth() {
                 AdminMainCoordinator()
+                    .environmentObject(configuration)
             } else {
                 AdminLoginMainCoordinator()
                     .environmentObject(configuration)

@@ -28,7 +28,7 @@ public struct AdminLoginCoordinator: View {
     }
     
     public var body: some View {
-        AdminLoginView(dependecies: .init(authenticationRepository: AuthenticationRepository(networkClient: dependecies.networkClient, keyChainService: dependecies.keychainService)))
+        AdminLoginView(dependecies: .init(authenticationRepository: AuthenticationRepository(networkClient: dependecies.networkClient, keyChainService: dependecies.keychainService, userDefaults: dependecies.userDefaults)))
             .environmentObject(router)
     }
 }
@@ -37,10 +37,12 @@ public extension AdminLoginCoordinator {
     struct Dependecies {
         let networkClient: INetworkClient
         let keychainService: IKeychainService
+        let userDefaults: IUserDefaultsService
         
-        public init(networkClient: INetworkClient, keyChainService: IKeychainService) {
+        public init(networkClient: INetworkClient, keyChainService: IKeychainService, userDefaults: IUserDefaultsService) {
             self.networkClient = networkClient
             self.keychainService = keyChainService
+            self.userDefaults = userDefaults
         }
     }
 }

@@ -9,4 +9,5 @@ import Foundation
 
 public enum Keys: String {
     case adminAuthentication = "adminAuthentication"
+    case isLoggedIn = "isLoggedIn"
 }
