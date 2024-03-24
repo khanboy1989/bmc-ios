@@ -9,6 +9,6 @@ import SwiftUI
 
 public struct AdminTranferReservationsView: View {
     public var body: some View {
-        Text("Hello Worl!")
+        Text("AdminTranferReservationsView")
     }
 }

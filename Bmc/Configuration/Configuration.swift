@@ -24,7 +24,7 @@ class Configuration: ObservableObject {
         let logger = Logger(label: Bundle.main.object(forInfoDictionaryKey: "CFBundleDisplayName") as? String ?? "BMC")
         let currentLanguageCode = Locale.current.language.languageCode?.identifier ?? "tr"
         let apiClientService = APIClientService(logger: logger, configuration: .init(baseURL: URL(string: PlistFiles.apiBaseUrl), 
-                                                                                     baseHeaders: ["User-agent": deviceDisplayName, "X-API-KEY":"\(PlistFiles.apiKey)","content-type": "application/json", "Accept-Language": currentLanguageCode]))
+                                                                                     baseHeaders: ["User-agent": deviceDisplayName, "X-API-KEY":"\(PlistFiles.apiKey)","content-type": "application/json", "Accept-Language": currentLanguageCode, "Accept": "application/json"]))
         let keyChainService =  KeychainService(serviceIdentifier: serviceIdentifier)
         self.logger = logger
         self.apiClientService = apiClientService

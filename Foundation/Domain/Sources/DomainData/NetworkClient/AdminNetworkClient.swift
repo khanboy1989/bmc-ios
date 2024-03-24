@@ -137,12 +137,18 @@ public class AdminNetworkClient: INetworkClient {
         
         do {
             // Get the user Auth model
-            guard let auth = try self.keyChainService.loadFromKeychain(AdminAuth.self, for: StorageKeys.Keys.adminAuthentication.rawValue), let headers = endpointType.headers else {
+            guard let auth = try self.keyChainService.loadFromKeychain(AdminAuth.self, for: StorageKeys.Keys.adminAuthentication.rawValue) else {
                 return endpointType
             }
             
             //Get the
-            var modifiedHeaders = headers
+            var modifiedHeaders: [String: String] = [:]
+            
+            if let headers = endpointType.headers {
+                for (key, value) in headers {
+                    modifiedHeaders[key] = value
+                }
+            }
             
             if shouldRefreshToken {
                 modifiedHeaders["Authorization"] = "Bearer \(auth.refreshToken)"

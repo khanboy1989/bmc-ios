@@ -7,29 +7,38 @@
 
 import SwiftUI
 import Router
+import DomainData
+import Utilities
 
 public struct AdminMainTabViewCoordinator: View {
-    
-    @State private var selectedTab: Int = 0
+
+    // Injected environment object for router
     @EnvironmentObject private var router: Router
     
-    public init() {}
+    // Dependencies needed for the coordinator
+    private let dependecies: Dependecies
+    
+    public init(dependecies: Dependecies) {
+        self.dependecies = dependecies
+    }
     
     public var body: some View {
-        TabView(selection: $selectedTab) {
-            AdminRentalCoordinator()
-                .environmentObject(router)
-                .tabItem {
-                    Image(systemName: "list.bullet.rectangle")
-                    Text("Rentals")
-                }
-            
-            AdminTransferCoordinator()
-                .environmentObject(router)
-                .tabItem {
-                    Image(systemName: "tray.full")
-                    Text("Transfers")
-                }
+        AdminTabView(dependecies: .init(profileRepository: ProfileRepository.init(networkClient: dependecies.networkClient, userDefaults: dependecies.userDefaults)))
+    }
+}
+
+public extension AdminMainTabViewCoordinator {
+    
+    // Struct for Dependencies
+    struct Dependecies {
+        // Initializer for Dependencies
+        let networkClient: INetworkClient
+        
+        let userDefaults: IUserDefaultsService
+        
+        public init(networkClient: INetworkClient, userDefaults: IUserDefaultsService) {
+            self.networkClient = networkClient
+            self.userDefaults = userDefaults
         }
     }
 }

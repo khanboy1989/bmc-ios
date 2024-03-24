@@ -28,6 +28,7 @@ public final class AuthenticationRepository: IAuthenticationRepository {
             let result = try await networkClient
                 .request(AdminApiEndpoints.adminLogin(email: email, password: password), mapper: AdminAuthMapper())
             _ = try self.storeAuth(adminAuth: result, for: Keys.adminAuthentication.rawValue)
+            let adminAuth = try self.loadAuth(for: Keys.adminAuthentication.rawValue)
             _ = self.userDefaults.storeBoolean(true, for: StorageKeys.Keys.isLoggedIn.rawValue)
             return result
         } catch {
@@ -44,12 +45,12 @@ public final class AuthenticationRepository: IAuthenticationRepository {
         }
     }
     
-    private func loadAuth(for key: String) -> AdminAuth? {
+    private func loadAuth(for key: String) throws -> AdminAuth? {
         do {
            let auth =  try self.keyChainService.loadFromKeychain(AdminAuth.self, for: key)
            return auth
         } catch {
-           return nil
+           throw error
         }
     }
 }

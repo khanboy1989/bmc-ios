@@ -13,7 +13,9 @@ public struct AdminRentalCoordinator: View {
     @EnvironmentObject private var router: Router
     
     public var body: some View  {
-        Text("AdminRentalCoordinator")
+        AdminCarRentalReservationsView()
     }
     
 }
+
+

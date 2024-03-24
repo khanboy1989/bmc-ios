@@ -9,7 +9,6 @@ import Foundation
 import Domain
 import Network
 import Utilities
-import StorageKeys
 
 public final class ProfileRepository: IProfileRepository {
     
@@ -22,6 +21,7 @@ public final class ProfileRepository: IProfileRepository {
     }
     
     public func getProfile() async throws {
+        let result = await self.networkClient.request(AdminApiEndpoints.profile())
     }
     
     

@@ -28,17 +28,17 @@ struct AdminAuthResponse: Decodable {
 struct AdminLoginResponse: Decodable {
     let message: String
     let success: Bool
-    let profile: AdminAuthResponse
+    let auth: AdminAuthResponse
     
     enum CodingKeys: String, CodingKey  {
         case message
         case success
-        case profile = "data"
+        case auth = "data"
     }
 }
 
 struct AdminLoginResponseMapper: Mappable {
     func map(_ input: AdminLoginResponse) throws -> AdminAuth {
-        .init(token: input.profile.token, refreshToken: input.profile.refreshToken)
+        .init(token: input.auth.token, refreshToken: input.auth.refreshToken)
     }
 }
