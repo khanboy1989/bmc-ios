@@ -8,7 +8,6 @@
 import Foundation
 import HelperMacros
 
-@DefaultInit
 public struct AdminProfile {
     
 }

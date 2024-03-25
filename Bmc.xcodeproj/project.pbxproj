@@ -27,6 +27,7 @@
 		54C953D12BAF5AD0002149C4 /* AdminMainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54C953D02BAF5AD0002149C4 /* AdminMainCoordinator.swift */; };
 		54C953D32BAF5C20002149C4 /* Reservation in Frameworks */ = {isa = PBXBuildFile; productRef = 54C953D22BAF5C20002149C4 /* Reservation */; };
 		54C953D52BAF7E36002149C4 /* KeychainClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54C953D42BAF7E36002149C4 /* KeychainClient.swift */; };
+		EB7195A32BB1C0ED00B61940 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EB7195A22BB1C0ED00B61940 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -79,6 +80,7 @@
 		EB5FBDA42BA07C16002FC623 /* Domain */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Domain; sourceTree = "<group>"; };
 		EB5FBDA52BA07C17002FC623 /* Helpers */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Helpers; sourceTree = "<group>"; };
 		EB5FBDB82BA087F9002FC623 /* SystemDesign */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = SystemDesign; sourceTree = "<group>"; };
+		EB7195A22BB1C0ED00B61940 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -271,6 +273,7 @@
 			children = (
 				5419DAC82BA784A200B28197 /* Main */,
 				54B5D1B72B9E12DF003CFDCB /* Login */,
+				EB7195A22BB1C0ED00B61940 /* LaunchScreen.storyboard */,
 			);
 			path = Presentation;
 			sourceTree = "<group>";
@@ -415,6 +418,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				545AED602B9CFC5F00A78B84 /* Preview Assets.xcassets in Resources */,
+				EB7195A32BB1C0ED00B61940 /* LaunchScreen.storyboard in Resources */,
 				545AED5D2B9CFC5F00A78B84 /* Assets.xcassets in Resources */,
 				545AEDEB2B9D0CDD00A78B84 /* swiftgen.yml in Resources */,
 			);
@@ -645,11 +649,12 @@
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Bmc/Supporting/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = "$(APP_DISPLAY_NAME)";
+				INFOPLIST_KEY_CFBundleDisplayName = "Bmc-Dev";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.business";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
@@ -687,11 +692,12 @@
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Bmc/Supporting/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = "$(APP_DISPLAY_NAME)";
+				INFOPLIST_KEY_CFBundleDisplayName = "Bmc-Dev";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.business";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
@@ -869,11 +875,12 @@
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Bmc/Supporting/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = "$(APP_DISPLAY_NAME)";
+				INFOPLIST_KEY_CFBundleDisplayName = "Bmc-Dev";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.business";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
