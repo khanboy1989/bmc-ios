@@ -23,4 +23,8 @@ final class AdminTabViewModel: ObservableObject {
     func fetchProfile() async {
         try? await self.profileRepository.getProfile()
     }
+    
+    func refreshToken() async {
+        try? await self.profileRepository.refreshTokenAndRetryRequest()
+    }
 }

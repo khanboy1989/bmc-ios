@@ -21,22 +21,43 @@ public struct AdminTabView: View  {
     
     public var body: some View {
         NavigationStack(path: $router.navPath) {
-            TabView(selection: $selectedTab) {
-                AdminRentalCoordinator()
-                    .environmentObject(router)
-                    .tabItem {
-                        Image(systemName: "list.bullet.rectangle")
-                        Text("Rentals")
-                    }
+            
+            VStack {
                 
-                AdminTransferCoordinator()
-                    .environmentObject(router)
-                    .tabItem {
-                        Image(systemName: "tray.full")
-                        Text("Transfers")
+                Button(action: {
+                    Task {
+                       await self.viewModel.refreshToken()
                     }
+                    
+                }, label: {
+                    Text("Refresh Token")
+                })
+                
+                Button(action: {
+                    Task {
+                        await self.viewModel.fetchProfile()
+                    }
+                }, label: {
+                    Text("Fetch Profile")
+                })
+                
+//            TabView(selection: $selectedTab) {
+//                AdminRentalCoordinator()
+//                    .environmentObject(router)
+//                    .tabItem {
+//                        Image(systemName: "list.bullet.rectangle")
+//                        Text("Rentals")
+//                    }
+//
+//                AdminTransferCoordinator()
+//                    .environmentObject(router)
+//                    .tabItem {
+//                        Image(systemName: "tray.full")
+//                        Text("Transfers")
+//                    }
             }.task {
                 await self.viewModel.fetchProfile()
+               
             }
         }
     }
