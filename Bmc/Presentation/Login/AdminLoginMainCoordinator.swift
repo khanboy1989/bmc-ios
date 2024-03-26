@@ -19,6 +19,3 @@ struct AdminLoginMainCoordinator: View {
     }
 }
 
-#Preview {
-    AdminLoginMainCoordinator()
-}
