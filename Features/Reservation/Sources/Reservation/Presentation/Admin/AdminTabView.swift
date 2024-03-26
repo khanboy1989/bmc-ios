@@ -24,6 +24,8 @@ public struct AdminTabView: View  {
             
             VStack {
                 
+                Text(viewModel.name)
+                
                 Button(action: {
                     Task {
                        await self.viewModel.refreshToken()

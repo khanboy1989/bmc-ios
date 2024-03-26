@@ -10,7 +10,7 @@ import Foundation
 struct AdminAbilitiesResponse: Decodable {
     let profile: AdminProfileAbilitiesResponse
     let dashboard: AdminDashboardAbilitiesResponse
-    let cars: String
+    let cars: AdminCarAbilitiesResponse
 }
 
 

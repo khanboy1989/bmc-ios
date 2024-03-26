@@ -6,12 +6,14 @@
 //
 
 import Foundation
+import Network
+import Domain
 
 struct AdminProfileAbilitiesResponse: Decodable {
     let me: AdminMeAbilitiesResponse
 }
 
 struct AdminMeAbilitiesResponse: Decodable {
-    let write: Bool
     let read: Bool
+    let update: Bool
 }

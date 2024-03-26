@@ -10,6 +10,8 @@ import Domain
 
 final class AdminTabViewModel: ObservableObject {
     
+    @Published var name: String = ""
+    
     struct Dependecies {
         let profileRepository: IProfileRepository
     }
@@ -21,7 +23,14 @@ final class AdminTabViewModel: ObservableObject {
     }
     
     func fetchProfile() async {
-        try? await self.profileRepository.getProfile()
+        do {
+            let profile = try await self.profileRepository.getProfile()
+            await MainActor.run(body: { [weak self] in
+                self?.name = profile.firstname
+            })
+        } catch {
+            print("profile fetch error = \(error.localizedDescription)")
+        }
     }
     
     func refreshToken() async {

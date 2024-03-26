@@ -11,9 +11,10 @@ struct AdminDashboardAbilitiesResponse: Decodable {
     let customerType: AdminCustomerTypeAbilitiesResponse
     let admin: AdminUserAbilitiesResponse
     let documentType: AdminDocumentTypeAbilitiesResponse
-    let customer: AdminCustomerTypeAbilitiesResponse
+    let customer: AdminCustomerAbiltiesResponse
     let about: AdminAboutUsAbilitiesResponse
-    let workingHours: AdminWorkingHoursAbilitiesResponse
+    let workingHour: AdminWorkingHoursAbilitiesResponse
+    let contact: AdminContactAbilitiesResponse
 }
 
 struct AdminCustomerTypeAbilitiesResponse: Decodable {
@@ -49,6 +50,13 @@ struct AdminAboutUsAbilitiesResponse: Decodable {
 }
 
 struct AdminWorkingHoursAbilitiesResponse: Decodable {
+    let store: Bool
+    let update: Bool
+    let read: Bool
+    let destroy: Bool
+}
+
+struct AdminCustomerAbiltiesResponse: Decodable {
     let store: Bool
     let update: Bool
     let read: Bool
