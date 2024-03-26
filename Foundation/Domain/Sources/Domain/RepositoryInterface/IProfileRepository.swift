@@ -9,4 +9,5 @@ import Foundation
 
 public protocol IProfileRepository {
     func getProfile() async throws
+    func refreshTokenAndRetryRequest() async throws
 }

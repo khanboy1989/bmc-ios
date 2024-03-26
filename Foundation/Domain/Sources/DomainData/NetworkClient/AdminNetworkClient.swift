@@ -122,11 +122,11 @@ public class AdminNetworkClient: INetworkClient {
         }
     }
     
-    private func refreshTokenAndRetryRequest() async throws {
+    public func refreshTokenAndRetryRequest() async throws {
         let endpoint = AdminApiEndpoints.refreshToken()
         do {
             let modifiedEndpoint = try modifyEndpoint(endpoint, shouldRefreshToken: true)
-            let result = try await self.apiClientService.request(modifiedEndpoint, mapper: AdminAuthMapper())
+            let result = try await self.apiClientService.request(modifiedEndpoint, mapper: RefreshTokenMapper())
             _ = try self.keyChainService.saveToKeychain(result, for: StorageKeys.Keys.adminAuthentication.rawValue)
         } catch {
             throw error

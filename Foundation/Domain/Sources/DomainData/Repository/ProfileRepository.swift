@@ -11,7 +11,7 @@ import Network
 import Utilities
 
 public final class ProfileRepository: IProfileRepository {
-    
+
     private let networkClient: INetworkClient
     private let userDefaults: IUserDefaultsService
     
@@ -24,5 +24,11 @@ public final class ProfileRepository: IProfileRepository {
         let result = await self.networkClient.request(AdminApiEndpoints.profile())
     }
     
-    
+    public func refreshTokenAndRetryRequest() async throws {
+        do {
+            try await self.networkClient.refreshTokenAndRetryRequest()
+        }catch {
+            print("refresh token error = \(error.localizedDescription)")
+        }
+    }
 }
