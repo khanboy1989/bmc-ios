@@ -21,45 +21,24 @@ public struct AdminTabView: View  {
     
     public var body: some View {
         NavigationStack(path: $router.navPath) {
-            
             VStack {
-                
-                Text(viewModel.name)
-                
-                Button(action: {
-                    Task {
-                       await self.viewModel.refreshToken()
-                    }
+                TabView(selection: $selectedTab) {
+                    AdminRentalCoordinator(adminProfile: $viewModel.profile)
+                        .environmentObject(router)
+                        .tabItem {
+                            Image(systemName: "list.bullet.rectangle")
+                            Text("Rentals")
+                        }
                     
-                }, label: {
-                    Text("Refresh Token")
-                })
-                
-                Button(action: {
-                    Task {
-                        await self.viewModel.fetchProfile()
-                    }
-                }, label: {
-                    Text("Fetch Profile")
-                })
-                
-//            TabView(selection: $selectedTab) {
-//                AdminRentalCoordinator()
-//                    .environmentObject(router)
-//                    .tabItem {
-//                        Image(systemName: "list.bullet.rectangle")
-//                        Text("Rentals")
-//                    }
-//
-//                AdminTransferCoordinator()
-//                    .environmentObject(router)
-//                    .tabItem {
-//                        Image(systemName: "tray.full")
-//                        Text("Transfers")
-//                    }
-            }.task {
-                await self.viewModel.fetchProfile()
-               
+                    AdminTransferCoordinator()
+                        .environmentObject(router)
+                        .tabItem {
+                            Image(systemName: "tray.full")
+                            Text("Transfers")
+                        }
+                }.task {
+                    await self.viewModel.fetchProfile()
+                }
             }
         }
     }

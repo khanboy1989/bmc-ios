@@ -11,6 +11,7 @@ import Network
 import Router
 import Utilities
 import DomainData
+import SystemDesign
 
 /// Configuration file that instantiate the ApiClient Service.
 class Configuration: ObservableObject {
