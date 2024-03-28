@@ -21,11 +21,22 @@ public struct AdminProfileHeaderView: View {
         ZStack {
             HStack(alignment: .top) {
                 let _ = print("image url = \(self.imageUrl)")
-                AsyncImage(url: URL(string: imageUrl), scale: 16.0)
-                    .aspectRatio(contentMode: .fit)
-                    .frame(width: 50, height: 50)
-                    .cornerRadius(10)
-                    .padding()
+//                AsyncImage(url: URL(string: imageUrl), scale: 16.0)
+//                    .aspectRatio(contentMode: .fit)
+//                    .frame(width: 50, height: 50)
+//                    .cornerRadius(10)
+//                    .padding()
+                AsyncImage(url: URL(string: self.imageUrl)) { image in
+                   image
+                       .resizable()
+                       .aspectRatio(contentMode: .fit)
+                       .cornerRadius(10)
+                       
+               } placeholder: {
+                   ProgressView()
+                       .colorScheme(.dark)
+               }.frame(width: 80, height: 80)
+                .padding()
                 
                 Spacer()
                 Text(self.adminFirstName)

@@ -12,7 +12,7 @@ import CommonUI
 public struct AdminCarRentalReservationsView: View {
     
     @Binding var adminProfile: AdminMainProfile?
-    @ObservedObject private var viewModel: AdminRentalReservationViewModel
+    @StateObject private var viewModel: AdminRentalReservationViewModel
     
     public init(adminProfile: Binding<AdminMainProfile?>) {
         _viewModel = .init(wrappedValue: AdminRentalReservationViewModel())
