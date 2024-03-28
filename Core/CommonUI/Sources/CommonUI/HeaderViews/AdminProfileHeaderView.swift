@@ -9,28 +9,29 @@ import SwiftUI
 import SystemDesign
 
 public struct AdminProfileHeaderView: View {
+    @Binding var imageUrl: String
+    @Binding var adminFirstName: String
     
-    private let imageUrl: String?
-    
-    public init(imageUrl: String?) {
-        self.imageUrl = imageUrl
+    public init(imageUrl: Binding<String>, adminFirstName: Binding<String>) {
+        _imageUrl = imageUrl
+        _adminFirstName = adminFirstName
     }
     
     public var body: some View {
         ZStack {
             HStack(alignment: .top) {
-                if let imageUrl = self.imageUrl {
-                    AsyncImage(url: URL(string: imageUrl), scale: 16.0)
-                          .aspectRatio(contentMode: .fit)
-                          .frame(width: 50, height: 50)
-                          .cornerRadius(10)
-                          .padding()
-                }
+                let _ = print("image url = \(self.imageUrl)")
+                AsyncImage(url: URL(string: imageUrl), scale: 16.0)
+                    .aspectRatio(contentMode: .fit)
+                    .frame(width: 50, height: 50)
+                    .cornerRadius(10)
+                    .padding()
+                
                 Spacer()
+                Text(self.adminFirstName)
             }
         }.frame(maxWidth: .infinity) // Set maxWidth to cover all width
-        .background(Asset.Colors.primaryColor.swiftUIColor)
-
+         .background(Asset.Colors.primaryColor.swiftUIColor)
     }
 }
 

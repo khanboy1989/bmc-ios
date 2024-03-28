@@ -12,13 +12,16 @@ import Domain
 
 final class AdminRentalReservationViewModel: BaseViewModel, ObservableObject {
     @Published var imageUrl: String = ""
-    @Binding private var adminProfile: AdminMainProfile?
-    
-    init(adminMainProfile: Binding<AdminMainProfile?>) {
-        _adminProfile = adminMainProfile
+    @Published var adminUserName: String = ""
+    @Published var adminProfile: AdminMainProfile? {
+        didSet {
+            createImageUrl()
+        }
     }
-    
-    func createImageUrl() -> String {
-        return Constants.imageBaseUrl + (adminProfile?.profile_image ?? "")
+
+    func createImageUrl() {
+        self.imageUrl = Constants.imageBaseUrl + (adminProfile?.profile_image ?? "")
+        self.adminUserName = adminProfile?.firstname ?? ""
+        print("imageUrl from viewModel =\(self.imageUrl)")
     }
 }

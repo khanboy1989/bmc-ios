@@ -5,7 +5,7 @@
 //  Created by Serhan Khan on 26/03/2024.
 //
 
-import Foundation
+import SwiftUI
 import HelperMacros
 
 public enum AdminRoleType: String {
@@ -15,7 +15,7 @@ public enum AdminRoleType: String {
 }
 
 @DefaultInit
-public struct AdminMainProfile {
+public struct AdminMainProfile: Equatable {
     public let gender: String
     public let country: String
     public let id: Int
@@ -27,5 +27,9 @@ public struct AdminMainProfile {
     public let phone_no: String
     public let profile_image: String
     public let roles: AdminRoles
+    
+    public static func == (lhs: AdminMainProfile, rhs: AdminMainProfile) -> Bool {
+        return lhs.id != rhs.id
+    }
 }
 

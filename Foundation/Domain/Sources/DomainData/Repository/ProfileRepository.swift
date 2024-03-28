@@ -27,8 +27,6 @@ public final class ProfileRepository: IProfileRepository {
         } catch {
             throw error
         }
-        
-        
     }
     
     public func refreshTokenAndRetryRequest() async throws {
