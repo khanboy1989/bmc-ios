@@ -22,6 +22,5 @@ final class AdminRentalReservationViewModel: BaseViewModel, ObservableObject {
     func createImageUrl() {
         self.imageUrl = Constants.imageBaseUrl + (adminProfile?.profile_image ?? "")
         self.adminUserName = adminProfile?.firstname ?? ""
-        print("imageUrl from viewModel =\(self.imageUrl)")
     }
 }

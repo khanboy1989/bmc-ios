@@ -19,25 +19,29 @@ public struct AdminProfileHeaderView: View {
     
     public var body: some View {
         ZStack {
-            HStack(alignment: .top) {
+            HStack(alignment: .center) {
                 let _ = print("image url = \(self.imageUrl)")
-//                AsyncImage(url: URL(string: imageUrl), scale: 16.0)
-//                    .aspectRatio(contentMode: .fit)
-//                    .frame(width: 50, height: 50)
-//                    .cornerRadius(10)
-//                    .padding()
-                AsyncImage(url: URL(string: self.imageUrl)) { image in
-                   image
-                       .resizable()
-                       .aspectRatio(contentMode: .fit)
-                       .cornerRadius(10)
-                       
-               } placeholder: {
-                   ProgressView()
-                       .colorScheme(.dark)
-               }.frame(width: 80, height: 80)
-                .padding()
-                
+                if let url = URL(string: self.imageUrl) {
+                    AsyncImage(url: url) { image in
+                       image
+                           .resizable()
+                           .aspectRatio(contentMode: .fit)
+                           .cornerRadius(10)
+                           
+                   } placeholder: {
+                       ProgressView()
+                           .colorScheme(.dark)
+                   }.frame(width: 60, height: 60)
+                    .padding()
+                } else {
+                    Image(systemName: "person.fill")
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .colorScheme(.dark)
+                        .cornerRadius(10)
+                        .frame(width: 60, height: 60)
+                        .padding()
+                }
                 Spacer()
                 Text(self.adminFirstName)
             }

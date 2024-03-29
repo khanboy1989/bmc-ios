@@ -13,7 +13,7 @@ public struct AdminTabView: View  {
     @State private var selectedTab: Int = 0
     @EnvironmentObject private var router: Router
     @EnvironmentObject private var appCoordinator: AppRootCoordinator
-    @ObservedObject private var viewModel: AdminTabViewModel
+    @StateObject private var viewModel: AdminTabViewModel
     
     init(dependecies: AdminTabViewModel.Dependecies) {
         _viewModel = .init(wrappedValue: AdminTabViewModel(dependecies: dependecies))
