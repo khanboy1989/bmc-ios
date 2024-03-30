@@ -8,5 +8,5 @@
 import Foundation
 
 public protocol IProfileRepository {
-    func getProfile() async throws
+    func getProfile()  async throws -> AdminMainProfile
 }

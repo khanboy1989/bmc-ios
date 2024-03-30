@@ -9,6 +9,12 @@ import Foundation
 import HelperMacros
 
 @DefaultInit
-public struct AdminProfile {
-    
+public struct AdminProfileRoles {
+    public let me: AdminMeRoles
+}
+
+@DefaultInit
+public struct AdminMeRoles {
+    public let read: Bool
+    public let update: Bool 
 }

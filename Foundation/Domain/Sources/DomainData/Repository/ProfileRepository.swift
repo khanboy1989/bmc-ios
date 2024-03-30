@@ -11,7 +11,7 @@ import Network
 import Utilities
 
 public final class ProfileRepository: IProfileRepository {
-    
+
     private let networkClient: INetworkClient
     private let userDefaults: IUserDefaultsService
     
@@ -20,9 +20,12 @@ public final class ProfileRepository: IProfileRepository {
         self.userDefaults = userDefaults
     }
     
-    public func getProfile() async throws {
-        let result = await self.networkClient.request(AdminApiEndpoints.profile())
+    public func getProfile() async throws -> AdminMainProfile {
+        do {
+            let result = try await self.networkClient.request(AdminApiEndpoints.profile(), mapper: AdminProfileDataWrapperMapper())
+            return result
+        } catch {
+            throw error
+        }
     }
-    
-    
 }

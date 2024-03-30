@@ -27,7 +27,9 @@ public struct AdminMainCoordinator: View {
 
     // Body of the view
     public var body: some View {
-        AdminMainTabViewCoordinator(dependecies: .init(networkClient: configuration.getNetworkClient(), userDefaults: configuration.getUserDefaultsService()))
+        AdminMainTabViewCoordinator(dependecies: .init(
+            networkClient: configuration.getNetworkClient(), 
+            userDefaults: configuration.getUserDefaultsService()))
             .environmentObject(router)
     }
 }

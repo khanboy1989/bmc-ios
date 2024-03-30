@@ -17,16 +17,18 @@
 		545AED742B9CFC5F00A78B84 /* BmcUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 545AED732B9CFC5F00A78B84 /* BmcUITests.swift */; };
 		545AED762B9CFC5F00A78B84 /* BmcUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 545AED752B9CFC5F00A78B84 /* BmcUITestsLaunchTests.swift */; };
 		545AEDEB2B9D0CDD00A78B84 /* swiftgen.yml in Resources */ = {isa = PBXBuildFile; fileRef = 545AEDEA2B9D0CDD00A78B84 /* swiftgen.yml */; };
-		545AEDFB2B9D0F2F00A78B84 /* Info.swift in Sources */ = {isa = PBXBuildFile; fileRef = 545AEDF72B9D0F2F00A78B84 /* Info.swift */; };
 		545AEE042B9D173300A78B84 /* Router in Frameworks */ = {isa = PBXBuildFile; productRef = 545AEE032B9D173300A78B84 /* Router */; };
 		545AEE062B9D173A00A78B84 /* Logger in Frameworks */ = {isa = PBXBuildFile; productRef = 545AEE052B9D173A00A78B84 /* Logger */; };
 		545AEE082B9D174800A78B84 /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 545AEE072B9D174800A78B84 /* Configuration.swift */; };
 		549CD9CC2B9F88190025905D /* Network in Frameworks */ = {isa = PBXBuildFile; productRef = 549CD9CB2B9F88190025905D /* Network */; };
+		54B2FDE72BB4C18000D83DFA /* SystemDesign in Frameworks */ = {isa = PBXBuildFile; productRef = 54B2FDE62BB4C18000D83DFA /* SystemDesign */; };
+		54B2FDEA2BB4C20E00D83DFA /* Info.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54B2FDE92BB4C20E00D83DFA /* Info.swift */; };
 		54B5D1B92B9E131E003CFDCB /* AdminLoginMainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54B5D1B82B9E131E003CFDCB /* AdminLoginMainCoordinator.swift */; };
 		54B5D1BB2B9E1ACF003CFDCB /* Login in Frameworks */ = {isa = PBXBuildFile; productRef = 54B5D1BA2B9E1ACF003CFDCB /* Login */; };
 		54C953D12BAF5AD0002149C4 /* AdminMainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54C953D02BAF5AD0002149C4 /* AdminMainCoordinator.swift */; };
 		54C953D32BAF5C20002149C4 /* Reservation in Frameworks */ = {isa = PBXBuildFile; productRef = 54C953D22BAF5C20002149C4 /* Reservation */; };
 		54C953D52BAF7E36002149C4 /* KeychainClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54C953D42BAF7E36002149C4 /* KeychainClient.swift */; };
+		EB7195A32BB1C0ED00B61940 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EB7195A22BB1C0ED00B61940 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,6 +52,7 @@
 		5401DFB42BA4DD9900D8B152 /* UIDevice+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIDevice+Helpers.swift"; sourceTree = "<group>"; };
 		5441A5DE2BAF88080017C11B /* UserDefaultsClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsClient.swift; sourceTree = "<group>"; };
 		5441BD212BA75C800008ED21 /* Bundle+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+Extensions.swift"; sourceTree = "<group>"; };
+		544F96222BB896430025FA7F /* Settings */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Settings; sourceTree = "<group>"; };
 		545AED552B9CFC5E00A78B84 /* Bmc.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Bmc.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		545AED582B9CFC5E00A78B84 /* BmcApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BmcApp.swift; sourceTree = "<group>"; };
 		545AED5C2B9CFC5F00A78B84 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -66,10 +69,10 @@
 		545AED882B9D0AFB00A78B84 /* CommonUI */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = CommonUI; sourceTree = "<group>"; };
 		545AEDEA2B9D0CDD00A78B84 /* swiftgen.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; path = swiftgen.yml; sourceTree = SOURCE_ROOT; };
 		545AEDF42B9D0EBE00A78B84 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		545AEDF72B9D0F2F00A78B84 /* Info.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Info.swift; sourceTree = "<group>"; };
 		545AEE072B9D174800A78B84 /* Configuration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
 		545AEE102B9D1AF800A78B84 /* Login */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Login; sourceTree = "<group>"; };
 		549C366A2BB0A04D0011E61E /* Bmc.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Bmc.entitlements; sourceTree = "<group>"; };
+		54B2FDE92BB4C20E00D83DFA /* Info.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Info.swift; sourceTree = "<group>"; };
 		54B5D1B82B9E131E003CFDCB /* AdminLoginMainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminLoginMainCoordinator.swift; sourceTree = "<group>"; };
 		54C048F52BA730DF001B18A9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Base; sourceTree = "<group>"; };
 		54C048F62BA73CBC001B18A9 /* Utilities */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Utilities; sourceTree = "<group>"; };
@@ -79,6 +82,7 @@
 		EB5FBDA42BA07C16002FC623 /* Domain */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Domain; sourceTree = "<group>"; };
 		EB5FBDA52BA07C17002FC623 /* Helpers */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Helpers; sourceTree = "<group>"; };
 		EB5FBDB82BA087F9002FC623 /* SystemDesign */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = SystemDesign; sourceTree = "<group>"; };
+		EB7195A22BB1C0ED00B61940 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,6 +91,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				545AEE062B9D173A00A78B84 /* Logger in Frameworks */,
+				54B2FDE72BB4C18000D83DFA /* SystemDesign in Frameworks */,
 				549CD9CC2B9F88190025905D /* Network in Frameworks */,
 				54B5D1BB2B9E1ACF003CFDCB /* Login in Frameworks */,
 				545AEE042B9D173300A78B84 /* Router in Frameworks */,
@@ -164,13 +169,13 @@
 		545AED572B9CFC5E00A78B84 /* Bmc */ = {
 			isa = PBXGroup;
 			children = (
+				54B2FDE82BB4C1EC00D83DFA /* Generated */,
 				549C366A2BB0A04D0011E61E /* Bmc.entitlements */,
 				5441BD202BA75C720008ED21 /* Extensions */,
 				5401DFB32BA4DD8000D8B152 /* Utility */,
 				545AEE0E2B9D1A7F00A78B84 /* Presentation */,
 				545AEDFF2B9D170E00A78B84 /* Configuration */,
 				545AEDFE2B9D170500A78B84 /* Application */,
-				545AEDEC2B9D0D4400A78B84 /* Generated */,
 				545AED8A2B9D0C2A00A78B84 /* Supporting */,
 				545AED5E2B9CFC5F00A78B84 /* Preview Content */,
 			);
@@ -235,14 +240,6 @@
 			path = Supporting;
 			sourceTree = "<group>";
 		};
-		545AEDEC2B9D0D4400A78B84 /* Generated */ = {
-			isa = PBXGroup;
-			children = (
-				545AEDF72B9D0F2F00A78B84 /* Info.swift */,
-			);
-			path = Generated;
-			sourceTree = "<group>";
-		};
 		545AEDFE2B9D170500A78B84 /* Application */ = {
 			isa = PBXGroup;
 			children = (
@@ -271,6 +268,7 @@
 			children = (
 				5419DAC82BA784A200B28197 /* Main */,
 				54B5D1B72B9E12DF003CFDCB /* Login */,
+				EB7195A22BB1C0ED00B61940 /* LaunchScreen.storyboard */,
 			);
 			path = Presentation;
 			sourceTree = "<group>";
@@ -278,11 +276,20 @@
 		545AEE0F2B9D1AD600A78B84 /* Features */ = {
 			isa = PBXGroup;
 			children = (
+				544F96222BB896430025FA7F /* Settings */,
 				54C953C82BAF096F002149C4 /* Reservation */,
 				54C048F52BA730DF001B18A9 /* Base */,
 				545AEE102B9D1AF800A78B84 /* Login */,
 			);
 			path = Features;
+			sourceTree = "<group>";
+		};
+		54B2FDE82BB4C1EC00D83DFA /* Generated */ = {
+			isa = PBXGroup;
+			children = (
+				54B2FDE92BB4C20E00D83DFA /* Info.swift */,
+			);
+			path = Generated;
 			sourceTree = "<group>";
 		};
 		54B5D1B72B9E12DF003CFDCB /* Login */ = {
@@ -324,6 +331,7 @@
 				54B5D1BA2B9E1ACF003CFDCB /* Login */,
 				549CD9CB2B9F88190025905D /* Network */,
 				54C953D22BAF5C20002149C4 /* Reservation */,
+				54B2FDE62BB4C18000D83DFA /* SystemDesign */,
 			);
 			productName = Bmc;
 			productReference = 545AED552B9CFC5E00A78B84 /* Bmc.app */;
@@ -415,6 +423,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				545AED602B9CFC5F00A78B84 /* Preview Assets.xcassets in Resources */,
+				EB7195A32BB1C0ED00B61940 /* LaunchScreen.storyboard in Resources */,
 				545AED5D2B9CFC5F00A78B84 /* Assets.xcassets in Resources */,
 				545AEDEB2B9D0CDD00A78B84 /* swiftgen.yml in Resources */,
 			);
@@ -463,9 +472,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				545AEE082B9D174800A78B84 /* Configuration.swift in Sources */,
-				545AEDFB2B9D0F2F00A78B84 /* Info.swift in Sources */,
 				54C953D52BAF7E36002149C4 /* KeychainClient.swift in Sources */,
 				54B5D1B92B9E131E003CFDCB /* AdminLoginMainCoordinator.swift in Sources */,
+				54B2FDEA2BB4C20E00D83DFA /* Info.swift in Sources */,
 				5441BD222BA75C800008ED21 /* Bundle+Extensions.swift in Sources */,
 				5401DFB52BA4DD9900D8B152 /* UIDevice+Helpers.swift in Sources */,
 				545AED592B9CFC5E00A78B84 /* BmcApp.swift in Sources */,
@@ -645,11 +654,14 @@
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Bmc/Supporting/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = "$(APP_DISPLAY_NAME)";
+				INFOPLIST_KEY_CFBundleDisplayName = "Bmc-Dev";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.business";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
+				INFOPLIST_KEY_UIStatusBarHidden = NO;
+				INFOPLIST_KEY_UIStatusBarStyle = UIStatusBarStyleDarkContent;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
@@ -687,11 +699,14 @@
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Bmc/Supporting/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = "$(APP_DISPLAY_NAME)";
+				INFOPLIST_KEY_CFBundleDisplayName = "Bmc-Dev";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.business";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
+				INFOPLIST_KEY_UIStatusBarHidden = NO;
+				INFOPLIST_KEY_UIStatusBarStyle = UIStatusBarStyleDarkContent;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
@@ -869,11 +884,14 @@
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Bmc/Supporting/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = "$(APP_DISPLAY_NAME)";
+				INFOPLIST_KEY_CFBundleDisplayName = "Bmc-Dev";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.business";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
+				INFOPLIST_KEY_UIStatusBarHidden = NO;
+				INFOPLIST_KEY_UIStatusBarStyle = UIStatusBarStyleDarkContent;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
@@ -989,6 +1007,10 @@
 		549CD9CB2B9F88190025905D /* Network */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = Network;
+		};
+		54B2FDE62BB4C18000D83DFA /* SystemDesign */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = SystemDesign;
 		};
 		54B5D1BA2B9E1ACF003CFDCB /* Login */ = {
 			isa = XCSwiftPackageProductDependency;

@@ -28,7 +28,6 @@ public final class AuthenticationRepository: IAuthenticationRepository {
             let result = try await networkClient
                 .request(AdminApiEndpoints.adminLogin(email: email, password: password), mapper: AdminAuthMapper())
             _ = try self.storeAuth(adminAuth: result, for: Keys.adminAuthentication.rawValue)
-            let adminAuth = try self.loadAuth(for: Keys.adminAuthentication.rawValue)
             _ = self.userDefaults.storeBoolean(true, for: StorageKeys.Keys.isLoggedIn.rawValue)
             return result
         } catch {

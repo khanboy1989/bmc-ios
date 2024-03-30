@@ -7,13 +7,19 @@
 
 import SwiftUI
 import Router
+import SystemDesign
 
 public struct AdminTabView: View  {
     
-    @State private var selectedTab: Int = 0
+    //Environment Objects
     @EnvironmentObject private var router: Router
     @EnvironmentObject private var appCoordinator: AppRootCoordinator
-    @ObservedObject private var viewModel: AdminTabViewModel
+    
+    //State
+    @State private var selectedTab: Int = 0
+    
+    //Observed Objects
+    @StateObject private var viewModel: AdminTabViewModel
     
     init(dependecies: AdminTabViewModel.Dependecies) {
         _viewModel = .init(wrappedValue: AdminTabViewModel(dependecies: dependecies))
@@ -22,22 +28,25 @@ public struct AdminTabView: View  {
     public var body: some View {
         NavigationStack(path: $router.navPath) {
             TabView(selection: $selectedTab) {
-                AdminRentalCoordinator()
+                AdminRentalCoordinator(adminProfile: $viewModel.profile)
                     .environmentObject(router)
                     .tabItem {
-                        Image(systemName: "list.bullet.rectangle")
-                        Text("Rentals")
+                        Image(systemName: "car")
+                            .foregroundStyle(Asset.Colors.secondaryColor.swiftUIColor)
+                        Text(L10n.rentalTabItemTitle)
+                        
                     }
-                
                 AdminTransferCoordinator()
                     .environmentObject(router)
                     .tabItem {
-                        Image(systemName: "tray.full")
-                        Text("Transfers")
+                        Image(systemName: "truck.pickup.side")
+                            .foregroundStyle(Asset.Colors.secondaryColor.swiftUIColor)
+                        Text(L10n.transferTabItemTitle)
+                        
                     }
-            }.task {
-                await self.viewModel.fetchProfile()
-            }
+            }.accentColor(Asset.Colors.primaryColor.swiftUIColor)
+        }.task {
+           await self.viewModel.fetchProfile()
         }
     }
 }

@@ -30,11 +30,19 @@ public enum L10n {
   public static let password = L10n.tr("Localizable", "password", fallback: "Password")
   /// Password field could not be empty
   public static let passwordFieldEmptyError = L10n.tr("Localizable", "passwordFieldEmptyError", fallback: "Password field could not be empty")
+  /// Rental Cars
+  public static let rentalCarsHeaderTitle = L10n.tr("Localizable", "rentalCarsHeaderTitle", fallback: "Rental Cars")
+  /// Rentals
+  public static let rentalTabItemTitle = L10n.tr("Localizable", "rentalTabItemTitle", fallback: "Rentals")
   /// Localizable.strings
   ///   
   /// 
   ///   Created by Serhan Khan on 12.03.24.
   public static let systemLanguage = L10n.tr("Localizable", "systemLanguage", fallback: "en")
+  /// Transfer Reservations
+  public static let tranferReservationsTitle = L10n.tr("Localizable", "tranferReservationsTitle", fallback: "Transfer Reservations")
+  /// Transfers
+  public static let transferTabItemTitle = L10n.tr("Localizable", "transferTabItemTitle", fallback: "Transfers")
   /// Unknown error.
   public static let unknownError = L10n.tr("Localizable", "unknownError", fallback: "Unknown error.")
   /// Please enter valid credentials.

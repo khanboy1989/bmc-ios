@@ -7,13 +7,15 @@
 
 import SwiftUI
 import Router
+import Domain
 
 public struct AdminRentalCoordinator: View {
     
     @EnvironmentObject private var router: Router
+    @Binding var adminProfile: AdminMainProfile?
     
     public var body: some View  {
-        AdminCarRentalReservationsView()
+        AdminCarRentalReservationsView(adminProfile: $adminProfile)
     }
     
 }

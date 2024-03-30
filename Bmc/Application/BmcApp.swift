@@ -9,6 +9,7 @@ import SwiftUI
 import Logger
 import Network
 import Router
+import SystemDesign
 
 @main
 struct BmcApp: App {
@@ -32,6 +33,7 @@ struct BmcApp: App {
         self._appRootCoordinator = StateObject(wrappedValue: AppRootCoordinator(current: initialCoordinatorType))
     }
     
+
     var body: some Scene {
         WindowGroup {
             Group {
@@ -41,7 +43,7 @@ struct BmcApp: App {
                 case .adminHome:
                     AdminMainCoordinator()
                 }
-            }
+            }.statusBarHidden()
             .environmentObject(appRootCoordinator)
             .environmentObject(configuration)
         }
