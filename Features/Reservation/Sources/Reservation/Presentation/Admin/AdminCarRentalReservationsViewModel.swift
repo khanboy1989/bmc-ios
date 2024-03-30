@@ -13,14 +13,12 @@ import Domain
 final class AdminRentalReservationViewModel: BaseViewModel, ObservableObject {
     @Published var imageUrl: String = ""
     @Published var adminUserName: String = ""
-    @Published var adminProfile: AdminMainProfile? {
-        didSet {
-            createImageUrl()
-        }
-    }
+    @Published var adminLastName: String = ""
 
-    func createImageUrl() {
+    
+    func prepareHeaderDataView(adminProfile: AdminMainProfile?) {
         self.imageUrl = Constants.imageBaseUrl + (adminProfile?.profile_image ?? "")
         self.adminUserName = adminProfile?.firstname ?? ""
+        self.adminLastName = adminProfile?.lastname ?? ""
     }
 }

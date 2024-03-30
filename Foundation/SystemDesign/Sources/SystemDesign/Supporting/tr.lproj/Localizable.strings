@@ -18,3 +18,7 @@
 "forgotPassword" = "Şifremi Unuttum";
 "unknownError" = "Bilinmeyen hata.";
 "wrongCredentials" = "Lütfen geçerli bir kullanıcı adı ve şifre giriniz.";
+"rentalCarsHeaderTitle" = "Kiralık Araçlar";
+"tranferReservationsTitle" = "Transfer Rezervasyonları";
+"rentalTabItemTitle" = "Kiralık";
+"transferTabItemTitle" = "Transferler";

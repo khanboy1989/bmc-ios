@@ -28,12 +28,4 @@ public final class ProfileRepository: IProfileRepository {
             throw error
         }
     }
-    
-    public func refreshTokenAndRetryRequest() async throws {
-        do {
-            try await self.networkClient.refreshTokenAndRetryRequest()
-        }catch {
-            print("refresh token error = \(error.localizedDescription)")
-        }
-    }
 }

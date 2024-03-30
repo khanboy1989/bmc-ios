@@ -34,8 +34,4 @@ final class AdminTabViewModel: ObservableObject {
             print("profile fetch error = \(error.localizedDescription)")
         }
     }
-    
-    func refreshToken() async {
-        try? await self.profileRepository.refreshTokenAndRetryRequest()
-    }
 }

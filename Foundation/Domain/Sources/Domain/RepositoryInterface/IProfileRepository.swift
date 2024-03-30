@@ -9,5 +9,4 @@ import Foundation
 
 public protocol IProfileRepository {
     func getProfile()  async throws -> AdminMainProfile
-    func refreshTokenAndRetryRequest() async throws
 }

@@ -7,12 +7,18 @@
 
 import SwiftUI
 import Router
+import SystemDesign
 
 public struct AdminTabView: View  {
     
-    @State private var selectedTab: Int = 0
+    //Environment Objects
     @EnvironmentObject private var router: Router
     @EnvironmentObject private var appCoordinator: AppRootCoordinator
+    
+    //State
+    @State private var selectedTab: Int = 0
+    
+    //Observed Objects
     @StateObject private var viewModel: AdminTabViewModel
     
     init(dependecies: AdminTabViewModel.Dependecies) {
@@ -21,25 +27,26 @@ public struct AdminTabView: View  {
     
     public var body: some View {
         NavigationStack(path: $router.navPath) {
-            VStack {
-                TabView(selection: $selectedTab) {
-                    AdminRentalCoordinator(adminProfile: $viewModel.profile)
-                        .environmentObject(router)
-                        .tabItem {
-                            Image(systemName: "list.bullet.rectangle")
-                            Text("Rentals")
-                        }
-                    
-                    AdminTransferCoordinator()
-                        .environmentObject(router)
-                        .tabItem {
-                            Image(systemName: "tray.full")
-                            Text("Transfers")
-                        }
-                }.task {
-                    await self.viewModel.fetchProfile()
-                }
-            }
+            TabView(selection: $selectedTab) {
+                AdminRentalCoordinator(adminProfile: $viewModel.profile)
+                    .environmentObject(router)
+                    .tabItem {
+                        Image(systemName: "car")
+                            .foregroundStyle(Asset.Colors.secondaryColor.swiftUIColor)
+                        Text(L10n.rentalTabItemTitle)
+                        
+                    }
+                AdminTransferCoordinator()
+                    .environmentObject(router)
+                    .tabItem {
+                        Image(systemName: "truck.pickup.side")
+                            .foregroundStyle(Asset.Colors.secondaryColor.swiftUIColor)
+                        Text(L10n.transferTabItemTitle)
+                        
+                    }
+            }.accentColor(Asset.Colors.primaryColor.swiftUIColor)
+        }.task {
+           await self.viewModel.fetchProfile()
         }
     }
 }

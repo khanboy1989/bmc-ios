@@ -19,3 +19,7 @@
 "forgotPassword" = "Forgot Password";
 "unknownError" = "Unknown error.";
 "wrongCredentials" = "Please enter valid credentials.";
+"rentalCarsHeaderTitle" = "Rental Cars";
+"tranferReservationsTitle" = "Transfer Reservations";
+"rentalTabItemTitle" = "Rentals";
+"transferTabItemTitle" = "Transfers";
