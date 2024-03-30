@@ -21,4 +21,8 @@ final class AdminRentalReservationViewModel: BaseViewModel, ObservableObject {
         self.adminUserName = adminProfile?.firstname ?? ""
         self.adminLastName = adminProfile?.lastname ?? ""
     }
+    
+    func fetchRentals() async throws {
+        
+    }
 }
