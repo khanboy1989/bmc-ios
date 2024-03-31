@@ -29,7 +29,7 @@ public struct AdminCarRentalReservationsView: View {
                                    title: L10n.rentalCarsHeaderTitle)
             Spacer()
         }
-        .onChange(of: adminProfile, debounceTime: .seconds(2.0)) { newValue in
+        .onChange(of: adminProfile, debounceTime: .milliseconds(500)) { newValue in
             viewModel.prepareHeaderDataView(adminProfile: newValue)
         }
     }

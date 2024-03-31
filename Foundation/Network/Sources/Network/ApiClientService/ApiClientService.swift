@@ -14,6 +14,7 @@ public enum APIError: Error {
     case networkError(error: Error, statusCode: Int?)
     case parsing(error: Error)
     case customError(message: String, statusCode: Int?)
+    case invalidRefreshToken
 }
 
 public typealias APIResponse = (data: Data, statusCode: Int)

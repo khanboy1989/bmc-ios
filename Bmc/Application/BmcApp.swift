@@ -10,6 +10,7 @@ import Logger
 import Network
 import Router
 import SystemDesign
+import DomainData
 
 @main
 struct BmcApp: App {
@@ -41,7 +42,7 @@ struct BmcApp: App {
                 case .adminLogin:
                     AdminLoginMainCoordinator()
                 case .adminHome:
-                    AdminMainCoordinator()
+                    AdminHomeTabView(dependecies: .init(profileRepository: ProfileRepository(networkClient: configuration.getNetworkClient(), userDefaults: configuration.getUserDefaultsService())))
                 }
             }.statusBarHidden()
             .environmentObject(appRootCoordinator)

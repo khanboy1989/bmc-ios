@@ -21,4 +21,8 @@ enum AdminApiEndpoints {
     static func profile() -> APIEndpoint {
         .init(path: "\(EndpointPrefix.api)\(EndpointPrefix.version)\(EndpointPrefix.mobile)\(EndpointPrefix.admin)/profile/me", httpMethod: .get)
     }
+    
+    static func rentalReservations() -> APIEndpoint {
+        .init(path: "\(EndpointPrefix.api)\(EndpointPrefix.version)\reservations/car-rental", httpMethod: .get)
+    }
 }

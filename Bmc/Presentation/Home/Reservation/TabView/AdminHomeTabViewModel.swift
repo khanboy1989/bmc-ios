@@ -1,24 +1,26 @@
 //
-//  AdminTabViewModel.swift
+//  AdminHomeTabViewModel.swift
+//  Bmc
 //
-//
-//  Created by Serhan Khan on 24/03/2024.
+//  Created by Serhan Khan on 31/03/2024.
 //
 
 import SwiftUI
 import Domain
+import Network
 
-final class AdminTabViewModel: ObservableObject {
+final class AdminHomeTabViewModel: ObservableObject {
     
     @Published var name: String = ""
     @Published var profile: AdminMainProfile?
+    @Published var shouldLogout: Bool = false
     
     struct Dependecies {
         let profileRepository: IProfileRepository
     }
     
     private let profileRepository: IProfileRepository
-
+    
     init(dependecies: Dependecies) {
         self.profileRepository = dependecies.profileRepository
     }
@@ -31,7 +33,15 @@ final class AdminTabViewModel: ObservableObject {
                 self?.profile = profile
             })
         } catch {
-            print("profile fetch error = \(error.localizedDescription)")
+            if let error = error as? APIError {
+                switch error {
+                case .invalidRefreshToken:
+                    self.shouldLogout = true
+                default:
+                    print("profile fetch error = \(error.localizedDescription)")
+                }
+            }
         }
     }
 }
+
