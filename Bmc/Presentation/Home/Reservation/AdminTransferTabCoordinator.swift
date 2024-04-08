@@ -22,7 +22,9 @@ struct AdminTransferTabCoordinator: View {
     }
     
     var body: some View {
-        AdminTransferCoordinator(adminProfile: $adminProfile)
-            .environmentObject(router)
+        NavigationStack(path: $router.navPath) {
+            AdminTransferCoordinator(adminProfile: $adminProfile)
+                .toolbar(.visible ,for: .tabBar)
+        }.environmentObject(router)
     }
 }

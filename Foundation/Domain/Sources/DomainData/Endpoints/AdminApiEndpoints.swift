@@ -23,6 +23,6 @@ enum AdminApiEndpoints {
     }
     
     static func rentalReservations() -> APIEndpoint {
-        .init(path: "\(EndpointPrefix.api)\(EndpointPrefix.version)\reservations/car-rental", httpMethod: .get)
+        .init(path: "\(EndpointPrefix.api)\(EndpointPrefix.version)\(EndpointPrefix.mobile)\(EndpointPrefix.admin)/reservation/car-rental-reservations", httpMethod: .get)
     }
 }

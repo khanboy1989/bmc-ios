@@ -7,17 +7,17 @@
 
 import SwiftUI
 import Domain
+import DomainData
 import CommonUI
 import SystemDesign
-import Combine
 
 public struct AdminCarRentalReservationsView: View {
 
     @Binding var adminProfile: AdminMainProfile?
     @StateObject private var viewModel: AdminRentalReservationViewModel
     
-    public init(adminProfile: Binding<AdminMainProfile?>) {
-        _viewModel = .init(wrappedValue: AdminRentalReservationViewModel())
+    public init(reservationRepository: ReservationRepository,  adminProfile: Binding<AdminMainProfile?>) {
+        _viewModel = .init(wrappedValue: AdminRentalReservationViewModel(dependecise: .init(reservationRepository: reservationRepository)))
         _adminProfile = adminProfile
     }
     
@@ -28,10 +28,14 @@ public struct AdminCarRentalReservationsView: View {
                                    adminLastName: $viewModel.adminLastName,
                                    title: L10n.rentalCarsHeaderTitle)
             Spacer()
+        }.task {
+             self.viewModel.fetchRentals()
         }
         .onChange(of: adminProfile, debounceTime: .milliseconds(500)) { newValue in
             viewModel.prepareHeaderDataView(adminProfile: newValue)
         }
     }
 }
+
+
 

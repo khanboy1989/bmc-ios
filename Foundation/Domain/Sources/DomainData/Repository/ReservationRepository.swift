@@ -12,13 +12,14 @@ import Network
 public final class ReservationRepository: IReservationRepository {
     private let networkClient: INetworkClient
     
-    init(networkClient: INetworkClient) {
+    public init(networkClient: INetworkClient) {
         self.networkClient = networkClient
     }
     
     public func fetchRentalReservations() async throws {
         do {
             let result = try await self.networkClient.request(AdminApiEndpoints.rentalReservations(), for: GeneralResult.self)
+            
             
         } catch {
             throw error

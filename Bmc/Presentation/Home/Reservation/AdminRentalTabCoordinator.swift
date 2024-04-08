@@ -22,7 +22,11 @@ struct AdminRentalTabCoordinator: View {
     }
     
     var body: some View {
-        AdminRentalCoordinator(adminProfile: $adminProfile)
-            .environmentObject(router)
+        NavigationStack(path: $router.navPath) {
+            AdminRentalCoordinator(dependecies: .init(networkClient: configuration.getNetworkClient()), adminProfile: $adminProfile)
+                .toolbar(.visible, for: .tabBar)
+                
+        }.environmentObject(router)
+        
     }
 }
