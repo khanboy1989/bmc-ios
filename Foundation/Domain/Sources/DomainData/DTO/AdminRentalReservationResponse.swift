@@ -45,7 +45,7 @@ struct AdminRentalReservationResponse: Decodable {
     let customerId: Int?
     let currencyTypeDefinition: String
     let paymentMethod: String
-    let totalPriceRent: String
+    let totalRentPrice: String
     let totalExtraServicePrice: String
     
     
