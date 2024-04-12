@@ -17,6 +17,37 @@ struct AdminRentalReservationResponse: Decodable {
     let finalDailyRentPrice: String
     let gearTypeId: Int
     let image: String
+    let updatedBy: Int
+    let updatedAt: String
+    let enginePower: Int
+    let year: String
+    let plate: String
+    let details: String
+    let carModelId: Int
+    let isTransportationOnly: Bool
+    let fuelTypeId: Int
+    let doorCount: Int
+    let deletedBy: Int
+    let carTypeId: Int
+    let carSizeId: Int
+    let deletedAt: String?
+    let createdBy: Int
+    let carClassId: Int
+    let createdAt: String
+    let realDailyRentPrice: String
+    let paymentStatus: String
+    let reservationAgreement: Int
+    let currencyTypeAbbreviation: String
+    let currencySymbol: String
+    let endDate: String
+    let totalPriceByCurrency: String
+    let flightNo: String
+    let customerId: Int?
+    let currencyTypeDefinition: String
+    let paymentMethod: String
+    let totalPriceRent: String
+    let totalExtraServicePrice: String
+    
     
     enum CodingKeys: String, CodingKey {
         case id
@@ -27,43 +58,40 @@ struct AdminRentalReservationResponse: Decodable {
         case finalDailyRentPrice = "final_daily_rent_price"
         case gearTypeId = "gear_type_id"
         case image
+        case updatedBy = "updated_by"
+        case updatedAt = "updated_at"
+        case enginePower = "engine_power"
+        case year = "year"
+        case plate
+        case details
+        case carModelId = "car_model_id"
+        case isTransportationOnly = "is_transportation_only"
+        case fuelTypeId = "fuel_type_id"
+        case doorCount = "door_count"
+        case deletedBy = "deleted_by"
+        case carTypeId = "car_type_id"
+        case carSizeId = "car_size_id"
+        case deletedAt = "deleted_at"
+        case createdBy = "created_by"
+        case carClassId = "car_class_id"
+        case createdAt = "created_at"
+        case realDailyRentPrice = "real_daily_rent_price"
+        case paymentStatus = "payment_status"
+        case reservationAgreement = "reservation_agreement"
+        case currencyTypeAbbreviation = "currency_type_abbreviation"
+        case currencySymbol = "currency_symbol"
+        case endDate = "end_date"
+        case totalPriceByCurrency = "total_price_by_currency"
+        case flightNo = "flight_no"
+        case customerId = "customer_id"
+        case currencyTypeDefinition = "currency_type_definition"
+        case paymentMethod = "payment_method"
+        case totalRentPrice = "total_rent_price"
+        case totalExtraServicePrice = "total_extra_service_price"
     }
 }
 
 /*
-            "updated_by":1,
-            "updated_at":"2024-03-12T17:36:38.000000Z",
-           
-            "engine_power":1340,
-            "year":"2014",
-            "plate":"ZPK451",
-            "details":"MAZDA/DEMIO/SMOKED/2014/ZPK451",
-            "car_model_id":6,
-            "is_transportation_only":0,
-            "fuel_type_id":1,
-            "door_count":4,
-            "deleted_by":null,
-            "car_type_id":3,
-            "car_size_id":1,
-            "deleted_at":null,
-            "created_by":4,
-            "car_class_id":4,
-            "created_at":"2023-11-10T13:56:42.000000Z",
-         "real_daily_rent_price":"23.31",
-         "payment_status":"Canceled",
-         "reservation_agreement":1,
-         "currency_type_abbreviation":"EUR",
-         "currency_symbol":"€",
-         "end_date":"2024-01-31 00:00:00",
-         "total_price_by_currency":"291.24",
-         "flight_no":"dsds",
-         "updated_at":"2024-01-30T18:04:13.000000Z",
-         "customer_id":null,
-         "currency_type_definition":"Euros",
-         "payment_method":"Virtual Post Via Online",
-         "total_rent_price":"209.79",
-         "total_extra_service_price":"58.14",
-         "id":3,
          "price_type":"14-30 Days",
          "total_price":"291.24",
          "currency_rate":"0.86",
