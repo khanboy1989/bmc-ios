@@ -103,6 +103,7 @@ public final class APIClientService: IAPIClientService {
             } catch {
                 if let decodingError = error as? DecodingError {
                     logger.log(level: .error, message: "❌ Decoding error: \(decodingError.detailErrorDescription)")
+                    logger.log(level: .error, message: "❌ Decoding error: \(error)")
                 }
                 throw APIError.parsing(error: error)
             }

@@ -17,12 +17,15 @@ final class AdminHomeTabViewModel: ObservableObject {
     
     struct Dependecies {
         let profileRepository: IProfileRepository
+        let authenticationRepository: IAuthenticationRepository
     }
     
     private let profileRepository: IProfileRepository
+    private let authenticationRepository: IAuthenticationRepository
     
     init(dependecies: Dependecies) {
         self.profileRepository = dependecies.profileRepository
+        self.authenticationRepository = dependecies.authenticationRepository
     }
     
     func fetchProfile() async {
@@ -36,7 +39,8 @@ final class AdminHomeTabViewModel: ObservableObject {
             if let error = error as? APIError {
                 switch error {
                 case .invalidRefreshToken:
-                    self.shouldLogout = true
+                    let result = try? await self.authenticationRepository.logout()
+                    self.shouldLogout = result ?? true
                 default:
                     print("profile fetch error = \(error.localizedDescription)")
                 }

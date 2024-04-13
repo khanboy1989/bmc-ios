@@ -6,75 +6,55 @@
 //
 
 import Foundation
+import Network
+import Domain
 
+
+struct AdminRentalReservationDataWrapperResponseMapper: Mappable {
+    func map(_ input: AdminRentalReservationDataWrapperResponse) throws -> [AdminRentalReservation] {
+        return try input.data.map { try AdminReservationMapper().map($0) }
+    }
+}
+
+struct AdminRentalReservationDataWrapperResponse: Decodable {
+    let data: [AdminRentalReservationResponse]
+}
 
 struct AdminRentalReservationResponse: Decodable {
     let id: Int
-    let imo: String
-    let isArchieved: Bool
-    let colorEn: String
-    let colorTr: String
+    let imo: String?
+    let isArchived: Int
     let finalDailyRentPrice: String
-    let gearTypeId: Int
-    let image: String
-    let updatedBy: Int
-    let updatedAt: String
-    let enginePower: Int
-    let year: String
-    let plate: String
-    let details: String
-    let carModelId: Int
-    let isTransportationOnly: Bool
-    let fuelTypeId: Int
-    let doorCount: Int
-    let deletedBy: Int
-    let carTypeId: Int
-    let carSizeId: Int
-    let deletedAt: String?
-    let createdBy: Int
-    let carClassId: Int
-    let createdAt: String
     let realDailyRentPrice: String
     let paymentStatus: String
     let reservationAgreement: Int
-    let currencyTypeAbbreviation: String
+    let currencyTypeAbbreviation: String?
     let currencySymbol: String
-    let endDate: String
+    let endDate: String 
     let totalPriceByCurrency: String
-    let flightNo: String
-    let customerId: Int?
-    let currencyTypeDefinition: String
+    let flightNo: String?
+    let updatedAt: String?
+    let currencyTypeDefinition: String?
     let paymentMethod: String
     let totalRentPrice: String
     let totalExtraServicePrice: String
-    
+    let priceType: String
+    let totalPrice: String
+    let currencyRate: String
+    let startDate: String
+    let createdAt: String
+    let reservationStatus: String
+    let transferCost: String
+    let comment: String?
+    let address: String?
+    let pickupLocation: AdminRentalLocationResponse
+    let dropOffLocation: AdminRentalLocationResponse
     
     enum CodingKeys: String, CodingKey {
-        case id
+        case id = "id"
         case imo = "imo_no"
-        case isArchieved = "is_archived"
-        case colorEn = "color_en"
-        case colorTr = "color_tr"
+        case isArchived = "is_archived"
         case finalDailyRentPrice = "final_daily_rent_price"
-        case gearTypeId = "gear_type_id"
-        case image
-        case updatedBy = "updated_by"
-        case updatedAt = "updated_at"
-        case enginePower = "engine_power"
-        case year = "year"
-        case plate
-        case details
-        case carModelId = "car_model_id"
-        case isTransportationOnly = "is_transportation_only"
-        case fuelTypeId = "fuel_type_id"
-        case doorCount = "door_count"
-        case deletedBy = "deleted_by"
-        case carTypeId = "car_type_id"
-        case carSizeId = "car_size_id"
-        case deletedAt = "deleted_at"
-        case createdBy = "created_by"
-        case carClassId = "car_class_id"
-        case createdAt = "created_at"
         case realDailyRentPrice = "real_daily_rent_price"
         case paymentStatus = "payment_status"
         case reservationAgreement = "reservation_agreement"
@@ -83,23 +63,27 @@ struct AdminRentalReservationResponse: Decodable {
         case endDate = "end_date"
         case totalPriceByCurrency = "total_price_by_currency"
         case flightNo = "flight_no"
-        case customerId = "customer_id"
+        case updatedAt = "updated_at"
         case currencyTypeDefinition = "currency_type_definition"
         case paymentMethod = "payment_method"
         case totalRentPrice = "total_rent_price"
         case totalExtraServicePrice = "total_extra_service_price"
+        case priceType = "price_type"
+        case totalPrice = "total_price"
+        case currencyRate = "currency_rate"
+        case startDate = "start_date"
+        case createdAt = "created_at"
+        case reservationStatus = "reservation_status"
+        case transferCost = "transfer_cost"
+        case comment
+        case address
+        case pickupLocation = "pickup_location"
+        case dropOffLocation = "drop_location"
     }
 }
 
-/*
-         "price_type":"14-30 Days",
-         "total_price":"291.24",
-         "currency_rate":"0.86",
-         "start_date":"2024-01-22 00:00:00",
-         "created_at":"2024-01-21T20:03:05.000000Z",
-         "reservation_status":"Canceled",
-         "transfer_cost":"23.31",
-         "comment":"sdsds",
-         "drop_location":null,
-         "address":"dsdsds"
-*/
+struct AdminReservationMapper: Mappable {
+    func map(_ input: AdminRentalReservationResponse) throws -> AdminRentalReservation {
+        .init(id: input.id, imo: input.imo, isArchived: input.isArchived, finalDailyRentPrice: input.finalDailyRentPrice, realDailyRentPrice: input.realDailyRentPrice, paymentStatus: input.paymentStatus, reservationAgreement: input.reservationAgreement, currencyTypeAbbreviation: input.currencyTypeAbbreviation, currencySymbol: input.currencySymbol, endDate: input.endDate, totalPriceByCurrency: input.totalPriceByCurrency, flightNo: input.flightNo, updatedAt: input.updatedAt, currencyTypeDefinition: input.currencyTypeDefinition, paymentMethod: input.paymentMethod, totalRentPrice: input.totalRentPrice, totalExtraServicePrice: input.totalExtraServicePrice, priceType: input.priceType, totalPrice: input.totalPrice, currencyRate: input.currencyRate, startDate: input.startDate, createdAt: input.createdAt, reservationStatus: input.reservationStatus, transferCost: input.transferCost, comment: input.comment, address: input.address)
+    }
+}

@@ -42,7 +42,7 @@ struct BmcApp: App {
                 case .adminLogin:
                     AdminLoginMainCoordinator()
                 case .adminHome:
-                    AdminHomeTabView(dependecies: .init(profileRepository: ProfileRepository(networkClient: configuration.getNetworkClient(), userDefaults: configuration.getUserDefaultsService())))
+                    AdminHomeTabView(dependecies: .init(profileRepository: ProfileRepository(networkClient: configuration.getNetworkClient(), userDefaults: configuration.getUserDefaultsService()), authenticationRepository: AuthenticationRepository(networkClient: configuration.getNetworkClient(), keyChainService: configuration.getKeyChainService(), userDefaults: configuration.getUserDefaultsService())))
                 }
             }.statusBarHidden()
             .environmentObject(appRootCoordinator)

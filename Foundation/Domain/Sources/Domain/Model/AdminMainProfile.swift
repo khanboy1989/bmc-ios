@@ -29,7 +29,7 @@ public struct AdminMainProfile: Equatable {
     public let roles: AdminRoles
     
     public static func == (lhs: AdminMainProfile, rhs: AdminMainProfile) -> Bool {
-        return lhs.id != rhs.id
+        return lhs.id == rhs.id
     }
 }
 

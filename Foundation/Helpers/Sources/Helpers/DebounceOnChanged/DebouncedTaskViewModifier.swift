@@ -28,7 +28,7 @@ public extension View {
     @available(macOS 13.0, *)
     @available(tvOS 16.0, *)
     @available(watchOS 9.0, *)
-    public func task<T>(
+    func task<T>(
         id value: T,
         priority: TaskPriority = .userInitiated,
         debounceTime: Duration,

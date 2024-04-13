@@ -14,6 +14,7 @@ final class AdminRentalReservationViewModel: BaseViewModel, ObservableObject {
     @Published var imageUrl: String = ""
     @Published var adminUserName: String = ""
     @Published var adminLastName: String = ""
+    @Published var rentalReservations: [AdminRentalReservation] = []
     private var adminProfile: AdminMainProfile?
     
     private let reservationRepository: IReservationRepository
@@ -36,7 +37,11 @@ final class AdminRentalReservationViewModel: BaseViewModel, ObservableObject {
     func fetchRentals() {
         Task.delayed(seconds: 0.5, operation: { [weak self] in
             do {
-                try await self?.reservationRepository.fetchRentalReservations()
+                guard let self = self else { return }
+                let reservations = try await self.reservationRepository.fetchRentalReservations()
+                await MainActor.run(body: {
+                    self.rentalReservations = reservations
+                })
             } catch {
                 print("error reservations = \(error.localizedDescription)")
             }

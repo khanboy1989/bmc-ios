@@ -16,15 +16,12 @@ public final class ReservationRepository: IReservationRepository {
         self.networkClient = networkClient
     }
     
-    public func fetchRentalReservations() async throws {
+    public func fetchRentalReservations() async throws -> [AdminRentalReservation] {
         do {
-            let result = try await self.networkClient.request(AdminApiEndpoints.rentalReservations(), for: GeneralResult.self)
-            
-            
+            let result = try await self.networkClient.request(AdminApiEndpoints.rentalReservations(), mapper: AdminRentalReservationDataWrapperResponseMapper())
+            return result
         } catch {
             throw error
         }
     }
-    
-    
 }

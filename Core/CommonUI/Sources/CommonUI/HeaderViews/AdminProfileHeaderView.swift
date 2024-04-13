@@ -24,27 +24,29 @@ public struct AdminProfileHeaderView: View {
     public var body: some View {
         ZStack {
             HStack(alignment: .center, spacing: 4) {
-                if let url = URL(string: self.imageUrl) {
-                    AsyncImage(url: url) { image in
+                AsyncImage(url: URL(string: self.imageUrl), content: {
+                    switch $0 {
+                    case .empty:
+                        ProgressView()
+                            .colorScheme(.dark)
+                    case .failure(_):
+                        Image(systemName: "person.circle.fill")
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                            .colorScheme(.dark)
+                            .cornerRadius(10)
+                            .frame(width: 60, height: 60)
+                            .padding()
+                    case .success(let image):
                         image
                             .resizable()
                             .aspectRatio(contentMode: .fit)
                             .cornerRadius(10)
-                        
-                    } placeholder: {
-                        ProgressView()
-                            .colorScheme(.dark)
-                    }.frame(width: 60, height: 60)
-                        .padding()
-                } else {
-                    Image(systemName: "person.circle.fill")
-                        .resizable()
-                        .aspectRatio(contentMode: .fit)
-                        .colorScheme(.dark)
-                        .cornerRadius(10)
-                        .frame(width: 60, height: 60)
-                        .padding()
-                }
+                    @unknown default:
+                        EmptyView()
+                    }
+                }).frame(width: 60, height: 60)
+                    .padding()
                 
                 VStack(alignment: .leading, spacing: 4) {
                     Text(self.adminFirstName)
