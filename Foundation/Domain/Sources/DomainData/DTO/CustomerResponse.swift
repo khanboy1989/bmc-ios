@@ -33,6 +33,8 @@ struct CustomerResponse: Decodable {
     let deletedBy: Int?
     let customerTypeId: Int
     let address: String
+    let emailVerificationCode: String?
+    let resetPasswordCode: String?
     
     enum CodingKeys: String, CodingKey {
         case id
@@ -59,6 +61,9 @@ struct CustomerResponse: Decodable {
         case deletedAt = "deleted_at"
         case customerTypeId = "customer_type_id"
         case address
+        case emailVerificationCode = "email_verification_code"
+        case resetPasswordCode = "reset_password_passcode"
+
     }
 }
 

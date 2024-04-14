@@ -50,6 +50,7 @@ struct AdminRentalReservationResponse: Decodable {
     let pickupLocation: AdminRentalLocationResponse
     let dropOffLocation: AdminRentalLocationResponse
     let customer: CustomerResponse
+    let carInformation: AdminRentalCarInformationResponse
     
     enum CodingKeys: String, CodingKey {
         case id = "id"
@@ -81,6 +82,7 @@ struct AdminRentalReservationResponse: Decodable {
         case pickupLocation = "pickup_location"
         case dropOffLocation = "drop_location"
         case customer
+        case carInformation = "car_information"
     }
 }
 
