@@ -23,3 +23,6 @@
 "tranferReservationsTitle" = "Transfer Reservations";
 "rentalTabItemTitle" = "Rentals";
 "transferTabItemTitle" = "Transfers";
+"male" = "Male";
+"female" = "Female";
+"other" = "Other";

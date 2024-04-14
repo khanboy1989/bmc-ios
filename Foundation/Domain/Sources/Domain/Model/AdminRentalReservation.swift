@@ -12,7 +12,7 @@ import HelperMacros
 public struct AdminRentalReservation {
     let id: Int
     let imo: String?
-    let isArchived: Int
+    let isArchived: Bool
     let finalDailyRentPrice: String
     let realDailyRentPrice: String
     let paymentStatus: String
@@ -36,4 +36,7 @@ public struct AdminRentalReservation {
     let transferCost: String
     let comment: String?
     let address: String?
+    let pickupLocation: AdminRentalLocation
+    let dropoffLocation: AdminRentalLocation
+    let customer: Customer
 }

@@ -20,12 +20,18 @@ public enum L10n {
   public static let emailIsInvalid = L10n.tr("Localizable", "emailIsInvalid", fallback: "E-mail is invalid")
   /// E-mail is valid
   public static let emailIsValid = L10n.tr("Localizable", "emailIsValid", fallback: "E-mail is valid")
+  /// Female
+  public static let female = L10n.tr("Localizable", "female", fallback: "Female")
   /// Forgot Password
   public static let forgotPassword = L10n.tr("Localizable", "forgotPassword", fallback: "Forgot Password")
   /// Login
   public static let login = L10n.tr("Localizable", "login", fallback: "Login")
+  /// Male
+  public static let male = L10n.tr("Localizable", "male", fallback: "Male")
   /// Ok
   public static let ok = L10n.tr("Localizable", "ok", fallback: "Ok")
+  /// Other
+  public static let other = L10n.tr("Localizable", "other", fallback: "Other")
   /// Password
   public static let password = L10n.tr("Localizable", "password", fallback: "Password")
   /// Password field could not be empty

@@ -8,7 +8,7 @@
 import Foundation
 import Network
 import Domain
-
+import Helpers
 
 struct AdminRentalReservationDataWrapperResponseMapper: Mappable {
     func map(_ input: AdminRentalReservationDataWrapperResponse) throws -> [AdminRentalReservation] {
@@ -49,6 +49,7 @@ struct AdminRentalReservationResponse: Decodable {
     let address: String?
     let pickupLocation: AdminRentalLocationResponse
     let dropOffLocation: AdminRentalLocationResponse
+    let customer: CustomerResponse
     
     enum CodingKeys: String, CodingKey {
         case id = "id"
@@ -79,11 +80,12 @@ struct AdminRentalReservationResponse: Decodable {
         case address
         case pickupLocation = "pickup_location"
         case dropOffLocation = "drop_location"
+        case customer
     }
 }
 
 struct AdminReservationMapper: Mappable {
     func map(_ input: AdminRentalReservationResponse) throws -> AdminRentalReservation {
-        .init(id: input.id, imo: input.imo, isArchived: input.isArchived, finalDailyRentPrice: input.finalDailyRentPrice, realDailyRentPrice: input.realDailyRentPrice, paymentStatus: input.paymentStatus, reservationAgreement: input.reservationAgreement, currencyTypeAbbreviation: input.currencyTypeAbbreviation, currencySymbol: input.currencySymbol, endDate: input.endDate, totalPriceByCurrency: input.totalPriceByCurrency, flightNo: input.flightNo, updatedAt: input.updatedAt, currencyTypeDefinition: input.currencyTypeDefinition, paymentMethod: input.paymentMethod, totalRentPrice: input.totalRentPrice, totalExtraServicePrice: input.totalExtraServicePrice, priceType: input.priceType, totalPrice: input.totalPrice, currencyRate: input.currencyRate, startDate: input.startDate, createdAt: input.createdAt, reservationStatus: input.reservationStatus, transferCost: input.transferCost, comment: input.comment, address: input.address)
+        .init(id: input.id, imo: input.imo, isArchived: input.isArchived.boolValue, finalDailyRentPrice: input.finalDailyRentPrice, realDailyRentPrice: input.realDailyRentPrice, paymentStatus: input.paymentStatus, reservationAgreement: input.reservationAgreement, currencyTypeAbbreviation: input.currencyTypeAbbreviation, currencySymbol: input.currencySymbol, endDate: input.endDate, totalPriceByCurrency: input.totalPriceByCurrency, flightNo: input.flightNo, updatedAt: input.updatedAt, currencyTypeDefinition: input.currencyTypeDefinition, paymentMethod: input.paymentMethod, totalRentPrice: input.totalRentPrice, totalExtraServicePrice: input.totalExtraServicePrice, priceType: input.priceType, totalPrice: input.totalPrice, currencyRate: input.currencyRate, startDate: input.startDate, createdAt: input.createdAt, reservationStatus: input.reservationStatus, transferCost: input.transferCost, comment: input.comment, address: input.address, pickupLocation: .init(id: input.pickupLocation.id, definitionTR: input.pickupLocation.definitionTR, deletedAt: input.pickupLocation.deletedAt, transferCost: input.pickupLocation.transferCost, definitionEN: input.pickupLocation.definitionEN, taxiCost: input.pickupLocation.taxiCost, createdAt: input.pickupLocation.createdAt, updatedAt: input.pickupLocation.updatedAt, isTransportationOnly: input.pickupLocation.isTransportationOnly.boolValue, definition: input.pickupLocation.definition), dropoffLocation: .init(id: input.dropOffLocation.id, definitionTR: input.dropOffLocation.definitionTR, deletedAt: input.dropOffLocation.deletedAt, transferCost: input.dropOffLocation.transferCost, definitionEN: input.dropOffLocation.definitionEN, taxiCost: input.dropOffLocation.taxiCost, createdAt: input.dropOffLocation.createdAt, updatedAt: input.dropOffLocation.updatedAt, isTransportationOnly: input.dropOffLocation.isTransportationOnly.boolValue, definition: input.dropOffLocation.definition), customer: .init(profileImage: input.customer.image, name: input.customer.firstName, surname: input.customer.lastName, address: input.customer.address, customerType: input.customer.customerType, dateOfBirth: input.customer.dateOfBirth, companyName: input.customer.companyName, driverLicenceNo: input.customer.driverLicenceNo, countryId: input.customer.countryId, countryPrefixId: input.customer.countryPrefixId, isBlocked: input.customer.isBlocked.boolValue))
     }
 }

@@ -25,7 +25,7 @@ public struct AdminMainProfile: Equatable {
     public let username: String
     public let email: String
     public let phone_no: String
-    public let profile_image: String
+    public let profileImage: String
     public let roles: AdminRoles
     
     public static func == (lhs: AdminMainProfile, rhs: AdminMainProfile) -> Bool {

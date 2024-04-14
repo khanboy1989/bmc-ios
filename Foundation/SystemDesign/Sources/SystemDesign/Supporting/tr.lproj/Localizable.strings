@@ -22,3 +22,6 @@
 "tranferReservationsTitle" = "Transfer Rezervasyonları";
 "rentalTabItemTitle" = "Kiralık";
 "transferTabItemTitle" = "Transferler";
+"male" = "Erkek";
+"female" = "Kadın";
+"other" = "Diğer";

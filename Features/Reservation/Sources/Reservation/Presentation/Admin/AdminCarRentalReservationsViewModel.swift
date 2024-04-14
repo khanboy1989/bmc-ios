@@ -29,7 +29,7 @@ final class AdminRentalReservationViewModel: BaseViewModel, ObservableObject {
     
     func prepareHeaderDataView(adminProfile: AdminMainProfile?) {
         self.adminProfile = adminProfile
-        self.imageUrl = Constants.imageBaseUrl + (adminProfile?.profile_image ?? "")
+        self.imageUrl = Constants.imageBaseUrl + (adminProfile?.profileImage ?? "")
         self.adminUserName = adminProfile?.firstname ?? ""
         self.adminLastName = adminProfile?.lastname ?? ""
     }
