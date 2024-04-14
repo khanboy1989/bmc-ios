@@ -9,14 +9,14 @@ import HelperMacros
 
 @DefaultInit
 public struct AdminRentalLocation {
-    let id: Int
-    let definitionTR: String
-    let deletedAt: String?
-    let transferCost: String
-    let definitionEN: String
-    let taxiCost: String
-    let createdAt: String
-    let updatedAt: String
-    let isTransportationOnly: Bool
-    let definition: String
+    public let id: Int
+    public let definitionTR: String
+    public let deletedAt: String?
+    public let transferCost: String
+    public let definitionEN: String
+    public let taxiCost: String
+    public let createdAt: String
+    public let updatedAt: String
+    public let isTransportationOnly: Bool
+    public let definition: String
 }

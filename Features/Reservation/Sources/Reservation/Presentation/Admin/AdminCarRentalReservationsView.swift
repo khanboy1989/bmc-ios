@@ -28,6 +28,9 @@ public struct AdminCarRentalReservationsView: View {
                                    adminLastName: $viewModel.adminLastName,
                                    title: L10n.rentalCarsHeaderTitle)
             Spacer()
+            List(viewModel.rentalReservations) { item in
+                Text(item.customer.name)
+            }
         }.task {
              self.viewModel.fetchRentals()
         }
