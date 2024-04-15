@@ -11,7 +11,6 @@ import Network
 
 final class AdminHomeTabViewModel: ObservableObject {
     
-    @Published var name: String = ""
     @Published var profile: AdminMainProfile?
     @Published var shouldLogout: Bool = false
     
@@ -32,7 +31,6 @@ final class AdminHomeTabViewModel: ObservableObject {
         do {
             let profile = try await self.profileRepository.getProfile()
             await MainActor.run(body: { [weak self] in
-                self?.name = profile.firstname
                 self?.profile = profile
             })
         } catch {

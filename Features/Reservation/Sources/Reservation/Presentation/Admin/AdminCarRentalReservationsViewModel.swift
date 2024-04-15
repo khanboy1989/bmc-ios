@@ -11,11 +11,8 @@ import Helpers
 import Domain
 
 final class AdminRentalReservationViewModel: BaseViewModel, ObservableObject {
-    @Published var imageUrl: String = ""
-    @Published var adminUserName: String = ""
-    @Published var adminLastName: String = ""
     @Published var rentalReservations: [AdminRentalReservation] = []
-    private var adminProfile: AdminMainProfile?
+    @Published var adminProfile: AdminMainProfile?
     
     private let reservationRepository: IReservationRepository
     
@@ -29,9 +26,6 @@ final class AdminRentalReservationViewModel: BaseViewModel, ObservableObject {
     
     func prepareHeaderDataView(adminProfile: AdminMainProfile?) {
         self.adminProfile = adminProfile
-        self.imageUrl = Constants.imageBaseUrl + (adminProfile?.profileImage ?? "")
-        self.adminUserName = adminProfile?.firstname ?? ""
-        self.adminLastName = adminProfile?.lastname ?? ""
     }
     
     func fetchRentals() {

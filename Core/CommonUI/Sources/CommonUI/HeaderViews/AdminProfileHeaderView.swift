@@ -7,17 +7,18 @@
 
 import SwiftUI
 import SystemDesign
+import Helpers
 
 public struct AdminProfileHeaderView: View {
-    @Binding var imageUrl: String
-    @Binding var adminFirstName: String
-    @Binding var adminLastName: String
+    let imageUrl: String
+    let adminFirstName: String
+    let adminLastName: String
     private let title: String
     
-    public init(imageUrl: Binding<String>, adminFirstName: Binding<String>, adminLastName: Binding<String>, title: String) {
-        _imageUrl = imageUrl
-        _adminFirstName = adminFirstName
-        _adminLastName = adminLastName
+    public init(imageUrl: String, adminFirstName: String, adminLastName: String, title: String) {
+        self.imageUrl = Constants.imageBaseUrl + imageUrl
+        self.adminFirstName = adminFirstName
+        self.adminLastName = adminLastName
         self.title = title
     }
     
