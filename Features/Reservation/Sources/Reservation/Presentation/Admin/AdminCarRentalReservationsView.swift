@@ -29,34 +29,82 @@ public struct AdminCarRentalReservationsView: View {
                                    adminLastName: viewModel.adminProfile?.lastname ?? "",
                                    title: L10n.rentalCarsHeaderTitle)
             Spacer()
-            List(viewModel.rentalReservations, id: \.id) { item in
-                HStack(alignment: .center) {
-                    let _ = print("image: \(Constants.imageBaseUrl + item.carInformation.image)")
-                    AsyncImage(url: URL(string: Constants.imageBaseUrl + item.carInformation.image)) {
-                        image in
-                        image.image?
-                            .resizable()
-                            .aspectRatio(contentMode: .fit)
-                            .cornerRadius(4)
-                            .frame(width: 40, height: 40)
-                            .padding()
-                      
+            ZStack {
+                switch viewModel.isLoading {
+                case true:
+                    ProgressView()
+                        .tint(Asset.Colors.primaryColor.swiftUIColor)
+                case false:
+                    List(viewModel.rentalReservations, id: \.id) { item in
+                        HStack(alignment: .center) {
+                            VStack {
+                                AsyncImage(url: URL(string: Constants.imageBaseUrl + item.carInformation.image), content: {
+                                    phase in
+                                    switch phase {
+                                    case .empty:
+                                        Image(systemName: "car")
+                                            .resizable()
+                                            .colorScheme(.light)
+                                            .aspectRatio(contentMode: .fill)
+                                            .cornerRadius(4)
+                                            .frame(width: 40, height: 40)
+                                            .padding()
+                                    case let .success(image):
+                                            image
+                                            .resizable()
+                                            .aspectRatio(contentMode: .fill)
+                                            .cornerRadius(4)
+                                            .frame(width: 40, height: 40)
+                                            .padding()
+                                    case .failure(_):
+                                        Image(systemName: "car")
+                                            .resizable()
+                                            .colorScheme(.light)
+                                            .aspectRatio(contentMode: .fill)
+                                            .cornerRadius(4)
+                                            .frame(width: 40, height: 40)
+                                            .padding()
+                                    @unknown default:
+                                        EmptyView()
+                                    }
+                                })
+                                
+                                Text(item.carInformation.plate)
+                            }
+                            
+                            VStack{
+                                Text(item.customer.name)
+                                    .font(FontFamily.SFPro.medium.swiftUIFont(size: 14))
+                                    .foregroundStyle(.black)
+                                Text(item.customer.surname)
+                                    .font(FontFamily.SFPro.medium.swiftUIFont(size: 14))
+                                    .foregroundStyle(.black)
+                            }
+                            
+                            VStack {
+                                Text(item.startDate)
+                                Text(item.endDate)
+                            }
+                        }
                     }
-                       
-                    Text(item.customer.name)
-                        
-                    
+                    .scrollIndicators(.hidden)
+                    .background(.white)
                 }
-                
             }
-        }.task {
-            self.viewModel.fetchRentals()
+            Spacer()
+        }.refreshable {
+            self.viewModel.refreshRentals()
         }
+        .onLoad(perform: {
+            self.viewModel.fetchRentals()
+        })
         .onChange(of: adminProfile, debounceTime: .milliseconds(500)) { newValue in
             viewModel.prepareHeaderDataView(adminProfile: newValue)
         }
     }
 }
+
+
 
 
 

@@ -13,7 +13,7 @@ import Domain
 final class AdminRentalReservationViewModel: BaseViewModel, ObservableObject {
     @Published var rentalReservations: [AdminRentalReservation] = []
     @Published var adminProfile: AdminMainProfile?
-    
+    @Published var isLoading: Bool = false
     private let reservationRepository: IReservationRepository
     
     struct Dependecies {
@@ -29,16 +29,30 @@ final class AdminRentalReservationViewModel: BaseViewModel, ObservableObject {
     }
     
     func fetchRentals() {
-        Task.delayed(seconds: 0.5, operation: { [weak self] in
+        Task.delayed(seconds: 0.5, operation: { @MainActor [weak self] in
             do {
+                self?.isLoading = true
                 guard let self = self else { return }
-                let reservations = try await self.reservationRepository.fetchRentalReservations()
+                let reservations = try await self.reservationRepository.fetchRentalReservations().filter {$0.isArchived == false}
+                self.rentalReservations = reservations
+                self.isLoading = false
+            } catch {
+                print("error reservations = \(error.localizedDescription)")
+                self?.isLoading = false
+            }
+        })
+    }
+    
+    func refreshRentals() {
+        Task {
+            do {
+                let reservations = try await self.reservationRepository.fetchRentalReservations().filter {$0.isArchived == false}
                 await MainActor.run(body: {
                     self.rentalReservations = reservations
                 })
             } catch {
                 print("error reservations = \(error.localizedDescription)")
             }
-        })
+        }
     }
 }
