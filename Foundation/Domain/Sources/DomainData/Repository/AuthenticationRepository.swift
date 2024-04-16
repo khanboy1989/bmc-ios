@@ -55,7 +55,6 @@ public final class AuthenticationRepository: IAuthenticationRepository {
     
     public func logout() async throws -> Bool{
         do {
-//            let request = try await self.networkClient.request(AdminApiEndpoints.adminLogout(), for: GeneralResult.self)
             try self.keyChainService.removeFromKeychain(for: Keys.adminAuthentication.rawValue)
             self.userDefaults.storeBoolean(false, for: Keys.isLoggedIn.rawValue)
             return true

@@ -12,6 +12,8 @@ import Foundation
 public enum L10n {
   /// Admin Login
   public static let adminLogin = L10n.tr("Localizable", "adminLogin", fallback: "Admin Login")
+  /// Drop-Off Date
+  public static let dropOffDate = L10n.tr("Localizable", "dropOffDate", fallback: "Drop-Off Date")
   /// Email
   public static let email = L10n.tr("Localizable", "email", fallback: "Email")
   /// E-mail field could not be empty
@@ -36,6 +38,8 @@ public enum L10n {
   public static let password = L10n.tr("Localizable", "password", fallback: "Password")
   /// Password field could not be empty
   public static let passwordFieldEmptyError = L10n.tr("Localizable", "passwordFieldEmptyError", fallback: "Password field could not be empty")
+  /// Pickup Date
+  public static let pickupDate = L10n.tr("Localizable", "pickupDate", fallback: "Pickup Date")
   /// Rental Cars
   public static let rentalCarsHeaderTitle = L10n.tr("Localizable", "rentalCarsHeaderTitle", fallback: "Rental Cars")
   /// Rentals

@@ -25,3 +25,5 @@
 "male" = "Erkek";
 "female" = "Kadın";
 "other" = "Diğer";
+"pickupDate" = "Alış Tarihi";
+"dropOffDate" = "Teslim Tarihi";

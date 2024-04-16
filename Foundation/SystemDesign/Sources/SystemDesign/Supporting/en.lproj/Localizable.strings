@@ -26,3 +26,5 @@
 "male" = "Male";
 "female" = "Female";
 "other" = "Other";
+"pickupDate" = "Pickup Date";
+"dropOffDate" = "Drop-Off Date";"

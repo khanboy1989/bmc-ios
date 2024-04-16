@@ -14,4 +14,20 @@ public extension String {
         let emailPredicate = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
         return emailPredicate.evaluate(with: self)
     }
+    
+    func toDate(with format: String = "yyyy-MM-dd HH:mm:ss") -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = format
+        
+        // Parse the string into a Date object
+        guard let date = dateFormatter.date(from: self) else { return "" }
+        // Set up another date formatter for the desired output format
+        let outputFormatter = DateFormatter()
+        outputFormatter.dateFormat = "dd-MM-yyyy"
+        
+        // Convert the Date object to a string with the desired format
+        let formattedString = outputFormatter.string(from: date)
+        return formattedString
+        
+    }
 }

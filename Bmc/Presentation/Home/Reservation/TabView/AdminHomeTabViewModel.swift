@@ -27,12 +27,11 @@ final class AdminHomeTabViewModel: ObservableObject {
         self.authenticationRepository = dependecies.authenticationRepository
     }
     
+    @MainActor
     func fetchProfile() async {
         do {
             let profile = try await self.profileRepository.getProfile()
-            await MainActor.run(body: { [weak self] in
-                self?.profile = profile
-            })
+            self.profile = profile
         } catch {
             if let error = error as? APIError {
                 switch error {
