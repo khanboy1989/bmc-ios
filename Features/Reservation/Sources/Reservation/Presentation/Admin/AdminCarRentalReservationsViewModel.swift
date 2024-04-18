@@ -11,18 +11,53 @@ import Helpers
 import Domain
 
 final class AdminRentalReservationViewModel: BaseViewModel, ObservableObject {
-    @Published var imageUrl: String = ""
-    @Published var adminUserName: String = ""
-    @Published var adminLastName: String = ""
-
+    @Published var rentalReservations: [AdminRentalReservation] = []
+    @Published var adminProfile: AdminMainProfile?
+    @Published var isLoading: Bool = false
+    @Published var showError: Bool = false
+    @Published var errorMessage: String = ""
+    private let reservationRepository: IReservationRepository
     
-    func prepareHeaderDataView(adminProfile: AdminMainProfile?) {
-        self.imageUrl = Constants.imageBaseUrl + (adminProfile?.profile_image ?? "")
-        self.adminUserName = adminProfile?.firstname ?? ""
-        self.adminLastName = adminProfile?.lastname ?? ""
+    struct Dependecies {
+        let reservationRepository: IReservationRepository
     }
     
-    func fetchRentals() async throws {
-        
+    init(dependecise: Dependecies) {
+        self.reservationRepository = dependecise.reservationRepository
+    }
+    
+    func prepareHeaderDataView(adminProfile: AdminMainProfile?) {
+        self.adminProfile = adminProfile
+    }
+    
+    func fetchRentals() {
+        Task.delayed(seconds: 0.5, operation: { @MainActor [weak self] in
+            do {
+                self?.isLoading = true
+                guard let self = self else { return }
+                let reservations = try await self.reservationRepository.fetchRentalReservations().filter {$0.isArchived == false}
+                self.rentalReservations = reservations
+                self.isLoading = false
+            } catch {
+                self?.errorMessage = error.localizedDescription
+                self?.showError = true
+                self?.isLoading = false
+            }
+        })
+    }
+    
+    func refreshRentals() {
+        Task {
+            do {
+                let reservations = try await self.reservationRepository.fetchRentalReservations().filter {$0.isArchived == false}
+                await MainActor.run(body: {
+                    self.rentalReservations = reservations
+                })
+            } catch {
+                print("error reservations = \(error.localizedDescription)")
+                errorMessage = error.localizedDescription
+                self.showError = true
+            }
+        }
     }
 }

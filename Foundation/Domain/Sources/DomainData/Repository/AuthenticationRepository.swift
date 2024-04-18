@@ -1,5 +1,5 @@
 //
-//  File.swift
+//  AuthenticationRepository.swift
 //  
 //
 //  Created by Serhan Khan on 11/03/2024.
@@ -28,7 +28,7 @@ public final class AuthenticationRepository: IAuthenticationRepository {
             let result = try await networkClient
                 .request(AdminApiEndpoints.adminLogin(email: email, password: password), mapper: AdminAuthMapper())
             _ = try self.storeAuth(adminAuth: result, for: Keys.adminAuthentication.rawValue)
-            _ = self.userDefaults.storeBoolean(true, for: StorageKeys.Keys.isLoggedIn.rawValue)
+            _ = self.userDefaults.storeBoolean(true, for: Keys.isLoggedIn.rawValue)
             return result
         } catch {
             throw error
@@ -50,6 +50,16 @@ public final class AuthenticationRepository: IAuthenticationRepository {
            return auth
         } catch {
            throw error
+        }
+    }
+    
+    public func logout() async throws -> Bool{
+        do {
+            try self.keyChainService.removeFromKeychain(for: Keys.adminAuthentication.rawValue)
+            self.userDefaults.storeBoolean(false, for: Keys.isLoggedIn.rawValue)
+            return true
+        } catch {
+            throw error
         }
     }
 }

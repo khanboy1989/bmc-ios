@@ -28,6 +28,7 @@ public enum Asset {
     public static let blackColor = ColorAsset(name: "blackColor")
     public static let darkGrayColor = ColorAsset(name: "darkGrayColor")
     public static let lightGrayColor = ColorAsset(name: "lightGrayColor")
+    public static let lightGreenColor = ColorAsset(name: "lightGreenColor")
     public static let primaryColor = ColorAsset(name: "primaryColor")
     public static let secondaryColor = ColorAsset(name: "secondaryColor")
     public static let whiteColor = ColorAsset(name: "whiteColor")

@@ -10,4 +10,5 @@ import Foundation
 
 public protocol IAuthenticationRepository {
     func login(email: String, password: String) async throws -> AdminAuth
+    func logout() async throws -> Bool 
 }

@@ -14,6 +14,7 @@ public enum APIError: Error {
     case networkError(error: Error, statusCode: Int?)
     case parsing(error: Error)
     case customError(message: String, statusCode: Int?)
+    case invalidRefreshToken
 }
 
 public typealias APIResponse = (data: Data, statusCode: Int)
@@ -102,6 +103,7 @@ public final class APIClientService: IAPIClientService {
             } catch {
                 if let decodingError = error as? DecodingError {
                     logger.log(level: .error, message: "❌ Decoding error: \(decodingError.detailErrorDescription)")
+                    logger.log(level: .error, message: "❌ Decoding error: \(error)")
                 }
                 throw APIError.parsing(error: error)
             }

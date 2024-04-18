@@ -7,44 +7,26 @@
 
 import SwiftUI
 import SystemDesign
+import Helpers
 
 public struct AdminProfileHeaderView: View {
-    @Binding var imageUrl: String
-    @Binding var adminFirstName: String
-    @Binding var adminLastName: String
+    let imageUrl: String
+    let adminFirstName: String
+    let adminLastName: String
     private let title: String
     
-    public init(imageUrl: Binding<String>, adminFirstName: Binding<String>, adminLastName: Binding<String>, title: String) {
-        _imageUrl = imageUrl
-        _adminFirstName = adminFirstName
-        _adminLastName = adminLastName
+    public init(imageUrl: String, adminFirstName: String, adminLastName: String, title: String) {
+        self.imageUrl = imageUrl
+        self.adminFirstName = adminFirstName
+        self.adminLastName = adminLastName
         self.title = title
     }
     
     public var body: some View {
         ZStack {
             HStack(alignment: .center, spacing: 4) {
-                if let url = URL(string: self.imageUrl) {
-                    AsyncImage(url: url) { image in
-                        image
-                            .resizable()
-                            .aspectRatio(contentMode: .fit)
-                            .cornerRadius(10)
-                        
-                    } placeholder: {
-                        ProgressView()
-                            .colorScheme(.dark)
-                    }.frame(width: 60, height: 60)
-                        .padding()
-                } else {
-                    Image(systemName: "person.circle.fill")
-                        .resizable()
-                        .aspectRatio(contentMode: .fit)
-                        .colorScheme(.dark)
-                        .cornerRadius(10)
-                        .frame(width: 60, height: 60)
-                        .padding()
-                }
+                AsyncImageView(imageUrl: self.imageUrl, placeHolder: "person.circle.fill", height: 60, width: 60, cornerRadius: 10, colorScheme: .dark)
+                    .padding()
                 
                 VStack(alignment: .leading, spacing: 4) {
                     Text(self.adminFirstName)

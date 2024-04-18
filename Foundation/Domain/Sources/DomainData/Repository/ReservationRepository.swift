@@ -7,12 +7,21 @@
 
 import Foundation
 import Domain
+import Network
 
 public final class ReservationRepository: IReservationRepository {
+    private let networkClient: INetworkClient
     
-    public func fetchRentalReservations() async throws {
-        
+    public init(networkClient: INetworkClient) {
+        self.networkClient = networkClient
     }
     
-    
+    public func fetchRentalReservations() async throws -> [AdminRentalReservation] {
+        do {
+            let result = try await self.networkClient.request(AdminApiEndpoints.rentalReservations(), mapper: AdminRentalReservationDataWrapperResponseMapper())
+            return result
+        } catch {
+            throw error
+        }
+    }
 }

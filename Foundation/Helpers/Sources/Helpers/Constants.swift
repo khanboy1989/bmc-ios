@@ -7,7 +7,7 @@ public struct Constants {
     public static let imageBaseUrl: String = "https://stageapi.bmcrentacar.com/storage/"
     #elseif STAGING
     public static let imageBaseUrl: String = "https://stageapi.bmcrentacar.com/storage/"
-    #elseif RELEASE
+    #else
     public static let imageBaseUrl: String = "https://api.bmcrentacar.com/storage/"
     #endif
 }

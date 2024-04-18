@@ -129,7 +129,11 @@ public class AdminNetworkClient: INetworkClient {
             let result = try await self.apiClientService.request(modifiedEndpoint, mapper: RefreshTokenMapper())
             _ = try self.keyChainService.saveToKeychain(result, for: StorageKeys.Keys.adminAuthentication.rawValue)
         } catch {
-            throw error
+            if let _ = error as? APIError {
+                throw APIError.invalidRefreshToken
+            } else {
+                throw error
+            }
         }
     }
     
