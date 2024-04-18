@@ -10,6 +10,10 @@ import Router
 import Domain
 import DomainData
 
+enum AdminRentalReservationDestionation: Hashable {
+    case adminCarRentalDetails(adminReservation: AdminRentalReservation)
+}
+
 public struct AdminRentalCoordinator: View {
     
     @EnvironmentObject private var router: Router
@@ -23,6 +27,12 @@ public struct AdminRentalCoordinator: View {
     
     public var body: some View  {
         AdminCarRentalReservationsView(reservationRepository: .init(networkClient: dependecise.networkClient), adminProfile: $adminProfile)
+            .navigationDestination(for: AdminRentalReservationDestionation.self) { destionation in
+                switch destionation {
+                case let .adminCarRentalDetails(item):
+                    AdminRetantalDetailsView(adminRentalReservation: item)
+                }
+            }
     }
 }
 

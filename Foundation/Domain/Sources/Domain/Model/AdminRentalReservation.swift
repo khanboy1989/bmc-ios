@@ -10,8 +10,8 @@ import HelperMacros
 import Helpers
 
 @DefaultInit
-public struct AdminRentalReservation: Identifiable {
-    public let id: Int
+public struct AdminRentalReservation: Identifiable, Equatable, Hashable {
+    public var id: Int
     public let imo: String?
     public let isArchived: Bool
     public let finalDailyRentPrice: String
@@ -42,4 +42,12 @@ public struct AdminRentalReservation: Identifiable {
     public let customer: Customer
     public let carInformation: RentalCarInformation
 
+    public static func == (lhs: AdminRentalReservation, rhs: AdminRentalReservation) -> Bool {
+        return lhs.id == rhs.id
+    }
+    
+    public func hash(into hasher: inout Hasher) {
+        hasher.combine(id)
+    }
+    
 }

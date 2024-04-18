@@ -17,8 +17,6 @@ public struct Logger: ILogger {
     public func log(level: LogLevel, message: @autoclosure () -> String) {
         logger.log(level: level.toLoggingLevel(), .init(stringLiteral: message()))
     }
-    
-    
 }
 
 public struct NoLogger: ILogger {

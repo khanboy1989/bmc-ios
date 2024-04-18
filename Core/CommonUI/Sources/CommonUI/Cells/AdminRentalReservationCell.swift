@@ -21,37 +21,7 @@ public struct AdminRentalReservationCell: View {
         
         HStack(alignment: .center) {
             VStack(alignment: .center) {
-                AsyncImage(url: URL(string: Constants.imageBaseUrl + item.carInformation.image), content: {
-                    phase in
-                    switch phase {
-                    case .empty:
-                        Image(systemName: "car")
-                            .resizable()
-                            .colorScheme(.light)
-                            .aspectRatio(contentMode: .fill)
-                            .cornerRadius(4)
-                            .frame(width: 40, height: 40)
-                            .padding()
-                    case let .success(image):
-                        image
-                            .resizable()
-                            .aspectRatio(contentMode: .fill)
-                            .cornerRadius(4)
-                            .frame(width: 40, height: 40)
-                            .padding()
-                    case .failure(_):
-                        Image(systemName: "car")
-                            .resizable()
-                            .colorScheme(.light)
-                            .aspectRatio(contentMode: .fill)
-                            .cornerRadius(4)
-                            .frame(width: 40, height: 40)
-                            .padding()
-                    @unknown default:
-                        EmptyView()
-                    }
-                })
-                
+                AsyncImageView(imageUrl: item.carInformation.image, placeHolder: "car", height: 40, width: 40, cornerRadius: 4)
                 Text(item.carInformation.plate)
                     .font(FontFamily.SFPro.regular.swiftUIFont(size: 12))
                     .foregroundStyle(.black)
@@ -76,15 +46,15 @@ public struct AdminRentalReservationCell: View {
                     .foregroundStyle(.black)
                 
                 Text(item.startDate.toDate())
-                    .font(FontFamily.SFPro.medium.swiftUIFont(size: 12))
-                    .foregroundStyle(.blue)
+                    .font(FontFamily.SFPro.medium.swiftUIFont(size: 14))
+                    .foregroundStyle(.green)
                 
                 Text(L10n.dropOffDate)
                     .font(FontFamily.SFPro.regular.swiftUIFont(size: 12))
                     .foregroundStyle(.black)
                 
                 Text(item.endDate.toDate())
-                    .font(FontFamily.SFPro.medium.swiftUIFont(size: 12))
+                    .font(FontFamily.SFPro.medium.swiftUIFont(size: 14))
                     .foregroundStyle(.red)
             }
             

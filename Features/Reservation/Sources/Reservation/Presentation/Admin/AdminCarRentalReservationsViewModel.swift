@@ -14,6 +14,8 @@ final class AdminRentalReservationViewModel: BaseViewModel, ObservableObject {
     @Published var rentalReservations: [AdminRentalReservation] = []
     @Published var adminProfile: AdminMainProfile?
     @Published var isLoading: Bool = false
+    @Published var showError: Bool = false
+    @Published var errorMessage: String = ""
     private let reservationRepository: IReservationRepository
     
     struct Dependecies {
@@ -37,7 +39,8 @@ final class AdminRentalReservationViewModel: BaseViewModel, ObservableObject {
                 self.rentalReservations = reservations
                 self.isLoading = false
             } catch {
-                print("error reservations = \(error.localizedDescription)")
+                self?.errorMessage = error.localizedDescription
+                self?.showError = true
                 self?.isLoading = false
             }
         })
@@ -52,6 +55,8 @@ final class AdminRentalReservationViewModel: BaseViewModel, ObservableObject {
                 })
             } catch {
                 print("error reservations = \(error.localizedDescription)")
+                errorMessage = error.localizedDescription
+                self.showError = true
             }
         }
     }

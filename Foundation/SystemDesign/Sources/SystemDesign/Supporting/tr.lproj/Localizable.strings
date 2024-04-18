@@ -27,3 +27,11 @@
 "other" = "Diğer";
 "pickupDate" = "Alış Tarihi";
 "dropOffDate" = "Teslim Tarihi";
+"pickupLocation" = "Araç Alış Noktası:";
+"dropOffLocation" = "Araç Teslim Noktası:";
+"customerName" = "Müşteri Adı:";
+"customerSurname" = "Müşteri Soyadı:";
+"customerPhoneNo" = "Müşteri Telefon No:";
+"customerEmail" = "Müşteri E-posta:";
+"driverLicenceNo" = "Sürüş Ehliyeti No:";
+"totalRentPrice" = "Toplam Kiralık Fiyat:";

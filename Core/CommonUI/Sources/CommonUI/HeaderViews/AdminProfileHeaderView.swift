@@ -16,7 +16,7 @@ public struct AdminProfileHeaderView: View {
     private let title: String
     
     public init(imageUrl: String, adminFirstName: String, adminLastName: String, title: String) {
-        self.imageUrl = Constants.imageBaseUrl + imageUrl
+        self.imageUrl = imageUrl
         self.adminFirstName = adminFirstName
         self.adminLastName = adminLastName
         self.title = title
@@ -25,28 +25,7 @@ public struct AdminProfileHeaderView: View {
     public var body: some View {
         ZStack {
             HStack(alignment: .center, spacing: 4) {
-                AsyncImage(url: URL(string: self.imageUrl), content: {
-                    switch $0 {
-                    case .empty:
-                        ProgressView()
-                            .colorScheme(.dark)
-                    case .failure(_):
-                        Image(systemName: "person.circle.fill")
-                            .resizable()
-                            .aspectRatio(contentMode: .fit)
-                            .colorScheme(.dark)
-                            .cornerRadius(10)
-                            .frame(width: 60, height: 60)
-                            .padding()
-                    case .success(let image):
-                        image
-                            .resizable()
-                            .aspectRatio(contentMode: .fit)
-                            .cornerRadius(10)
-                    @unknown default:
-                        EmptyView()
-                    }
-                }).frame(width: 60, height: 60)
+                AsyncImageView(imageUrl: self.imageUrl, placeHolder: "person.circle.fill", height: 60, width: 60, cornerRadius: 10, colorScheme: .dark)
                     .padding()
                 
                 VStack(alignment: .leading, spacing: 4) {

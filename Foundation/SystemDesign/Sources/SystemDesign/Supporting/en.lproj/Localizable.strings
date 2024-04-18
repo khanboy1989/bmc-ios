@@ -27,4 +27,12 @@
 "female" = "Female";
 "other" = "Other";
 "pickupDate" = "Pickup Date";
-"dropOffDate" = "Drop-Off Date";"
+"dropOffDate" = "Drop-Off Date";
+"pickupLocation" = "Pickup location:";
+"dropOffLocation" = "Drop-off Location:";
+"customerName" = "Customer Name:";
+"customerSurname" = "Customer Surname:";
+"customerPhoneNo" = "Customer Phone No:";
+"customerEmail" = "Customer Email:";
+"driverLicenceNo" = "Driver Licence No:";
+"totalRentPrice" = "Total Rent Price:";

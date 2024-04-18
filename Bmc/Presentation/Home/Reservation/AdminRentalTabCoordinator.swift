@@ -25,7 +25,7 @@ struct AdminRentalTabCoordinator: View {
         NavigationStack(path: $router.navPath) {
             AdminRentalCoordinator(dependecies: .init(networkClient: configuration.getNetworkClient()), adminProfile: $adminProfile)
                 .toolbar(.visible, for: .tabBar)
-                
+            
         }.environmentObject(router)
         
     }

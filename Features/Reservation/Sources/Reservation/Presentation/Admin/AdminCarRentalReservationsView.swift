@@ -11,11 +11,15 @@ import DomainData
 import CommonUI
 import SystemDesign
 import Helpers
+import Router
+import AlertToast
 
 public struct AdminCarRentalReservationsView: View {
     
     @Binding var adminProfile: AdminMainProfile?
     @StateObject private var viewModel: AdminRentalReservationViewModel
+    @EnvironmentObject private var router: Router
+
     
     public init(reservationRepository: ReservationRepository,  adminProfile: Binding<AdminMainProfile?>) {
         _viewModel = .init(wrappedValue: AdminRentalReservationViewModel(dependecise: .init(reservationRepository: reservationRepository)))
@@ -30,17 +34,14 @@ public struct AdminCarRentalReservationsView: View {
                                    title: L10n.rentalCarsHeaderTitle)
             Spacer()
             ZStack {
-                switch viewModel.isLoading {
-                case true:
-                    ProgressView()
-                        .tint(Asset.Colors.primaryColor.swiftUIColor)
-                case false:
-                    List(viewModel.rentalReservations, id: \.id) { item in
-                        AdminRentalReservationCell(item: item)
-                    }
-                    .scrollIndicators(.hidden)
-                    .background(.white)
+                List(viewModel.rentalReservations, id: \.id) { item in
+                    AdminRentalReservationCell(item: item)
+                        .onTapGesture {
+                            router.navigate(to: AdminRentalReservationDestionation.adminCarRentalDetails(adminReservation: item))
+                        }
                 }
+                .scrollIndicators(.hidden)
+                .background(.white)
             }
             Spacer()
         }.refreshable {
@@ -51,6 +52,11 @@ public struct AdminCarRentalReservationsView: View {
         })
         .onChange(of: adminProfile, debounceTime: .milliseconds(500)) { newValue in
             viewModel.prepareHeaderDataView(adminProfile: newValue)
+        }.toast(isPresenting: $viewModel.isLoading, tapToDismiss: false) {
+            //When using loading, duration won't auto dismiss and tapToDismiss is set to false
+            AlertToast(type: .loading)
+        }.toast(isPresenting: $viewModel.showError, duration: 3.0) {
+            AlertToast(displayMode:.banner(.pop), type: .error(Color.red), title: viewModel.errorMessage)
         }
     }
 }
