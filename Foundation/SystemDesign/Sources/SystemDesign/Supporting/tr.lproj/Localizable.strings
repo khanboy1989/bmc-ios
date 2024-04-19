@@ -35,3 +35,5 @@
 "customerEmail" = "Müşteri E-posta:";
 "driverLicenceNo" = "Sürüş Ehliyeti No:";
 "totalRentPrice" = "Toplam Kiralık Fiyat:";
+"customerInformation" = "Müşteri Bilgileri";
+"rentalInformation" = "Kiralık Bilgileri";

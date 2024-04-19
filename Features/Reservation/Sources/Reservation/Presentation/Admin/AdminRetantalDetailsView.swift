@@ -35,6 +35,16 @@ struct AdminRetantalDetailsView: View {
                     .overlay(Color.black)
                 
                 VStack(spacing: 4) {
+                    
+                    Text(L10n.customerInformation)
+                        .font(FontFamily.SFPro.bold.swiftUIFont(fixedSize: 20))
+                        .foregroundStyle(.white)
+                        .padding()
+                    
+                    Divider()
+                        .frame(height: 1)
+                        .overlay(Color.white)
+                    
                     HStack(alignment: .center, spacing: 4) {
                         Text(L10n.customerName)
                             .font(FontFamily.SFPro.medium.swiftUIFont(size: 16))
@@ -86,14 +96,37 @@ struct AdminRetantalDetailsView: View {
                     Divider()
                         .frame(height: 1)
                         .overlay(Color.white)
+        
+                }.frame(maxWidth: .infinity)
+                 .background(Asset.Colors.primaryColor.swiftUIColor)
+                 .clipShape(RoundedRectangle(cornerRadius: 10))
+                 .padding(8)
+                
+                VStack {
+                    
+                    Text(L10n.rentalInformation)
+                        .padding()
+                    
+                    Divider()
+                        .frame(height: 1)
+                        .overlay(Color.white)
+                    
+                    HStack(alignment:.center , spacing: 4) {
+                        Text(L10n.totalRentPrice)
+                            .font(FontFamily.SFPro.medium.swiftUIFont(size: 16))
+                            .foregroundStyle(Asset.Colors.blackColor.swiftUIColor)
+                        Text(adminRentalReservation.totalPrice + (adminRentalReservation.currencyTypeAbbreviation ?? ""))
+                            .font(FontFamily.SFPro.medium.swiftUIFont(size: 16))
+                            .foregroundStyle(Asset.Colors.blackColor.swiftUIColor)
+                    }
                     
                     HStack(alignment:.center , spacing: 4) {
                         Text(L10n.pickupLocation)
                             .font(FontFamily.SFPro.medium.swiftUIFont(size: 16))
-                            .foregroundStyle(.white)
+                            .foregroundStyle(Asset.Colors.blackColor.swiftUIColor)
                         Text(adminRentalReservation.pickupLocation.definition)
                             .font(FontFamily.SFPro.medium.swiftUIFont(size: 16))
-                            .foregroundStyle(.white)
+                            .foregroundStyle(Asset.Colors.blackColor.swiftUIColor)
                     }
                     
                     HStack(alignment:.center , spacing: 4) {
@@ -104,22 +137,7 @@ struct AdminRetantalDetailsView: View {
                             .font(FontFamily.SFPro.medium.swiftUIFont(size: 16))
                             .foregroundStyle(.white)
                     }
-        
-                }.frame(maxWidth: .infinity)
-                 .background(Asset.Colors.primaryColor.swiftUIColor)
-                 .clipShape(RoundedRectangle(cornerRadius: 10))
-                 .padding(8)
-                
-                VStack {
                     
-                    HStack(alignment:.center , spacing: 4) {
-                        Text(L10n.totalRentPrice)
-                            .font(FontFamily.SFPro.medium.swiftUIFont(size: 16))
-                            .foregroundStyle(Asset.Colors.blackColor.swiftUIColor)
-                        Text(adminRentalReservation.totalPrice + (adminRentalReservation.currencyTypeAbbreviation ?? ""))
-                            .font(FontFamily.SFPro.medium.swiftUIFont(size: 16))
-                            .foregroundStyle(Asset.Colors.blackColor.swiftUIColor)
-                    }
                 }.frame(maxWidth: .infinity)
                 .background(Asset.Colors.lightGreenColor.swiftUIColor)
                 .clipShape(RoundedRectangle(cornerRadius: 10))

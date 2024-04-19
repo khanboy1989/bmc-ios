@@ -14,6 +14,8 @@ public enum L10n {
   public static let adminLogin = L10n.tr("Localizable", "adminLogin", fallback: "Admin Login")
   /// Customer Email:
   public static let customerEmail = L10n.tr("Localizable", "customerEmail", fallback: "Customer Email:")
+  /// Customer Information
+  public static let customerInformation = L10n.tr("Localizable", "customerInformation", fallback: "Customer Information")
   /// Customer Name:
   public static let customerName = L10n.tr("Localizable", "customerName", fallback: "Customer Name:")
   /// Customer Phone No:
@@ -56,6 +58,8 @@ public enum L10n {
   public static let pickupLocation = L10n.tr("Localizable", "pickupLocation", fallback: "Pickup location:")
   /// Rental Cars
   public static let rentalCarsHeaderTitle = L10n.tr("Localizable", "rentalCarsHeaderTitle", fallback: "Rental Cars")
+  /// Rental Information
+  public static let rentalInformation = L10n.tr("Localizable", "rentalInformation", fallback: "Rental Information")
   /// Rentals
   public static let rentalTabItemTitle = L10n.tr("Localizable", "rentalTabItemTitle", fallback: "Rentals")
   /// Localizable.strings

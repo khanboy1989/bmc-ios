@@ -36,3 +36,5 @@
 "customerEmail" = "Customer Email:";
 "driverLicenceNo" = "Driver Licence No:";
 "totalRentPrice" = "Total Rent Price:";
+"customerInformation" = "Customer Information";
+"rentalInformation" = "Rental Information";
