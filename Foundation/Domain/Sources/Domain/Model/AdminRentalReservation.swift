@@ -41,6 +41,7 @@ public struct AdminRentalReservation: Identifiable, Equatable, Hashable {
     public let dropoffLocation: AdminRentalLocation
     public let customer: Customer
     public let carInformation: RentalCarInformation
+    public let extraServices: [AdminRentalExtraServices]
 
     public static func == (lhs: AdminRentalReservation, rhs: AdminRentalReservation) -> Bool {
         return lhs.id == rhs.id

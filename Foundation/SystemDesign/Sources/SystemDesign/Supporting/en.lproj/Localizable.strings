@@ -38,3 +38,7 @@
 "totalRentPrice" = "Total Rent Price:";
 "customerInformation" = "Customer Information";
 "rentalInformation" = "Rental Information";
+"journeyDetails" = "Journey Details";
+"imoNumber" = "IMO No:";
+"flightNumber" ="Flight No:";
+"paymentStatus" = "Payment Status";

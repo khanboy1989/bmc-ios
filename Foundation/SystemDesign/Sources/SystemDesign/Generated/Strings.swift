@@ -38,8 +38,14 @@ public enum L10n {
   public static let emailIsValid = L10n.tr("Localizable", "emailIsValid", fallback: "E-mail is valid")
   /// Female
   public static let female = L10n.tr("Localizable", "female", fallback: "Female")
+  /// Flight No:
+  public static let flightNumber = L10n.tr("Localizable", "flightNumber", fallback: "Flight No:")
   /// Forgot Password
   public static let forgotPassword = L10n.tr("Localizable", "forgotPassword", fallback: "Forgot Password")
+  /// IMO No:
+  public static let imoNumber = L10n.tr("Localizable", "imoNumber", fallback: "IMO No:")
+  /// Journey Details
+  public static let journeyDetails = L10n.tr("Localizable", "journeyDetails", fallback: "Journey Details")
   /// Login
   public static let login = L10n.tr("Localizable", "login", fallback: "Login")
   /// Male
@@ -52,6 +58,8 @@ public enum L10n {
   public static let password = L10n.tr("Localizable", "password", fallback: "Password")
   /// Password field could not be empty
   public static let passwordFieldEmptyError = L10n.tr("Localizable", "passwordFieldEmptyError", fallback: "Password field could not be empty")
+  /// Payment Status
+  public static let paymentStatus = L10n.tr("Localizable", "paymentStatus", fallback: "Payment Status")
   /// Pickup Date
   public static let pickupDate = L10n.tr("Localizable", "pickupDate", fallback: "Pickup Date")
   /// Pickup location:

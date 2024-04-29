@@ -37,3 +37,7 @@
 "totalRentPrice" = "Toplam Kiralık Fiyat:";
 "customerInformation" = "Müşteri Bilgileri";
 "rentalInformation" = "Kiralık Bilgileri";
+"journeyDetails" = "Seyahet Bilgileri";
+"imoNumber" = "IMO No:";
+"flightNumber" ="Uçuş No:";
+"paymentStatus" = "Ödeme Durumu";
