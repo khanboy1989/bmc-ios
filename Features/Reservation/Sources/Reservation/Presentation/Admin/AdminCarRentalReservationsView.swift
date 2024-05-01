@@ -20,8 +20,8 @@ public struct AdminCarRentalReservationsView: View {
     @StateObject private var viewModel: AdminRentalReservationViewModel
     @EnvironmentObject private var router: Router
 
-    
-    public init(reservationRepository: ReservationRepository,  adminProfile: Binding<AdminMainProfile?>) {
+    public init(reservationRepository: ReservationRepository,  
+                adminProfile: Binding<AdminMainProfile?>) {
         _viewModel = .init(wrappedValue: AdminRentalReservationViewModel(dependecise: .init(reservationRepository: reservationRepository)))
         _adminProfile = adminProfile
     }
