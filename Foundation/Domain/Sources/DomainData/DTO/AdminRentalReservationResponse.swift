@@ -48,7 +48,7 @@ struct AdminRentalReservationResponse: Decodable {
     let comment: String?
     let address: String?
     let pickupLocation: AdminRentalLocationResponse
-    let dropOffLocation: AdminRentalLocationResponse
+    let dropOffLocation: AdminRentalLocationResponse?
     let customer: CustomerResponse
     let carInformation: AdminRentalCarInformationResponse
     let extraServices: [AdminRentalExtraServicesResponse]
@@ -83,6 +83,7 @@ struct AdminRentalReservationResponse: Decodable {
         case pickupLocation = "pickup_location"
         case dropOffLocation = "drop_location"
         case customer
+//        case carInformation = "car_id"
         case carInformation = "car_information"
         case extraServices = "extra_services"
     }
@@ -90,11 +91,21 @@ struct AdminRentalReservationResponse: Decodable {
 
 struct AdminReservationMapper: Mappable {
     func map(_ input: AdminRentalReservationResponse) throws -> AdminRentalReservation {
-        .init(id: input.id, imo: input.imo, isArchived: input.isArchived.boolValue, finalDailyRentPrice: input.finalDailyRentPrice, realDailyRentPrice: input.realDailyRentPrice, paymentStatus: input.paymentStatus, reservationAgreement: input.reservationAgreement, currencyTypeAbbreviation: input.currencyTypeAbbreviation, currencySymbol: input.currencySymbol, endDate: input.endDate, totalPriceByCurrency: input.totalPriceByCurrency, flightNo: input.flightNo, updatedAt: input.updatedAt, currencyTypeDefinition: input.currencyTypeDefinition, paymentMethod: input.paymentMethod, totalRentPrice: input.totalRentPrice, totalExtraServicePrice: input.totalExtraServicePrice, priceType: input.priceType, totalPrice: input.totalPrice, currencyRate: input.currencyRate, startDate: input.startDate, createdAt: input.createdAt, reservationStatus: input.reservationStatus, transferCost: input.transferCost, comment: input.comment, address: input.address, pickupLocation: .init(id: input.pickupLocation.id, definitionTR: input.pickupLocation.definitionTR, deletedAt: input.pickupLocation.deletedAt, transferCost: input.pickupLocation.transferCost, definitionEN: input.pickupLocation.definitionEN, taxiCost: input.pickupLocation.taxiCost, createdAt: input.pickupLocation.createdAt, updatedAt: input.pickupLocation.updatedAt, isTransportationOnly: input.pickupLocation.isTransportationOnly.boolValue, definition: input.pickupLocation.definition), dropoffLocation: .init(id: input.dropOffLocation.id, definitionTR: input.dropOffLocation.definitionTR, deletedAt: input.dropOffLocation.deletedAt, transferCost: input.dropOffLocation.transferCost, definitionEN: input.dropOffLocation.definitionEN, taxiCost: input.dropOffLocation.taxiCost, createdAt: input.dropOffLocation.createdAt, updatedAt: input.dropOffLocation.updatedAt, isTransportationOnly: input.dropOffLocation.isTransportationOnly.boolValue, definition: input.dropOffLocation.definition), customer: .init(profileImage: input.customer.image, name: input.customer.firstName, surname: input.customer.lastName, address: input.customer.address, customerType: input.customer.customerType, dateOfBirth: input.customer.dateOfBirth, companyName: input.customer.companyName, driverLicenceNo: input.customer.driverLicenceNo, countryId: input.customer.countryId, countryPrefixId: input.customer.countryPrefixId, isBlocked: input.customer.isBlocked.boolValue, phoneNo: input.customer.phoneNo, email: input.customer.email), carInformation: .init(id: input.carInformation.id, image: input.carInformation.image, colorEN: input.carInformation.colorEN, colorTR: input.carInformation.colorTR, numberOfPassangers: input.carInformation.numberOfPassengers, enginePower: input.carInformation.enginePower, gearType: input.carInformation.gearType.definition, details: input.carInformation.details, doorCount: input.carInformation.doorCount, isTransportationOnly: input.carInformation.isTransportationOnly.boolValue, plate: input.carInformation.plate, isAvailable: input.carInformation.isAvailable.boolValue), 
+        .init(id: input.id, imo: input.imo, isArchived: input.isArchived.boolValue, finalDailyRentPrice: input.finalDailyRentPrice, realDailyRentPrice: input.realDailyRentPrice, paymentStatus: input.paymentStatus, reservationAgreement: input.reservationAgreement, currencyTypeAbbreviation: input.currencyTypeAbbreviation, currencySymbol: input.currencySymbol, endDate: input.endDate, totalPriceByCurrency: input.totalPriceByCurrency, flightNo: input.flightNo, updatedAt: input.updatedAt, currencyTypeDefinition: input.currencyTypeDefinition, paymentMethod: input.paymentMethod, totalRentPrice: input.totalRentPrice, totalExtraServicePrice: input.totalExtraServicePrice, priceType: input.priceType, totalPrice: input.totalPrice, currencyRate: input.currencyRate, startDate: input.startDate, createdAt: input.createdAt, reservationStatus: input.reservationStatus, transferCost: input.transferCost, comment: input.comment, address: input.address, pickupLocation: mapLocation(input.pickupLocation), dropoffLocation: mapLocation(input.dropOffLocation), customer: .init(profileImage: input.customer.image, name: input.customer.firstName, surname: input.customer.lastName, address: input.customer.address, customerType: input.customer.customerType, dateOfBirth: input.customer.dateOfBirth, companyName: input.customer.companyName, driverLicenceNo: input.customer.driverLicenceNo, countryId: input.customer.countryId, countryPrefixId: input.customer.countryPrefixId, isBlocked: input.customer.isBlocked.boolValue, phoneNo: input.customer.phoneNo, email: input.customer.email), carInformation: mapCarInformation(input.carInformation),
               extraServices: mapExtraServices(input.extraServices))
     }
     
     private func mapExtraServices(_ input: [AdminRentalExtraServicesResponse]) ->  [AdminRentalExtraServices] {
         return  input.compactMap {  try? AdminRentalExtraServicesResponseMapper().map($0) }
     }
-}
+    
+    private func mapLocation(_ input: AdminRentalLocationResponse?) -> AdminRentalLocation? {
+        guard let input = input else { return nil }
+        return
+            .init(id: input.id, definitionTR: input.definitionTR, deletedAt: input.deletedAt, transferCost: input.transferCost, definitionEN: input.definitionEN, taxiCost: input.taxiCost, createdAt: input.createdAt, updatedAt: input.updatedAt, isTransportationOnly: input.isTransportationOnly.boolValue, definition: input.definition)
+    }
+    
+    private func mapCarInformation(_ input: AdminRentalCarInformationResponse) -> RentalCarInformation {
+        return .init(id: input.id, image: input.image, colorEN: input.colorEN, colorTR: input.colorTR, numberOfPassangers: input.numberOfPassengers, enginePower: input.enginePower, gearType: input.gearType.definition, details: input.details, doorCount: input.doorCount, isTransportationOnly: input.isTransportationOnly.boolValue, plate: input.plate, isAvailable: input.isAvailable.boolValue)
+    }
+ }

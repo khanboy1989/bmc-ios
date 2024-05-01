@@ -42,3 +42,4 @@
 "imoNumber" = "IMO No:";
 "flightNumber" ="Flight No:";
 "paymentStatus" = "Payment Status";
+"detailsAddressTitle" = "Address:";

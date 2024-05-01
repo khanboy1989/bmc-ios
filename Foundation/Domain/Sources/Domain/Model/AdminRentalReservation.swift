@@ -37,8 +37,8 @@ public struct AdminRentalReservation: Identifiable, Equatable, Hashable {
     public let transferCost: String
     public let comment: String?
     public let address: String?
-    public let pickupLocation: AdminRentalLocation
-    public let dropoffLocation: AdminRentalLocation
+    public let pickupLocation: AdminRentalLocation?
+    public let dropoffLocation: AdminRentalLocation?
     public let customer: Customer
     public let carInformation: RentalCarInformation
     public let extraServices: [AdminRentalExtraServices]

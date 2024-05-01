@@ -22,6 +22,8 @@ public enum L10n {
   public static let customerPhoneNo = L10n.tr("Localizable", "customerPhoneNo", fallback: "Customer Phone No:")
   /// Customer Surname:
   public static let customerSurname = L10n.tr("Localizable", "customerSurname", fallback: "Customer Surname:")
+  /// Address:
+  public static let detailsAddressTitle = L10n.tr("Localizable", "detailsAddressTitle", fallback: "Address:")
   /// Driver Licence No:
   public static let driverLicenceNo = L10n.tr("Localizable", "driverLicenceNo", fallback: "Driver Licence No:")
   /// Drop-Off Date
