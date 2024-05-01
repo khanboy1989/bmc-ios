@@ -29,4 +29,8 @@ enum AdminApiEndpoints {
     static func adminLogout() -> APIEndpoint  {
         .init(path: "\(EndpointPrefix.api)\(EndpointPrefix.version)\(EndpointPrefix.mobile)\(EndpointPrefix.admin)/auth/logout", httpMethod: .post)
     }
+    
+    static func transferReservations() -> APIEndpoint {
+        .init(path: "\(EndpointPrefix.api)\(EndpointPrefix.version)\(EndpointPrefix.mobile)\(EndpointPrefix.admin)/reservation/transportation-reservations", httpMethod: .get)
+    }
 }
