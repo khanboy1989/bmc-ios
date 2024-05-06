@@ -42,3 +42,5 @@
 "flightNumber" ="Uçuş No:";
 "paymentStatus" = "Ödeme Durumu";
 "detailsAddressTitle" = "Adres:";
+"somethingWentWrong" = "Hata oluştu lütfen tekrar deneyiniz.";
+"tryAgain" = "Tekrar Dene";

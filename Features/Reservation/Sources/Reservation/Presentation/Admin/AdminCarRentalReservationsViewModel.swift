@@ -13,7 +13,7 @@ import Domain
 final class AdminRentalReservationViewModel: BaseViewModel, ObservableObject {
     @Published var rentalReservations: [AdminRentalReservation] = []
     @Published var adminProfile: AdminMainProfile?
-    @Published var isLoading: Bool = false
+    @Published var isLoading: Bool = true
     @Published var showError: Bool = false
     @Published var errorMessage: String = ""
     private let reservationRepository: IReservationRepository
@@ -27,7 +27,9 @@ final class AdminRentalReservationViewModel: BaseViewModel, ObservableObject {
     }
     
     func prepareHeaderDataView(adminProfile: AdminMainProfile?) {
+        print("Thread  Before = \(Thread.current)")
         self.adminProfile = adminProfile
+        print("Thread  After = \(Thread.current)")
     }
     
     func fetchRentals() {

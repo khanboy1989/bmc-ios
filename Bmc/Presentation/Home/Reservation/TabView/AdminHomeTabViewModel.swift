@@ -11,7 +11,7 @@ import Network
 
 final class AdminHomeTabViewModel: ObservableObject {
     
-    @Published var profile: AdminMainProfile?
+    @Published @MainActor var profile: AdminMainProfile?
     @Published var shouldLogout: Bool = false
     
     struct Dependecies {
@@ -27,11 +27,12 @@ final class AdminHomeTabViewModel: ObservableObject {
         self.authenticationRepository = dependecies.authenticationRepository
     }
     
-    @MainActor
     func fetchProfile() async {
         do {
             let profile = try await self.profileRepository.getProfile()
-            self.profile = profile
+            await MainActor.run(body: {
+                self.profile = profile
+            })
         } catch {
             if let error = error as? APIError {
                 switch error {

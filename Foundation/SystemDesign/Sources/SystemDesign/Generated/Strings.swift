@@ -72,6 +72,8 @@ public enum L10n {
   public static let rentalInformation = L10n.tr("Localizable", "rentalInformation", fallback: "Rental Information")
   /// Rentals
   public static let rentalTabItemTitle = L10n.tr("Localizable", "rentalTabItemTitle", fallback: "Rentals")
+  /// Something went wrong.
+  public static let somethingWentWrong = L10n.tr("Localizable", "somethingWentWrong", fallback: "Something went wrong.")
   /// Localizable.strings
   ///   
   /// 
@@ -83,6 +85,8 @@ public enum L10n {
   public static let tranferReservationsTitle = L10n.tr("Localizable", "tranferReservationsTitle", fallback: "Transfer Reservations")
   /// Transfers
   public static let transferTabItemTitle = L10n.tr("Localizable", "transferTabItemTitle", fallback: "Transfers")
+  /// Try Again
+  public static let tryAgain = L10n.tr("Localizable", "tryAgain", fallback: "Try Again")
   /// Unknown error.
   public static let unknownError = L10n.tr("Localizable", "unknownError", fallback: "Unknown error.")
   /// Please enter valid credentials.

@@ -43,3 +43,5 @@
 "flightNumber" ="Flight No:";
 "paymentStatus" = "Payment Status";
 "detailsAddressTitle" = "Address:";
+"somethingWentWrong" = "Something went wrong.";
+"tryAgain" = "Try Again";

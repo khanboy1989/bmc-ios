@@ -33,15 +33,22 @@ public struct AdminCarRentalReservationsView: View {
                                    adminLastName: viewModel.adminProfile?.lastname ?? "",
                                    title: L10n.rentalCarsHeaderTitle)
             Spacer()
-            ZStack {
-                List(viewModel.rentalReservations, id: \.id) { item in
-                    AdminRentalReservationCell(item: item)
-                        .onTapGesture {
-                            router.navigate(to: AdminRentalReservationDestionation.adminCarRentalDetails(adminReservation: item))
-                        }
+            
+            if viewModel.rentalReservations.isEmpty &&  !viewModel.isLoading {
+                EmptyErrorView(message: L10n.somethingWentWrong, buttonTitle: L10n.tryAgain, action: {
+                    self.viewModel.refreshRentals()
+                })
+            } else {
+                ZStack {
+                    List(viewModel.rentalReservations, id: \.id) { item in
+                        AdminRentalReservationCell(item: item)
+                            .onTapGesture {
+                                router.navigate(to: AdminRentalReservationDestionation.adminCarRentalDetails(adminReservation: item))
+                            }
+                    }
+                    .scrollIndicators(.hidden)
+                    .background(.white)
                 }
-                .scrollIndicators(.hidden)
-                .background(.white)
             }
             Spacer()
         }.refreshable {
@@ -52,8 +59,8 @@ public struct AdminCarRentalReservationsView: View {
         })
         .onChange(of: adminProfile, debounceTime: .milliseconds(500)) { newValue in
             viewModel.prepareHeaderDataView(adminProfile: newValue)
-        }.toast(isPresenting: $viewModel.isLoading, tapToDismiss: false) {
-            //When using loading, duration won't auto dismiss and tapToDismiss is set to false
+        }
+        .toast(isPresenting: $viewModel.isLoading, tapToDismiss: false) {
             AlertToast(type: .loading)
         }.toast(isPresenting: $viewModel.showError, duration: 3.0) {
             AlertToast(displayMode:.banner(.pop), type: .error(Color.red), title: viewModel.errorMessage)
