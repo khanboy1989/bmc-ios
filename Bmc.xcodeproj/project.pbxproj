@@ -81,6 +81,7 @@
 		54C048F62BA73CBC001B18A9 /* Utilities */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Utilities; sourceTree = "<group>"; };
 		54C953C82BAF096F002149C4 /* Reservation */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Reservation; sourceTree = "<group>"; };
 		54C953D42BAF7E36002149C4 /* KeychainClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainClient.swift; sourceTree = "<group>"; };
+		54D1F75E2BE944460007D02C /* TestSystemDesign */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = TestSystemDesign; sourceTree = "<group>"; };
 		54E8F81A2BB959700093E674 /* AdminHomeTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminHomeTabView.swift; sourceTree = "<group>"; };
 		54E8F81C2BB9599C0093E674 /* AdminHomeTabViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminHomeTabViewModel.swift; sourceTree = "<group>"; };
 		54E8F81E2BB95B350093E674 /* AdminRentalTabCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminRentalTabCoordinator.swift; sourceTree = "<group>"; };
@@ -216,6 +217,7 @@
 		545AED822B9CFCE300A78B84 /* Foundation */ = {
 			isa = PBXGroup;
 			children = (
+				54D1F75E2BE944460007D02C /* TestSystemDesign */,
 				54C048F62BA73CBC001B18A9 /* Utilities */,
 				EB5FBDB82BA087F9002FC623 /* SystemDesign */,
 				EB5FBDA42BA07C16002FC623 /* Domain */,
