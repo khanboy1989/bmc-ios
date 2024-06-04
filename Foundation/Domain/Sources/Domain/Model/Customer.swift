@@ -36,7 +36,7 @@ public struct Customer {
     public let companyName: String?
     public let driverLicenceNo: String?
     public let countryId: Int
-    public let countryPrefixId: Int
+    public let countryPrefixId: Int?
     public let isBlocked: Bool
     public let phoneNo: String?
     public let email: String?

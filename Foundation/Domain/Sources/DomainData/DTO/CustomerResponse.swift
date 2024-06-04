@@ -10,11 +10,11 @@ import Domain
 
 struct CustomerResponse: Decodable {
     let id: Int
-    let gender: GenderType
+    let gender: GenderType?
     let image: String
     let firstName: String
     let lastName: String
-    let countryPrefixId: Int
+    let countryPrefixId: Int?
     let isBlocked: Int
     let driverLicenceNo: String?
     let dateOfBirth: String
@@ -63,7 +63,6 @@ struct CustomerResponse: Decodable {
         case address
         case emailVerificationCode = "email_verification_code"
         case resetPasswordCode = "reset_password_passcode"
-
     }
 }
 
