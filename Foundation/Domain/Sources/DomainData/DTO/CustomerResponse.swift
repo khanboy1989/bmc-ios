@@ -8,7 +8,7 @@
 import Foundation
 import Domain
 
-//TODO: Customer UpdatedBy, CreatedBy & GenderType Model mapping update
+// TODO: Customer UpdatedBy, CreatedBy & GenderType Model mapping update
 struct CustomerResponse: Decodable {
     let id: Int
     let gender: GenderType?
