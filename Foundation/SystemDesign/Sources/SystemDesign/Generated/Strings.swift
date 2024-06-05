@@ -12,6 +12,8 @@ import Foundation
 public enum L10n {
   /// Admin Login
   public static let adminLogin = L10n.tr("Localizable", "adminLogin", fallback: "Admin Login")
+  /// Country:
+  public static let customerCountry = L10n.tr("Localizable", "customerCountry", fallback: "Country:")
   /// Customer Email:
   public static let customerEmail = L10n.tr("Localizable", "customerEmail", fallback: "Customer Email:")
   /// Customer Information
@@ -38,6 +40,8 @@ public enum L10n {
   public static let emailIsInvalid = L10n.tr("Localizable", "emailIsInvalid", fallback: "E-mail is invalid")
   /// E-mail is valid
   public static let emailIsValid = L10n.tr("Localizable", "emailIsValid", fallback: "E-mail is valid")
+  /// Extra Services
+  public static let extraServices = L10n.tr("Localizable", "extraServices", fallback: "Extra Services")
   /// Female
   public static let female = L10n.tr("Localizable", "female", fallback: "Female")
   /// Flight No:
@@ -52,6 +56,8 @@ public enum L10n {
   public static let login = L10n.tr("Localizable", "login", fallback: "Login")
   /// Male
   public static let male = L10n.tr("Localizable", "male", fallback: "Male")
+  /// N/A
+  public static let notAvailable = L10n.tr("Localizable", "notAvailable", fallback: "N/A")
   /// Ok
   public static let ok = L10n.tr("Localizable", "ok", fallback: "Ok")
   /// Other

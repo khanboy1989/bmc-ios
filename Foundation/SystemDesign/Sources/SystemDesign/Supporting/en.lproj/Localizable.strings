@@ -45,3 +45,6 @@
 "detailsAddressTitle" = "Address:";
 "somethingWentWrong" = "Something went wrong.";
 "tryAgain" = "Try Again";
+"notAvailable" = "N/A";
+"extraServices" = "Extra Services";
+"customerCountry" = "Country:";

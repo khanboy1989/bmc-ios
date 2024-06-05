@@ -54,7 +54,13 @@ struct AdminRetantalDetailsView: View {
                     
                     RentalReservationDetailCardView(title: L10n.customerEmail, value: adminRentalReservation.customer.email, font: FontFamily.SFPro.medium.swiftUIFont(size: 16), textColor: .white)
                     
-                    RentalReservationDetailCardView(title: L10n.driverLicenceNo, value: adminRentalReservation.customer.driverLicenceNo ?? "", font: FontFamily.SFPro.medium.swiftUIFont(size: 16), textColor: .white)
+                    if let currentLnaguage = Locale.current.language.languageCode?.identifier {
+                        
+                        RentalReservationDetailCardView(title: L10n.customerCountry, value: currentLnaguage == "en" ? adminRentalReservation.customer.countryEN : adminRentalReservation.customer.countryTR, font: FontFamily.SFPro.medium.swiftUIFont(size: 16), textColor: .white)
+                    }
+                    
+
+                    RentalReservationDetailCardView(title: L10n.driverLicenceNo, value: adminRentalReservation.customer.driverLicenceNo ?? L10n.notAvailable, font: FontFamily.SFPro.medium.swiftUIFont(size: 16), textColor: .white)
                 
                     Divider()
                         .frame(height: 1)
@@ -85,6 +91,8 @@ struct AdminRetantalDetailsView: View {
                     RentalReservationDetailCardView(title: L10n.pickupLocation, value: adminRentalReservation.pickupLocation.definition, font: FontFamily.SFPro.medium.swiftUIFont(size: 16), textColor: Asset.Colors.blackColor.swiftUIColor)
                     
                     RentalReservationDetailCardView(title: L10n.dropOffLocation, value: adminRentalReservation.dropoffLocation.definition, font: FontFamily.SFPro.medium.swiftUIFont(size: 16), textColor: Asset.Colors.blackColor.swiftUIColor)
+                    
+                    
                     
                     if let address = adminRentalReservation.address {
                         RentalReservationDetailCardView(title: L10n.detailsAddressTitle, value: address, font: FontFamily.SFPro.medium.swiftUIFont(size: 16), textColor: Asset.Colors.blackColor.swiftUIColor)
@@ -135,15 +143,29 @@ struct AdminRetantalDetailsView: View {
                 .clipShape(RoundedRectangle(cornerRadius: 10))
                 .padding(4)
                 
-//                ForEach(adminRentalReservation.extraServices, id: \.id) { item in
-//                    if let currentLnaguage = Locale.current.language.languageCode?.identifier {
-//                        
-//                    }
-//                }
+                VStack {
+                    
+                    Text(L10n.extraServices)
+                        .font(FontFamily.SFPro.bold.swiftUIFont(fixedSize: 16))
+                        .padding(2)
+                    
+                    Divider()
+                        .frame(height: 1)
+                        .overlay(Color.black)
+                    
+                    ForEach(adminRentalReservation.extraServices, id: \.id) { item in
+                        if let currentLnaguage = Locale.current.language.languageCode?.identifier {
+                            RentalReservationDetailCardView(title: (currentLnaguage == "en" ? item.definitionEN : item.definitionTR) ?? L10n.notAvailable, value: item.price ?? L10n.notAvailable, font: FontFamily.SFPro.medium.swiftUIFont(size: 16), textColor: Asset.Colors.blackColor.swiftUIColor)
+                        }
+                    }
+                }.frame(maxWidth: .infinity)
+                    .background(Asset.Colors.powderBlue.swiftUIColor)
+                    .clipShape(RoundedRectangle(cornerRadius: 10))
+                    .padding(4)
             }
         }.screenBackground(with: .white)
         .toolbar(.hidden, for: .tabBar)
-        .edgesIgnoringSafeArea(.top)
+        .navigationTitle(L10n.rentalInformation)
     }
 }
 

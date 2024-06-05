@@ -44,3 +44,6 @@
 "detailsAddressTitle" = "Adres:";
 "somethingWentWrong" = "Hata oluştu lütfen tekrar deneyiniz.";
 "tryAgain" = "Tekrar Dene";
+"notAvailable" = "Yok";
+"extraServices" = "Ekstra Servisler";
+"customerCountry" = "Ülke:";
