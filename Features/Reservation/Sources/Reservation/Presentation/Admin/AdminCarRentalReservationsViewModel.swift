@@ -32,7 +32,7 @@ final class AdminRentalReservationViewModel: BaseViewModel, ObservableObject {
     
     
     func fetchRentals() {
-        Task.delayed(seconds: 0.5, operation: { [weak self] in
+        Task { [weak self] in
             do {
                 guard let self = self else { return }
                 await MainActor.run(body: {
@@ -52,7 +52,7 @@ final class AdminRentalReservationViewModel: BaseViewModel, ObservableObject {
                 })
                 
             }
-        })
+        }
     }
     
     func refreshRentals() {

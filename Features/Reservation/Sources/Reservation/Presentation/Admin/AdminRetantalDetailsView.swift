@@ -50,13 +50,11 @@ struct AdminRetantalDetailsView: View {
                     
                     RentalReservationDetailCardView(title: L10n.customerSurname, value: adminRentalReservation.customer.surname, font: FontFamily.SFPro.medium.swiftUIFont(size: 16), textColor: .white)
                     
-                    RentalReservationDetailCardView(title: L10n.customerPhoneNo, value: adminRentalReservation.customer.phoneNo ?? "", font: FontFamily.SFPro.medium.swiftUIFont(size: 16), textColor: .white)
+                    RentalReservationDetailCardView(title: L10n.customerPhoneNo, value: adminRentalReservation.customer.phoneNo, font: FontFamily.SFPro.medium.swiftUIFont(size: 16), textColor: .white)
                     
-                    RentalReservationDetailCardView(title: L10n.customerEmail, value: adminRentalReservation.customer.email ?? "", font: FontFamily.SFPro.medium.swiftUIFont(size: 16), textColor: .white)
+                    RentalReservationDetailCardView(title: L10n.customerEmail, value: adminRentalReservation.customer.email, font: FontFamily.SFPro.medium.swiftUIFont(size: 16), textColor: .white)
                     
-                    if let driverLicenceNo = adminRentalReservation.customer.driverLicenceNo {
-                        RentalReservationDetailCardView(title: L10n.driverLicenceNo, value: driverLicenceNo, font: FontFamily.SFPro.medium.swiftUIFont(size: 16), textColor: .white)
-                    }
+                    RentalReservationDetailCardView(title: L10n.driverLicenceNo, value: adminRentalReservation.customer.driverLicenceNo ?? "", font: FontFamily.SFPro.medium.swiftUIFont(size: 16), textColor: .white)
                 
                     Divider()
                         .frame(height: 1)

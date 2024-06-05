@@ -30,9 +30,9 @@ public struct Customer {
     public let dateOfBirth: String
     public let companyName: String?
     public let driverLicenceNo: String?
-    public let countryId: Int
-    public let countryPrefixId: Int
+    public let countryTR: String
+    public let countryEN: String
     public let isBlocked: Bool
-    public let phoneNo: String?
-    public let email: String?
+    public let phoneNo: String
+    public let email: String
 }
