@@ -30,7 +30,8 @@ final class AdminTranferReservationViewModel: BaseViewModel, ObservableObject {
             
             do {
                 guard let self = self else { return }
-                try await self.reservationRepository.fetchTransferReservations()
+                let result = try await self.reservationRepository.fetchTransferReservations()
+                print("resultss ===>\(result)")
             } catch {
                 print("Error = \(error.localizedDescription)")
             }

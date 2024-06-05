@@ -25,9 +25,9 @@ public final class ReservationRepository: IReservationRepository {
         }
     }
     
-    public func fetchTransferReservations() async throws -> [AdminRentalReservation] {
+    public func fetchTransferReservations() async throws -> [AdminTransferReservation] {
         do {
-            let result = try await self.networkClient.request(AdminApiEndpoints.transferReservations(), mapper: AdminRentalReservationDataWrapperResponseMapper())
+            let result = try await self.networkClient.request(AdminApiEndpoints.transferReservations(), mapper: AdminTransferReservationDataWrapperResponseMapper())
             return result
         } catch {
             throw error

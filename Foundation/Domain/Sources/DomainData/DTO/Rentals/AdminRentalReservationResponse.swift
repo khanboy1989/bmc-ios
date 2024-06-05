@@ -12,7 +12,7 @@ import Helpers
 
 struct AdminRentalReservationDataWrapperResponseMapper: Mappable {
     func map(_ input: AdminRentalReservationDataWrapperResponse) throws -> [AdminRentalReservation] {
-        return try input.data.map { try AdminReservationMapper().map($0) }
+        return try input.data.map { try AdminRentalReservationMapper().map($0) }
     }
 }
 
@@ -47,8 +47,8 @@ struct AdminRentalReservationResponse: Decodable {
     let transferCost: String
     let comment: String?
     let address: String?
-    let pickupLocation: AdminRentalLocationResponse
-    let dropOffLocation: AdminRentalLocationResponse
+    let pickupLocation: AdminReservationLocationResponse
+    let dropOffLocation: AdminReservationLocationResponse
     let customer: CustomerResponse
     let carInformation: AdminRentalCarInformationResponse
     let extraServices: [AdminRentalExtraServicesResponse]
@@ -88,7 +88,7 @@ struct AdminRentalReservationResponse: Decodable {
     }
 }
 
-struct AdminReservationMapper: Mappable {
+struct AdminRentalReservationMapper: Mappable {
     func map(_ input: AdminRentalReservationResponse) throws -> AdminRentalReservation {
         .init(id: input.id, imo: input.imo, isArchived: input.isArchived.boolValue, finalDailyRentPrice: input.finalDailyRentPrice, realDailyRentPrice: input.realDailyRentPrice, paymentStatus: input.paymentStatus, reservationAgreement: input.reservationAgreement, currencyTypeAbbreviation: input.currencyTypeAbbreviation, currencySymbol: input.currencySymbol, endDate: input.endDate, totalPriceByCurrency: input.totalPriceByCurrency, flightNo: input.flightNo, currencyTypeDefinition: input.currencyTypeDefinition, paymentMethod: input.paymentMethod, totalRentPrice: input.totalRentPrice, totalExtraServicePrice: input.totalExtraServicePrice, priceType: input.priceType, totalPrice: input.totalPrice, currencyRate: input.currencyRate, startDate: input.startDate, reservationStatus: input.reservationStatus, transferCost: input.transferCost, comment: input.comment, address: input.address, pickupLocation: mapLocation(input.pickupLocation), dropoffLocation: mapLocation(input.dropOffLocation), customer: .init(profileImage: input.customer.image, name: input.customer.firstName, surname: input.customer.lastName, address: input.customer.address, customerType: input.customer.customerType, dateOfBirth: input.customer.dateOfBirth, companyName: input.customer.companyName, driverLicenceNo: input.customer.driverLicenceNo, countryTR: input.customer.countryPrefix.country.titleTR, countryEN: input.customer.countryPrefix.country.titleEN, isBlocked: input.customer.isBlocked.boolValue, phoneNo: input.customer.phoneNo, email: input.customer.email), carInformation: mapCarInformation(input.carInformation),
               extraServices: mapExtraServices(input.extraServices))
@@ -98,7 +98,7 @@ struct AdminReservationMapper: Mappable {
         return  input.compactMap {  try? AdminRentalExtraServicesResponseMapper().map($0) }
     }
     
-    private func mapLocation(_ input: AdminRentalLocationResponse) -> AdminRentalLocation {
+    private func mapLocation(_ input: AdminReservationLocationResponse) -> AdminReservationLocation {
         return
             .init(id: input.id, definitionTR: input.definitionTR, transferCost: input.transferCost, definitionEN: input.definitionEN, taxiCost: input.taxiCost, isTransportationOnly: input.isTransportationOnly.boolValue, definition: input.definition)
     }

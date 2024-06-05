@@ -1,5 +1,5 @@
 //
-//  AdminRentalLocation.swift
+//  AdminRentalLocationResponse.swift
 //
 //
 //  Created by Serhan Khan on 13/04/2024.
@@ -7,12 +7,12 @@
 
 import Foundation
 
-struct AdminRentalLocationResponse: Decodable {
+struct AdminReservationLocationResponse: Decodable {
     let id: Int
     let definitionTR: String
-    let transferCost: String
+    let transferCost: String?
     let definitionEN: String
-    let taxiCost: String
+    let taxiCost: String?
     let isTransportationOnly: Int
     let definition: String
     

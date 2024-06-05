@@ -1,8 +1,8 @@
 //
-//  AdminRentalReservation.swift
+//  AdminTransferReservation.swift
 //  
 //
-//  Created by Serhan Khan on 12/04/2024.
+//  Created by Serhan Khan on 05/06/2024.
 //
 
 import Foundation
@@ -10,7 +10,7 @@ import HelperMacros
 import Helpers
 
 @DefaultInit
-public struct AdminRentalReservation: Identifiable, Equatable, Hashable {
+public struct AdminTransferReservation: Identifiable, Equatable, Hashable {
     public var id: Int
     public let imo: String?
     public let isArchived: Bool
@@ -35,13 +35,13 @@ public struct AdminRentalReservation: Identifiable, Equatable, Hashable {
     public let transferCost: String
     public let comment: String?
     public let address: String?
-    public let pickupLocation: AdminReservationLocation
-    public let dropoffLocation: AdminReservationLocation
+    public let pickupLocation: AdminReservationLocation?
+    public let dropoffLocation: AdminReservationLocation?
     public let customer: Customer
     public let carInformation: RentalCarInformation
     public let extraServices: [AdminRentalExtraServices]
 
-    public static func == (lhs: AdminRentalReservation, rhs: AdminRentalReservation) -> Bool {
+    public static func == (lhs: AdminTransferReservation, rhs: AdminTransferReservation) -> Bool {
         return lhs.id == rhs.id
     }
     
