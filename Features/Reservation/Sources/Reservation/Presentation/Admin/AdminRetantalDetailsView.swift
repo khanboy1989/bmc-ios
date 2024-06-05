@@ -84,9 +84,9 @@ struct AdminRetantalDetailsView: View {
                     
                     RentalReservationDetailCardView(title: L10n.totalRentPrice, value: adminRentalReservation.totalPrice + (adminRentalReservation.currencySymbol), font: FontFamily.SFPro.medium.swiftUIFont(size: 16), textColor: Asset.Colors.blackColor.swiftUIColor)
                     
-                    RentalReservationDetailCardView(title: L10n.pickupLocation, value: adminRentalReservation.pickupLocation?.definition ?? "", font: FontFamily.SFPro.medium.swiftUIFont(size: 16), textColor: Asset.Colors.blackColor.swiftUIColor)
+                    RentalReservationDetailCardView(title: L10n.pickupLocation, value: adminRentalReservation.pickupLocation.definition, font: FontFamily.SFPro.medium.swiftUIFont(size: 16), textColor: Asset.Colors.blackColor.swiftUIColor)
                     
-                    RentalReservationDetailCardView(title: L10n.dropOffLocation, value: adminRentalReservation.dropoffLocation?.definition ?? "", font: FontFamily.SFPro.medium.swiftUIFont(size: 16), textColor: Asset.Colors.blackColor.swiftUIColor)
+                    RentalReservationDetailCardView(title: L10n.dropOffLocation, value: adminRentalReservation.dropoffLocation.definition, font: FontFamily.SFPro.medium.swiftUIFont(size: 16), textColor: Asset.Colors.blackColor.swiftUIColor)
                     
                     if let address = adminRentalReservation.address {
                         RentalReservationDetailCardView(title: L10n.detailsAddressTitle, value: address, font: FontFamily.SFPro.medium.swiftUIFont(size: 16), textColor: Asset.Colors.blackColor.swiftUIColor)

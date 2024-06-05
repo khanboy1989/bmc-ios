@@ -27,23 +27,30 @@ final class AdminRentalReservationViewModel: BaseViewModel, ObservableObject {
     }
     
     func prepareHeaderDataView(adminProfile: AdminMainProfile?) {
-        print("Thread  Before = \(Thread.current)")
         self.adminProfile = adminProfile
-        print("Thread  After = \(Thread.current)")
     }
     
+    
     func fetchRentals() {
-        Task.delayed(seconds: 0.5, operation: { @MainActor [weak self] in
+        Task.delayed(seconds: 0.5, operation: { [weak self] in
             do {
-                self?.isLoading = true
                 guard let self = self else { return }
+                await MainActor.run(body: {
+                    self.isLoading = true
+                })
                 let reservations = try await self.reservationRepository.fetchRentalReservations().filter {$0.isArchived == false}
-                self.rentalReservations = reservations
-                self.isLoading = false
+                await MainActor.run(body: {
+                    self.rentalReservations = reservations
+                    self.isLoading = false
+                })
+                
             } catch {
-                self?.errorMessage = error.localizedDescription
-                self?.showError = true
-                self?.isLoading = false
+                await MainActor.run(body: { [weak self] in 
+                    self?.errorMessage = error.localizedDescription
+                    self?.showError = true
+                    self?.isLoading = false
+                })
+                
             }
         })
     }
@@ -56,7 +63,6 @@ final class AdminRentalReservationViewModel: BaseViewModel, ObservableObject {
                     self.rentalReservations = reservations
                 })
             } catch {
-                print("error reservations = \(error.localizedDescription)")
                 errorMessage = error.localizedDescription
                 self.showError = true
             }
