@@ -30,7 +30,6 @@ struct AdminRentalExtraServicesResponse: Decodable {
 }
 
 struct AdminRentalExtraServicesResponseMapper: Mappable {
- 
     func map(_ input: AdminRentalExtraServicesResponse) throws -> AdminRentalExtraServices {
         return  AdminRentalExtraServices(id: input.id, definitionTR: input.definitionTR, definitionEN: input.definitionEN, price: input.price,image: input.image, calculationType: input.calculationType, definition: input.definition)
     }
